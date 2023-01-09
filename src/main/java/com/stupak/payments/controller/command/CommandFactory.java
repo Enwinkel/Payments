@@ -1,8 +1,9 @@
-package controller.command;
+package com.stupak.payments.controller.command;
 
-import controller.command.main.LoginCommand;
-import jakarta.servlet.http.HttpServletRequest;
+import com.stupak.payments.controller.command.admin.ShowUserListCommand;
+import com.stupak.payments.controller.command.main.LoginCommand;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,6 +23,7 @@ public class CommandFactory {
 
     static {
         commands.put("login", new LoginCommand());
+        commands.put("users", new ShowUserListCommand());
     }
 
     public ICommand getCommand(HttpServletRequest request) {

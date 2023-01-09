@@ -1,7 +1,4 @@
-package model.entity;
-
-import java.util.HashSet;
-import java.util.Set;
+package com.stupak.payments.model.entity;
 
 public class User extends Entity {
 
@@ -13,6 +10,9 @@ public class User extends Entity {
     private String surname;
     private boolean blocked;
     private int roleId;
+    private Account account;
+
+    private ContactDetails details;
 
     public String getLogin() {
         return login;
@@ -68,6 +68,21 @@ public class User extends Entity {
 
     public void setRoleId(int roleId) {
         this.roleId = roleId;
+    }
+
+    public ContactDetails getDetails() {
+        return details;
+    }
+
+    public void setDetails(ContactDetails details) {
+        this.details = details;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+    public void setAccount(Account account) {
+        this.account = account;
     }
 
 }

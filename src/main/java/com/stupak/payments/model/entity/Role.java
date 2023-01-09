@@ -1,4 +1,4 @@
-package model.entity;
+package com.stupak.payments.model.entity;
 
 /**
  * Role entity class.
