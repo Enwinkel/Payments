@@ -1,6 +1,9 @@
 package com.stupak.payments.controller.command;
 
+import com.stupak.payments.controller.command.admin.ProfileCommand;
 import com.stupak.payments.controller.command.admin.ShowUserListCommand;
+import com.stupak.payments.controller.command.client.PersonalAccountCommand;
+import com.stupak.payments.controller.command.common.LogoutCommand;
 import com.stupak.payments.controller.command.main.LoginCommand;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,8 +25,17 @@ public class CommandFactory {
     }
 
     static {
+
+        //common
         commands.put("login", new LoginCommand());
+        commands.put("logout", new LogoutCommand());
+
+        //admin
         commands.put("users", new ShowUserListCommand());
+        commands.put("profile", new ProfileCommand());
+
+        // client commands
+        commands.put("account", new PersonalAccountCommand());
     }
 
     public ICommand getCommand(HttpServletRequest request) {

@@ -27,7 +27,6 @@ public class ShowUserListCommand implements ICommand {
     for (User user : users) {
       user.setRoleId(user.getRoleId());
       user.setDetails(detailsService.find(user.getDetails().getId()));
-      user.setAccount(accountService.find(user.getAccount().getId()));
       fullUser.add(user);
     }
     request.setAttribute("fullUser", fullUser);

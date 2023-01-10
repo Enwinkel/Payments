@@ -1,7 +1,7 @@
 package com.stupak.payments.model.service.impl;
+import com.stupak.payments.model.entity.Tariff;
 import com.stupak.payments.model.entity.User;
 import com.stupak.payments.model.repository.IUserRepo;
-import com.stupak.payments.model.service.IAccountService;
 import com.stupak.payments.model.service.IContactDetailsService;
 import com.stupak.payments.model.service.IUserService;
 
@@ -12,25 +12,17 @@ import java.util.HashSet;
 import java.util.List;
 
 
-/**
- * Transaction service interface implementation.
- *
- * @author Aleksey Serdyukov.
- */
 public class UserServiceImpl implements IUserService {
 
   private final IUserRepo repo;
   private final IContactDetailsService detailsService;
-  private final IAccountService accountService;
 
   /**
    * All args constructor.
    */
-  public UserServiceImpl(IUserRepo repo, IContactDetailsService detailsService,
-                         IAccountService accountService) {
+  public UserServiceImpl(IUserRepo repo, IContactDetailsService detailsService) {
     this.repo = repo;
     this.detailsService = detailsService;
-    this.accountService = accountService;
   }
 
 
@@ -80,6 +72,12 @@ public class UserServiceImpl implements IUserService {
     return this.repo.getByLogin(login);
   }
 
+  @Override
+  public List<Tariff> findUserTariffs(User user) {
+    return this.repo.getTariffs(user);
+  }
+
+
 
   @Override
   public void updateFullUserToSession(HttpServletRequest request, HttpSession session, User user) {
@@ -90,7 +88,6 @@ public class UserServiceImpl implements IUserService {
 
   private User userToFullUser(User user) {
     user.setDetails(detailsService.find(user.getDetails().getId()));
-    user.setAccount(accountService.find(user.getAccount().getId()));
     return user;
 
   }

@@ -11,15 +11,6 @@
 <%-- Абоненты--%>
 <div class="tab-pane fade show active" id="v-pills-users" role="tabpanel"
      aria-labelledby="v-pills-users-tab">
-    <ul class="nav nav-tabs" id="usersTab" role="tablist">
-        <li class="nav-item">
-            <a class="nav-link active" id="users-tab" data-toggle="tab" href="#users"
-               role="tab"
-               aria-controls="users" aria-selected="true">
-                <fmt:message key="main.tab.user"/>
-            </a>
-        </li>
-    </ul>
     <div class="tab-content" id="usersTabContent">
         <%-- Список абонентов --%>
         <div class="tab-pane fade show active" id="users" role="tabpanel"
@@ -51,7 +42,6 @@
                         <td>${fullUser.surname}</td>
                         <td>${fullUser.firstName}</td>
                         <td>${fullUser.lastName}</td>
-                        <td>${fullUser.account.balance}</td>
                         <td><tags:isblocked value="${fullUser.blocked}"/></td>
                         <td>
                             <div class="d-flex justify-content-end">

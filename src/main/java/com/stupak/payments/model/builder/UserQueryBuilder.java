@@ -42,6 +42,5 @@ public class UserQueryBuilder extends QueryBuilder<User> {
     user.setBlocked(rs.getBoolean("blocked"));
     user.setRoleId(rs.getInt("roles_id"));
     user.setDetails(new ContactDetails(rs.getLong("contact_details_id")));
-    user.setAccount(new Account(rs.getLong("accounts_id")));
   }
 }

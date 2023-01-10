@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">
         <img src="https://getbootstrap.com/docs/4.6/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-        ISP Manager
+        Payments
     </a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -11,7 +11,7 @@
                 <a class="nav-link" href="controller?action=users"><fmt:message key="main.menu.button.subscribers"/> <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="controller?action=services"><fmt:message key="main.menu.button.services"/></a>
+                <a class="nav-link" href="controller?action=account"><fmt:message key="main.menu.button.account"/></a>
             </li>
         </ul>
         <div class="dropdown">

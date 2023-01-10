@@ -14,7 +14,7 @@
 <body class="text-center">
 <form class="form-signin" method="post" action="controller?action=login">
     <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-    <h1 class="h3 mb-3 font-weight-normal">ISP management console</h1>
+    <h1 class="h3 mb-3 font-weight-normal">Payments</h1>
     <label for="login" class="sr-only"><fmt:message key="login.label.login"/> </label>
     <input type="text" id="login" name="login" class="form-control" placeholder=<fmt:message key="login.placeholder.login"/> required autofocus>
     <label for="password" class="sr-only"><fmt:message key="login.label.password"/></label>
