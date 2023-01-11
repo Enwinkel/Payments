@@ -16,6 +16,7 @@ public interface IAccountService {
   void update(Account account);
 
   void remove(long id);
+  List<Account> getAllByUser(long id);
 
   long getNumberContract();
 

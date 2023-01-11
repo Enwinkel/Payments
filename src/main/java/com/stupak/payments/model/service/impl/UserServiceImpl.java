@@ -1,4 +1,5 @@
 package com.stupak.payments.model.service.impl;
+
 import com.stupak.payments.model.entity.Tariff;
 import com.stupak.payments.model.entity.User;
 import com.stupak.payments.model.repository.IUserRepo;
@@ -8,9 +9,7 @@ import com.stupak.payments.model.service.IUserService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-
 
 public class UserServiceImpl implements IUserService {
 

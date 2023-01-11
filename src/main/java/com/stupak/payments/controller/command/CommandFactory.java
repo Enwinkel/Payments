@@ -3,6 +3,7 @@ package com.stupak.payments.controller.command;
 import com.stupak.payments.controller.command.admin.ProfileCommand;
 import com.stupak.payments.controller.command.admin.ShowUserListCommand;
 import com.stupak.payments.controller.command.client.PersonalAccountCommand;
+import com.stupak.payments.controller.command.client.TransactionCommand;
 import com.stupak.payments.controller.command.common.LogoutCommand;
 import com.stupak.payments.controller.command.main.LoginCommand;
 
@@ -36,6 +37,7 @@ public class CommandFactory {
 
         // client commands
         commands.put("account", new PersonalAccountCommand());
+        commands.put("transactions", new TransactionCommand());
     }
 
     public ICommand getCommand(HttpServletRequest request) {

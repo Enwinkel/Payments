@@ -16,6 +16,9 @@ public class AccountRepoImpl implements IAccountRepo {
   private static final String UPDATE = "UPDATE accounts SET balance = ? WHERE id = ?";
   private static final String DELETE = "DELETE FROM accounts WHERE id = ?";
   private static final String GET_NEXT_AUTO_INCREMENT = "SELECT MAX(id)+1 FROM accounts";
+  private static final String GET_BY_USER_ID =
+          "SELECT id, number, balance FROM accounts "
+          + "WHERE user_id= ?";
   private static final String GET_MAX_ID = "SELECT MAX(id) FROM accounts";
 
   private DBManager instance = DBManager.getInstance();
@@ -63,6 +66,11 @@ public class AccountRepoImpl implements IAccountRepo {
   @Override
   public long getNextIdValue() {
     return queryBuilder.getNextAutoIncrement(instance, GET_NEXT_AUTO_INCREMENT);
+  }
+
+  @Override
+  public List<Account> getAllByUser(long id) {
+    return queryBuilder.executeAndReturnList(instance, GET_BY_USER_ID, id);
   }
 
 }

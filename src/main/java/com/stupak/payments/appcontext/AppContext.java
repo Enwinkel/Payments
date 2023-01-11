@@ -1,21 +1,9 @@
 package com.stupak.payments.appcontext;
 
-import com.stupak.payments.model.repository.IAccountRepo;
-import com.stupak.payments.model.repository.IContactDetailsRepo;
-import com.stupak.payments.model.repository.ITariffRepo;
-import com.stupak.payments.model.repository.IUserRepo;
-import com.stupak.payments.model.repository.impl.AccountRepoImpl;
-import com.stupak.payments.model.repository.impl.ContactDetailsRepoImpl;
-import com.stupak.payments.model.repository.impl.TariffRepoImpl;
-import com.stupak.payments.model.repository.impl.UserRepoImpl;
-import com.stupak.payments.model.service.IAccountService;
-import com.stupak.payments.model.service.IContactDetailsService;
-import com.stupak.payments.model.service.ITariffService;
-import com.stupak.payments.model.service.IUserService;
-import com.stupak.payments.model.service.impl.AccountServiceImpl;
-import com.stupak.payments.model.service.impl.ContactDetailsServiceImpl;
-import com.stupak.payments.model.service.impl.TariffServiceImpl;
-import com.stupak.payments.model.service.impl.UserServiceImpl;
+import com.stupak.payments.model.repository.*;
+import com.stupak.payments.model.repository.impl.*;
+import com.stupak.payments.model.service.*;
+import com.stupak.payments.model.service.impl.*;
 
 public class AppContext {
   private static volatile AppContext appContext = new AppContext();
@@ -35,6 +23,9 @@ public class AppContext {
   private final IAccountService accountService = new AccountServiceImpl(accountRepo);
   private final IUserService userService = new UserServiceImpl(userRepo, detailsService);
   private final ITariffService tariffService = new TariffServiceImpl(tariffRepo);
+  private final ITransactionRepo transactionRepo = new TransactionRepoImpl();
+  private final ITransactionService transactionService = new TransactionServiceImpl(transactionRepo,
+          accountService, userService);
 
   public IUserService getUserService() {
     return userService;
@@ -50,5 +41,8 @@ public class AppContext {
 
   public ITariffService getTariffService() {
     return tariffService;
+  }
+  public ITransactionService getTransactionService() {
+    return transactionService;
   }
 }

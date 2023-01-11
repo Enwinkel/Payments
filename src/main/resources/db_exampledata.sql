@@ -18,6 +18,7 @@ CREATE TABLE "accounts" (
   "id" int4 NOT NULL,
   "number" int4 NOT NULL,
   "balance" float8 NOT NULL,
+  "blocked" bool,
   "user_id" int4 NOT NULL
 )
 ;
@@ -26,9 +27,11 @@ CREATE TABLE "accounts" (
 -- Records of accounts
 -- ----------------------------
 BEGIN;
-INSERT INTO "accounts" VALUES (1, 1, 0, 1);
-INSERT INTO "accounts" VALUES (2, 15, -150, 2);
-INSERT INTO "accounts" VALUES (3, 2, 317.3, 2);
+INSERT INTO "accounts" VALUES (1, 1, 0, 'f', 1);
+INSERT INTO "accounts" VALUES (2, 15, -150, 'f', 2);
+INSERT INTO "accounts" VALUES (3, 2, 317.3, 'f', 2);
+INSERT INTO "accounts" VALUES (4, 4411113325465784, 1230, 'f', 3);
+INSERT INTO "accounts" VALUES (5, 4411113234568493, 7580, 'f', 3);
 COMMIT;
 
 -- ----------------------------

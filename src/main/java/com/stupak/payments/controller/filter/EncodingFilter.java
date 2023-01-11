@@ -4,13 +4,10 @@ package com.stupak.payments.controller.filter;
 import org.apache.log4j.Logger;
 
 import javax.servlet.*;
+import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
-/**
- * Encoding filter.
- *
- * @author Aleksey Serdyukov
- */
+@WebFilter("/")
 public class EncodingFilter implements Filter {
   private static final Logger log = Logger.getLogger(EncodingFilter.class);
   private String encoding;

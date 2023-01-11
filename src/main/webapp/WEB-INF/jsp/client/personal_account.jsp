@@ -42,19 +42,15 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="tariff" items="${fullUser.tariffs}">
+                <c:forEach var="account" items="${accounts}">
                     <tr>
-                        <td>${tariff.name}</td>
-                        <td>${tariff.price}</td>
-                        <td>${tariff.description}</td>
+                        <td>${account.number}</td>
+                        <td>${account.balance}</td>
+                        <td><tags:isblocked value="${account.blocked}"/></td>
                         <td>
-                            <form action="controller?action=account" method="post">
-                                <input type="hidden" name="tariff_id" value="${tariff.id}">
-                                <div class="d-flex justify-content-end">
-                                    <button type="submit" class="btn btn-outline-secondary btn-sm">
-                                        <i class="material-icons">print</i>
-                                    </button>
-                                </div>
+                            <form class="form-inline my-2 my-lg-0" method="post" action="controller?action=transactions">
+                                <input type="hidden" name="account_id" value="${account.id}">
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><fmt:message key="account.menu.private_office.button.account"/></button>
                             </form>
                         </td>
                     </tr>

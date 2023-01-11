@@ -2,5 +2,5 @@
 <html>
 <head><title>Index</title></head>
 <body>
-<jsp:forward page="login.jsp"/>
+<jsp:forward page="controller?action=login"/>
 </body></html>
