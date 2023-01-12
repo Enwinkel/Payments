@@ -13,7 +13,6 @@
 </head>
 <body class="text-center">
 <form class="form-signin" method="post" action="controller?action=login">
-    <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
     <h1 class="h3 mb-3 font-weight-normal">Payments</h1>
     <label for="login" class="sr-only"><fmt:message key="login.label.login"/> </label>
     <input type="text" id="login" name="login" class="form-control" placeholder=<fmt:message key="login.placeholder.login"/> required autofocus>
@@ -25,7 +24,7 @@
         </label>
     </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit"><fmt:message key="login.button.login"/></button>
-    <p class="mt-5 mb-3 text-muted">&copy; 2021</p>
+    <p class="mt-5 mb-3 text-muted">&copy; 2023</p>
 </form>
 <jsp:include page="/WEB-INF/templates/_scripts.jsp"></jsp:include>
 </body>

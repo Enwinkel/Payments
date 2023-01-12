@@ -8,11 +8,11 @@
 <body>
 <jsp:include page="/WEB-INF/templates/_menu_admin.jsp"></jsp:include>
 <div class="container">
-<%-- Абоненты--%>
+<%-- Абоненти--%>
 <div class="tab-pane fade show active" id="v-pills-users" role="tabpanel"
      aria-labelledby="v-pills-users-tab">
     <div class="tab-content" id="usersTabContent">
-        <%-- Список абонентов --%>
+        <%-- Список абонентів --%>
         <div class="tab-pane fade show active" id="users" role="tabpanel"
              aria-labelledby="internet-tab">
             <table class="table table-striped">

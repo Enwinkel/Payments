@@ -9,7 +9,7 @@ public final class Path {
   public static final String PAGE_ACCOUNT = "/WEB-INF/jsp/client/personal_account.jsp";
   public static final String PAGE_USER_PROFILE = "/WEB-INF/jsp/client/personaldata.jsp";
   public static final String PAGE_USER_LIST = "/WEB-INF/jsp/admin/users.jsp";
-  public static final String PAGE_SERVICES = "/WEB-INF/jsp/admin/services.jsp";
+  public static final String PAGE_SERVICES = "/WEB-INF/jsp/client/services.jsp";
   public static final String PAGE_TRANSACTIONS = "/WEB-INF/jsp/client/transactions.jsp";
 
   // common commands

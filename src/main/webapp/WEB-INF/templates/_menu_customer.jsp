@@ -1,20 +1,19 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">
-        <img src="https://getbootstrap.com/docs/4.6/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
         Payments
     </a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="controller?action=account"><fmt:message key="mainmenu.button.services"/><span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="controller?action=account"><fmt:message key="mainmenu.button.wallet"/><span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="controller?action=user_profile"><fmt:message key="mainmenu.button.profile"/></a>
+                <a class="nav-link" href="controller?action=services"><fmt:message key="mainmenu.button.services"/></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="controller?action=transactions"><fmt:message key="mainmenu.button.transactions"/></a>
+                <a class="nav-link" href="controller?action=about_us"><fmt:message key="mainmenu.button.profile"/></a>
             </li>
         </ul>
         <div class="dropdown">

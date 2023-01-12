@@ -15,7 +15,7 @@ public class AccountQueryBuilder extends QueryBuilder<Account> {
     while (rs.next()) {
       Account account = new Account();
       account.setId(rs.getLong("id"));
-      account.setNumber(rs.getInt("number"));
+      account.setNumber(rs.getLong("number"));
       account.setBalance(rs.getBigDecimal("balance"));
       accounts.add(account);
     }

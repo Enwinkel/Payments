@@ -16,7 +16,7 @@ CACHE 1;
 DROP TABLE IF EXISTS "accounts";
 CREATE TABLE "accounts" (
   "id" int4 NOT NULL,
-  "number" int4 NOT NULL,
+  "number" int8 NOT NULL,
   "balance" float8 NOT NULL,
   "blocked" bool,
   "user_id" int4 NOT NULL
@@ -79,6 +79,27 @@ INSERT INTO "roles" VALUES (2, 'CLIENT');
 COMMIT;
 
 -- ----------------------------
+-- Table structure for services
+-- ----------------------------
+DROP TABLE IF EXISTS "services";
+CREATE TABLE "services" (
+                            "id" int4 NOT NULL,
+                            "name" varchar(45) COLLATE "pg_catalog"."default" NOT NULL,
+                            "description" varchar(255) COLLATE "pg_catalog"."default" NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of services
+-- ----------------------------
+BEGIN;
+INSERT INTO "services" VALUES (1, 'Перевод на карту', 'Перевод на карту другого абонента');
+INSERT INTO "services" VALUES (2, 'Пополнение мобильного', 'Пополнение мобильного телефона');
+INSERT INTO "services" VALUES (3, 'Интернет', 'Оплата интернета по номеру личного счета');
+COMMIT;
+
+
+-- ----------------------------
 -- Table structure for transactions
 -- ----------------------------
 DROP TABLE IF EXISTS "transactions";
@@ -104,8 +125,9 @@ BEGIN;
 INSERT INTO "transactions" VALUES (1, '2021-03-27 11:25:14', 2, 100.00, 't', 'top up');
 INSERT INTO "transactions" VALUES (2, '2021-03-27 12:32:59.809', 2, 100.00, 't', 'Test top up');
 INSERT INTO "transactions" VALUES (3, '2021-03-27 13:09:34.882', 2, 50.00, 'f', 'Test debit');
-INSERT INTO "transactions" VALUES (25, '2021-03-27 13:52:23.266', 2, 4.70, 'f', 'Daily debiting of funds for the service: «Комфорт 50»');
-INSERT INTO "transactions" VALUES (26, '2021-03-27 13:52:23.27', 2, 5.00, 'f', 'Daily debiting of funds for the service: Unlimited+');
+INSERT INTO "transactions" VALUES (4, '2021-03-27 11:25:14', 4, 100.00, 't', 'top up');
+INSERT INTO "transactions" VALUES (5, '2021-03-27 12:32:59.809', 4, 100.00, 't', 'Test top up');
+INSERT INTO "transactions" VALUES (6, '2021-03-27 13:09:34.882', 4, 50.00, 'f', 'Test debit');
 COMMIT;
 
 -- ----------------------------
@@ -129,8 +151,8 @@ CREATE TABLE "users" (
 -- Records of users
 -- ----------------------------
 BEGIN;
-INSERT INTO "users" VALUES (1, 'admin', '$2a$10$n0Ffg189M9Xfsl6ZHfJs2eLjTAAjw4hB45RB7aUPy2qoyjHiwuI4q', 'Stanislav', 'Stanislavovich', 'Stupak', 1, 1, 'f');
-INSERT INTO "users" VALUES (2, 'user', '$2a$10$/Ie1IkzWipmS4f51F1G30OAqzZPUwhmK9l.GoRxiKnp819wOgUYBO', 'Aleksey', 'Sergeevich', 'Serdyukov', 2, 2, 'f');
+INSERT INTO "users" VALUES (1, 'admin', '$2a$10$n0Ffg189M9Xfsl6ZHfJs2eLjTAAjw4hB45RB7aUPy2qoyjHiwuI4q', 'Admin', 'Adminovich', 'Admin', 1, 1, 'f');
+INSERT INTO "users" VALUES (2, 'stanislav', '$2a$10$E34J3McemX1Cni061Y3bSu7Wj2jM/obzimUmM4nuwK7eytJHlby8y', 'Stanislav', 'Stanislavovich', 'Stupak', 2, 1, 'f');
 COMMIT;
 
 -- ----------------------------
