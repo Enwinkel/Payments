@@ -20,6 +20,8 @@ public interface IAccountService {
 
   Account getAccountByNumber(long number);
 
+  Account getAccountById(long id);
+
   long getNumberContract();
 
   long getNextIdValue();

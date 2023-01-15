@@ -4,7 +4,7 @@
 <%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %>
 <!doctype html>
 <html>
-<c:set var="title" value="Страница входа" scope="page"/>
+<c:set var="title" value="Гаманець" scope="page"/>
 <jsp:include page="/WEB-INF/templates/_head.jsp"></jsp:include>
 <body>
 <%--<jsp:include page="/WEB-INF/templates/_menu.jsp"></jsp:include>--%>
@@ -45,7 +45,7 @@
                 <c:forEach var="account" items="${accounts}">
                     <tr>
                         <td>${account.number}</td>
-                        <td>${account.balance}</td>
+                        <td>${account.balance} <fmt:message key="account.menu.private_office.hrn"/></td>
                         <td><tags:isblocked value="${account.blocked}"/></td>
                         <td>
                             <form class="form-inline my-2 my-lg-0" method="post" action="controller?action=transactions">

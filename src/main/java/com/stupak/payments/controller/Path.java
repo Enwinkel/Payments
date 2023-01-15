@@ -11,6 +11,7 @@ public final class Path {
   public static final String PAGE_USER_LIST = "/WEB-INF/jsp/admin/users.jsp";
   public static final String PAGE_SERVICES = "/WEB-INF/jsp/client/services.jsp";
   public static final String PAGE_TRANSACTIONS = "/WEB-INF/jsp/client/transactions.jsp";
+  public static final String PAGE_PAYMENT = "/WEB-INF/jsp/client/payment.jsp";
 
   // common commands
   public static final String COMMAND_LOGIN = "controller?action=login";

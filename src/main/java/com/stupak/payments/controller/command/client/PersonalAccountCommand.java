@@ -18,7 +18,7 @@ public class PersonalAccountCommand implements ICommand {
   private final IUserService userService =  AppContext.getInstance().getUserService();
 
   @Override
-  public String execute(HttpServletRequest request, HttpServletResponse response) {
+  public String execute(HttpServletRequest request, HttpServletResponse response){
     HttpSession session = request.getSession();
     String forward = Path.PAGE_ACCOUNT;
 

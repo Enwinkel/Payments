@@ -63,5 +63,10 @@ public class AccountServiceImpl implements IAccountService {
     return repo.getAccountByNumber(number);
   }
 
+  @Override
+  public Account getAccountById(long id) {
+    return repo.getById(id);
+  }
+
 
 }

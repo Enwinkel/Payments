@@ -4,7 +4,7 @@
 <%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %>
 <!doctype html>
 <html>
-<c:set var="title" value="Страница входа" scope="page"/>
+<c:set var="title" value="Сервіси" scope="page"/>
 <jsp:include page="/WEB-INF/templates/_head.jsp"></jsp:include>
 <body>
 <%--<jsp:include page="/WEB-INF/templates/_menu.jsp"></jsp:include>--%>
@@ -39,7 +39,7 @@
                      aria-labelledby="accountBalanceModal" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
-                            <form action="controller?action=services" method="post">
+                            <form action="controller?action=payment" method="post">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel">
                                         ${services[0].name}
@@ -57,10 +57,6 @@
                                 </div>
                                 <div class="col-sm-10">
                                     <select class="form-select" aria-label="Default select example" name="account_number">
-                                        <option selected>
-                                            <fmt:message
-                                                    key="account.menu.private_office.choose_your_card"/>
-                                        </option>
                                         <c:forEach var="account" items="${accounts}">
                                             <option value="${account.number}">${account.number} ${account.balance} <fmt:message
                                                     key="account.menu.private_office.hrn"/></option>
@@ -91,6 +87,7 @@
                                                    class="form-control"
                                                    name="amount"
                                                    id="recipient-name" required>
+                                            <input type="hidden" name="index" value="0">
                                         </div>
                                     </div>
                                     <hr class="mb-4">
@@ -105,7 +102,7 @@
                      aria-labelledby="accountBalanceModal" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
-                            <form action="controller?action=services" method="post">
+                            <form action="controller?action=payment" method="post">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel2">
                                         ${services[1].name}
@@ -123,10 +120,6 @@
                                 </div>
                                 <div class="col-sm-10">
                                     <select class="form-select" aria-label="Default select example" name="account_number">
-                                        <option selected>
-                                            <fmt:message
-                                                    key="account.menu.private_office.choose_your_card"/>
-                                        </option>
                                         <c:forEach var="account" items="${accounts}">
                                             <option value="${account.number}">${account.number} ${account.balance} <fmt:message
                                                     key="account.menu.private_office.hrn"/></option>
@@ -157,6 +150,7 @@
                                                    class="form-control"
                                                    name="amount"
                                                    id="recipient-name2" required>
+                                            <input type="hidden" name="index" value="1">
                                         </div>
                                     </div>
                                     <hr class="mb-4">
@@ -171,7 +165,7 @@
                      aria-labelledby="accountBalanceModal" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
-                            <form action="controller?action=services" method="post">
+                            <form action="controller?action=payment" method="post">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel3">
                                         ${services[2].name}
@@ -189,10 +183,6 @@
                                 </div>
                                 <div class="col-sm-10">
                                     <select class="form-select" aria-label="Default select example" name="account_number">
-                                        <option selected>
-                                            <fmt:message
-                                                    key="account.menu.private_office.choose_your_card"/>
-                                        </option>
                                         <c:forEach var="account" items="${accounts}">
                                             <option value="${account.number}">${account.number} ${account.balance} <fmt:message
                                                     key="account.menu.private_office.hrn"/></option>
@@ -223,6 +213,7 @@
                                                    class="form-control"
                                                    name="amount"
                                                    id="recipient-name3" required>
+                                            <input type="hidden" name="index" value="2">
                                         </div>
                                     </div>
                                     <hr class="mb-4">
