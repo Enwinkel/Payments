@@ -56,13 +56,13 @@
                                     </label>
                                 </div>
                                 <div class="col-sm-10">
-                                    <select class="form-select" aria-label="Default select example">
+                                    <select class="form-select" aria-label="Default select example" name="account_number">
                                         <option selected>
                                             <fmt:message
                                                     key="account.menu.private_office.choose_your_card"/>
                                         </option>
                                         <c:forEach var="account" items="${accounts}">
-                                            <option value="1">${account.number} ${account.balance} <fmt:message
+                                            <option value="${account.number}">${account.number} ${account.balance} <fmt:message
                                                     key="account.menu.private_office.hrn"/></option>
                                         </c:forEach>
                                     </select>
@@ -122,13 +122,13 @@
                                     </label>
                                 </div>
                                 <div class="col-sm-10">
-                                    <select class="form-select" aria-label="Default select example">
+                                    <select class="form-select" aria-label="Default select example" name="account_number">
                                         <option selected>
                                             <fmt:message
                                                     key="account.menu.private_office.choose_your_card"/>
                                         </option>
                                         <c:forEach var="account" items="${accounts}">
-                                            <option value="1">${account.number} ${account.balance} <fmt:message
+                                            <option value="${account.number}">${account.number} ${account.balance} <fmt:message
                                                     key="account.menu.private_office.hrn"/></option>
                                         </c:forEach>
                                     </select>
@@ -188,13 +188,13 @@
                                     </label>
                                 </div>
                                 <div class="col-sm-10">
-                                    <select class="form-select" aria-label="Default select example">
+                                    <select class="form-select" aria-label="Default select example" name="account_number">
                                         <option selected>
                                             <fmt:message
                                                     key="account.menu.private_office.choose_your_card"/>
                                         </option>
                                         <c:forEach var="account" items="${accounts}">
-                                            <option value="1">${account.number} ${account.balance} <fmt:message
+                                            <option value="${account.number}">${account.number} ${account.balance} <fmt:message
                                                     key="account.menu.private_office.hrn"/></option>
                                         </c:forEach>
                                     </select>

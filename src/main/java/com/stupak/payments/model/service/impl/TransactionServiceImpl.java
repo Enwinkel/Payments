@@ -27,16 +27,6 @@ public class TransactionServiceImpl implements ITransactionService {
     this.userService = userService;
   }
 
-  @Override
-  public BigDecimal calcTransactionsByAccount(long id) {
-    List<Transaction> transactions = repo.getAllByAccount(id);
-    BigDecimal result = BigDecimal.ZERO;
-    for (Transaction t : transactions) {
-      result = (t.isCredit()) ? result.add(t.getAmount()) : result.subtract(t.getAmount());
-    }
-    return result;
-  }
-
 
 
   @Override
@@ -44,14 +34,7 @@ public class TransactionServiceImpl implements ITransactionService {
     List<User> users = userService.findAllFullInfo();
     for (User user : users) {
       Account account = new Account();
-      BigDecimal balance = calcTransactionsByAccount(account.getId());
-      account.setBalance(balance);
       accountService.update(account);
-
-      if (!user.isBlocked() && balance.compareTo(BigDecimal.ZERO) < 0) {
-        user.setBlocked(true);
-        userService.update(user);
-      }
     }
   }
 
@@ -66,13 +49,26 @@ public class TransactionServiceImpl implements ITransactionService {
     save(transaction);
 
     Account account = new Account();
-    account.setBalance(calcTransactionsByAccount(account.getId()));
     accountService.update(account);
 
     if (user.isBlocked() && new Account().getBalance().compareTo(BigDecimal.ZERO) > 0) {
       user.setBlocked(false);
       userService.update(user);
     }
+  }
+
+  @Override
+  public void doPayment(Account account, BigDecimal amount) {
+    Transaction transaction = new Transaction();
+    transaction.setTimestamp(LocalDateTime.now());
+    transaction.setAccount(account.getId());
+    transaction.setCredit(false);
+    transaction.setAmount(amount);
+    transaction.setDescription("do payment");
+    save(transaction);
+
+    account.setBalance(account.getBalance().subtract(amount));
+    accountService.update(account);
   }
 
 

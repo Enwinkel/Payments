@@ -1,6 +1,7 @@
 package com.stupak.payments.model.service;
 
 
+import com.stupak.payments.model.entity.Account;
 import com.stupak.payments.model.entity.Transaction;
 import com.stupak.payments.model.entity.User;
 
@@ -13,12 +14,7 @@ import java.util.List;
  * @author Aleksey Serdyukov.
  */
 public interface ITransactionService {
-  /**
-   * Calculate all transactions.
-   *
-   * @return  Account amount.
-   */
-  BigDecimal calcTransactionsByAccount(long id);
+
 
   void save(Transaction transaction);
 
@@ -28,6 +24,8 @@ public interface ITransactionService {
    * Create top-up transaction.
    */
   void topUp(User user, BigDecimal amount);
+
+  void doPayment(Account account, BigDecimal amount);
 
   /**
    * Checks if user has negative account amount and blocks it.

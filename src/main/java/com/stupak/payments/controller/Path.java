@@ -23,7 +23,6 @@ public final class Path {
   // admin commands
   public static final String COMMAND_MAIN = "controller?action=main";
   public static final String COMMAND_SHOW_USERS = "controller?action=users";
-  public static final String COMMAND_SHOW_SERVICES = "controller?action=services";
   public static final String COMMAND_REGISTRATION = "controller?action=registration";
   public static final String COMMAND_EDIT_CLIENT = "controller?action=edit_client";
   public static final String COMMAND_PROFILE = "controller?action=profile";
@@ -33,6 +32,7 @@ public final class Path {
 
   // client commands
   public static final String COMMAND_ACCOUNT = "controller?action=account";
+  public static final String COMMAND_SERVICES = "controller?action=services";
   public static final String COMMAND_PERSONAL_DATA = "controller?action=personal_data";
   public static final String COMMAND_SAVE_PROFILE = "controller?action=save_profile";
   public static final String COMMAND_TRANSACTIONS = "controller?action=transactions";

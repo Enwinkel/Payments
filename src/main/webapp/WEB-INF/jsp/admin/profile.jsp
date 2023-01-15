@@ -114,16 +114,6 @@
               </div>
             </div>
             <div class="form-group row">
-              <label for="accountNumber" class="col-3 col-form-label">
-                <fmt:message key="profile.label.contract_number"/>
-              </label>
-              <div class="col-9">
-                <input type="text" readonly class="form-control-plaintext" id="accountNumber"
-                       value="${fullUser.account.number}">
-              </div>
-            </div>
-            <h6><fmt:message key="profile.title.login_and_pass"/></h6>
-            <div class="form-group row">
               <label for="login" class="col-3 col-form-label">
                 <fmt:message key="profile.label.login"/>
               </label>
@@ -148,23 +138,24 @@
             <table class="table table-hover mt-2">
               <thead>
               <tr>
-                <th scope="col">
-                  <fmt:message key="table.th.tariff"/>
-                </th>
-                <th scope="col">
-                  <fmt:message key="table.th.cost"/>
-                </th>
-                <th scope="col">
-                  <fmt:message key="table.th.description"/>
-                </th>
+                <th scope="col"><fmt:message key="table.th.account"/></th>
+                <th scope="col"><fmt:message key="table.th.balance"/></th>
+                <th scope="col"><fmt:message key="table.th.status"/></th>
+                <th scope="col"></th>
               </tr>
               </thead>
               <tbody>
-              <c:forEach var="tariff" items="${fullUser.tariffs}">
+              <c:forEach var="account" items="${accounts}">
                 <tr>
-                  <td>${tariff.name}</td>
-                  <td>${tariff.price}</td>
-                  <td>${tariff.description}</td>
+                  <td>${account.number}</td>
+                  <td>${account.balance}</td>
+                  <td><tags:isblocked value="${account.blocked}"/></td>
+                  <td>
+                    <form class="form-inline my-2 my-lg-0" method="post" action="controller?action=transactions">
+                      <input type="hidden" name="account_id" value="${account.id}">
+                      <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><fmt:message key="account.menu.private_office.button.account"/></button>
+                    </form>
+                  </td>
                 </tr>
               </c:forEach>
               </tbody>

@@ -18,6 +18,8 @@ public interface IAccountService {
   void remove(long id);
   List<Account> getAllByUser(long id);
 
+  Account getAccountByNumber(long number);
+
   long getNumberContract();
 
   long getNextIdValue();

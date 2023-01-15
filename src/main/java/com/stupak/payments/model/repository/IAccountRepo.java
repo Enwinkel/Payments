@@ -15,4 +15,6 @@ public interface IAccountRepo extends IEntityRepo<Account> {
   long getNextIdValue();
 
   List<Account> getAllByUser(long id);
+
+  Account getAccountByNumber(long number);
 }

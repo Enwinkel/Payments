@@ -19,6 +19,9 @@ public class AccountRepoImpl implements IAccountRepo {
   private static final String GET_BY_USER_ID =
           "SELECT id, number, balance FROM accounts "
           + "WHERE user_id= ?";
+  private static final String GET_BY_NUMBER =
+          "SELECT id, number, balance FROM accounts "
+                  + "WHERE number= ?";
   private static final String GET_MAX_ID = "SELECT MAX(id) FROM accounts";
 
   private DBManager instance = DBManager.getInstance();
@@ -71,6 +74,11 @@ public class AccountRepoImpl implements IAccountRepo {
   @Override
   public List<Account> getAllByUser(long id) {
     return queryBuilder.executeAndReturnList(instance, GET_BY_USER_ID, id);
+  }
+
+  @Override
+  public Account getAccountByNumber(long number) {
+    return (Account)queryBuilder.executeAndReturn(instance, GET_BY_NUMBER, number);
   }
 
 }
