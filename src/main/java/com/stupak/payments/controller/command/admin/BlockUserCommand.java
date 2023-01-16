@@ -45,7 +45,7 @@ public class BlockUserCommand implements ICommand {
     }
 
     private String blockUser(HttpServletResponse response, IUserService userService, User user) {
-        String resp = Path.COMMAND_TRANSACTIONS;
+        String resp = Path.COMMAND_SHOW_USERS;
         if (user.isBlocked()) {
             user.setBlocked(false);
             userService.update(user);

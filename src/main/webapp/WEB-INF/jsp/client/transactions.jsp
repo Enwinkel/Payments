@@ -54,7 +54,7 @@
                      aria-labelledby="accountBalanceModal" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
-                            <form action="controller?action=block_user" method="post">
+                            <form action="controller?action=block_account" method="post">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal"
                                             aria-label="Close">

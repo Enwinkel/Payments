@@ -22,9 +22,10 @@ public class BlockAccountCommand implements ICommand {
     public String execute(HttpServletRequest req, HttpServletResponse resp) {
 
         HttpSession session = req.getSession();
-
         long id;
-        String account_id = req.getParameter("account_id");
+        String account_id;
+
+        account_id = req.getParameter("account_id");
 
         if(account_id != null && !"".equals(account_id)) {
             id = Long.parseLong(account_id);
@@ -42,13 +43,19 @@ public class BlockAccountCommand implements ICommand {
             account = (Account) session.getAttribute("account");
         }
 
-        forward = blockUser(resp, accountService, account);
+        forward = blockUser(req, resp, accountService, account);
 
         return forward;
     }
 
-    private String blockUser(HttpServletResponse resp, IAccountService accountService, Account account) {
+    private String blockUser(HttpServletRequest req, HttpServletResponse resp, IAccountService accountService, Account account) {
+        String admin = req.getParameter("admin");
         String forward = Path.COMMAND_TRANSACTIONS;
+
+        if("admin".equals(admin)){
+            forward = Path.COMMAND_PROFILE;
+        }
+
         if (account.getBlocked()) {
             account.setBlocked(false);
             accountService.update(account);
