@@ -35,7 +35,7 @@
                     <fmt:message key="table.th.status"/>
                 </label>
                 <div class="col" id="blocked">
-                    <tags:isblocked value="${fullUser.blocked}"/>
+                    <tags:isblocked value="${account.blocked}"/>
                 </div>
                 <div class="col">
                     <div class="d-flex justify-content-end">
@@ -44,19 +44,30 @@
                                 name="btnLock"
                                 data-toggle="modal"
                                 data-target="#target">
-                            ${fullUser.blocked ? '<i class="material-icons">lock_open</i>' : '<i class="material-icons">lock</i>'}
+                            ${account.blocked ? '<i class="material-icons">lock_open</i>' : '<i class="material-icons">lock</i>'}
                         </button>
                     </div>
                 </div>
             </div>
             <div>
-                <div class="modal fade" id="target${services[0].id}" tabindex="-1" role="dialog"
+                <div class="modal fade" id="target" tabindex="-1" role="dialog"
                      aria-labelledby="accountBalanceModal" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
-                            <form action="controller?action=block" method="post">
+                            <form action="controller?action=block_user" method="post">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
                                 <div class="modal-body">
+                                    <h5 class="modal-title" id="exampleModalLabel">
+                                        <fmt:message key="profile.modal.button.want_to_block"/>
+                                    </h5>
                                     <hr class="mb-4">
+                                    <input type="hidden" name="account_id"
+                                           value="${account.id}">
                                     <button class="btn btn-dark btn-lg btn-block" type="submit"><fmt:message
                                             key="account.menu.private_office.modal.block"/></button>
                                 </div>

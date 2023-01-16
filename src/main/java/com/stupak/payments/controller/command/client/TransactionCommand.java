@@ -15,10 +15,18 @@ import java.util.List;
 
 public class TransactionCommand implements ICommand {
   @Override
-  public String execute(HttpServletRequest request, HttpServletResponse response) {
-    HttpSession session = request.getSession();
+  public String execute(HttpServletRequest req, HttpServletResponse resp) {
+    HttpSession session = req.getSession();
     String forward = Path.PAGE_TRANSACTIONS;
-    long id = Long.parseLong(request.getParameter("account_id"));
+    long id;
+    String account_id = req.getParameter("account_id");
+
+    if(account_id != null) {
+      id = Long.parseLong(account_id);
+    } else{
+      id = (Long)session.getAttribute("account_id");
+    }
+
     ITransactionService ts = AppContext.getInstance().getTransactionService();
     List<Transaction> transactions = ts.getAllByAccount(id);
 
@@ -26,8 +34,9 @@ public class TransactionCommand implements ICommand {
     Account account = as.getAccountById(id);
 
     session.setAttribute("transactions", transactions);
-    request.setAttribute("transactions", transactions);
-    request.setAttribute("account", account);
+    session.setAttribute("account_id", id);
+    req.setAttribute("transactions", transactions);
+    req.setAttribute("account", account);
     return forward;
   }
 }

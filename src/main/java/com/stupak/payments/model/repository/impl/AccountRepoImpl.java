@@ -12,15 +12,15 @@ public class AccountRepoImpl implements IAccountRepo {
   private static final String CREATE = "INSERT INTO accounts (id, number, balance) "
       + "VALUES (?, ?, ?)";
   private static final String GET_ALL = "SELECT * FROM accounts";
-  private static final String GET_BY_ID = "SELECT id, number, balance FROM accounts WHERE id = ?";
-  private static final String UPDATE = "UPDATE accounts SET balance = ? WHERE id = ?";
+  private static final String GET_BY_ID = "SELECT * FROM accounts WHERE id = ?";
+  private static final String UPDATE = "UPDATE accounts SET balance = ?, blocked = ? WHERE id = ?";
   private static final String DELETE = "DELETE FROM accounts WHERE id = ?";
   private static final String GET_NEXT_AUTO_INCREMENT = "SELECT MAX(id)+1 FROM accounts";
   private static final String GET_BY_USER_ID =
-          "SELECT id, number, balance FROM accounts "
+          "SELECT * FROM accounts "
           + "WHERE user_id= ?";
   private static final String GET_BY_NUMBER =
-          "SELECT id, number, balance FROM accounts "
+          "SELECT * FROM accounts "
                   + "WHERE number= ?";
   private static final String GET_MAX_ID = "SELECT MAX(id) FROM accounts";
 
@@ -45,7 +45,7 @@ public class AccountRepoImpl implements IAccountRepo {
 
   @Override
   public void update(Account account) {
-    this.queryBuilder.execute(instance, UPDATE, account.getBalance(), account.getId());
+    this.queryBuilder.execute(instance, UPDATE, account.getBalance(), account.getBlocked(), account.getId());
   }
 
   @Override
