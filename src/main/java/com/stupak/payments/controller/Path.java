@@ -6,7 +6,6 @@ public final class Path {
   public static final String PAGE_ERROR_PAGE = "/WEB-INF/jsp/error_page.jsp";
   public static final String PAGE_MAIN = "/WEB-INF/jsp/admin/main.jsp";
   public static final String PAGE_PROFILE = "/WEB-INF/jsp/admin/profile.jsp";
-  public static final String PAGE_REQUESTS = "/WEB-INF/jsp/admin/requests.jsp";
   public static final String PAGE_ACCOUNT = "/WEB-INF/jsp/client/personal_account.jsp";
   public static final String PAGE_USER_PROFILE = "/WEB-INF/jsp/client/personaldata.jsp";
   public static final String PAGE_USER_LIST = "/WEB-INF/jsp/admin/users.jsp";
@@ -28,7 +27,6 @@ public final class Path {
   public static final String COMMAND_REGISTRATION = "controller?action=registration";
   public static final String COMMAND_EDIT_CLIENT = "controller?action=edit_client";
   public static final String COMMAND_PROFILE = "controller?action=profile";
-  public static final String COMMAND_REQUESTS = "controller?action=requests";
   public static final String COMMAND_ADD_TARIFF = "controller?action=add_tariff";
   public static final String COMMAND_EDIT_TARIFF = "controller?action=edit_tariff";
   public static final String COMMAND_REMOVE_TARIFF = "controller?action=remove_tariff";
@@ -43,5 +41,4 @@ public final class Path {
   // i18n
   public static final String LOCALE_NAME_RU = "ru";
   public static final String LOCALE_NAME_EN = "en";
-
 }

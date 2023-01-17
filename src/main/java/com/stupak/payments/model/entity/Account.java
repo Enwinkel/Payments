@@ -7,8 +7,8 @@ public class Account extends Entity {
   private long number;
   private BigDecimal balance;
   private boolean blocked;
-  private long userId;
-  private boolean unblockReq;
+
+
 
   public Account() {
   }
@@ -41,23 +41,4 @@ public class Account extends Entity {
     return blocked;
   }
 
-  public long getUserId() {
-    return userId;
-  }
-
-  public void setUserId(long user_id) {
-    this.userId = user_id;
-  }
-
-  public boolean isBlocked() {
-    return blocked;
-  }
-
-  public boolean isUnblockReq() {
-    return unblockReq;
-  }
-
-  public void setUnblockReq(boolean unblockReq) {
-    this.unblockReq = unblockReq;
-  }
 }

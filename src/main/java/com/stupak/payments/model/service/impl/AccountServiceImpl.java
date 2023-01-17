@@ -53,12 +53,6 @@ public class AccountServiceImpl implements IAccountService {
   public long getNextIdValue() {
     return repo.getNextIdValue();
   }
-
-  @Override
-  public List<Account> getAllRequested() {
-    return repo.getAllRequested();
-  }
-
   @Override
   public List<Account> getAllByUser(long id) {
     return repo.getAllByUser(id);

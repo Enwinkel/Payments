@@ -1,6 +1,7 @@
 <%@ include file="/WEB-INF/jspf/directive/taglib.jspf" %>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">
+        <img src="https://getbootstrap.com/docs/4.6/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
         Payments
     </a>
 
@@ -8,9 +9,6 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
                 <a class="nav-link" href="controller?action=users"><fmt:message key="main.menu.button.subscribers"/> <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="controller?action=requests"><fmt:message key="main.menu.button.requests"/> <span class="sr-only">(current)</span></a>
             </li>
         </ul>
         <div class="dropdown">

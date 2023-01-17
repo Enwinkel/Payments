@@ -23,7 +23,7 @@ public interface ITransactionService {
   /**
    * Create top-up transaction.
    */
-  void topUp(Account account, BigDecimal amount);
+  void topUp(User user, BigDecimal amount);
 
   void doPayment(Account account, BigDecimal amount);
 

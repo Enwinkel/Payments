@@ -158,7 +158,7 @@
                                             <input type="hidden" name="account_id"
                                                    value="${account.id}">
                                             <input type="hidden" name="admin"
-                                                   value="profile"/>
+                                                   value="admin"/>
                                             <button type="submit"
                                                     class="btn btn-outline-secondary btn-sm"
                                                     name="btnLock">
