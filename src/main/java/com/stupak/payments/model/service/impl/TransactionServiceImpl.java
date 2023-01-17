@@ -43,7 +43,7 @@ public class TransactionServiceImpl implements ITransactionService {
     Transaction transaction = new Transaction();
     transaction.setTimestamp(LocalDateTime.now());
     transaction.setAccount(account.getId());
-    transaction.setCredit(false);
+    transaction.setCredit(true);
     transaction.setAmount(amount);
     transaction.setDescription("top up");
     save(transaction);

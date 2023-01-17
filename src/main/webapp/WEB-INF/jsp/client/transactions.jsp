@@ -43,7 +43,7 @@
                     <div class="modal fade" id="accountBalanceModal" tabindex="-1" role="dialog" aria-labelledby="accountBalanceModal" style="display: none;" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
-                                <form action="controller?action=account" method="post">
+                                <form action="controller?action=top_up" method="post">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">
                                             <fmt:message key="account.menu.private_office.modal.top_up"/>
@@ -62,7 +62,7 @@
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="cc-number">
-                                                    <fmt:message key="account.menu.private_office.modal.card_number"/>
+                                                    <fmt:message key="account.menu.private_office.modal.number"/>
                                                 </label>
                                                 <input type="text" class="form-control" id="cc-number" placeholder="" required="">
                                                 <div class="invalid-feedback">
@@ -98,7 +98,7 @@
                                             </div>
                                         </div>
                                         <hr class="mb-4">
-                                        <input type="hidden" name="account_number" value="${account.number}">
+                                        <input type="hidden" name="account_id" value="${account.id}">
                                         <button class="btn btn-dark btn-lg btn-block" type="submit"><fmt:message key="account.menu.private_office.modal.top_up"/></button>
                                     </div>
                                 </form>
