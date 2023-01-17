@@ -7,7 +7,7 @@ public final class Path {
   public static final String PAGE_ERROR_PAGE = "/WEB-INF/jsp/error_page.jsp";
   public static final String PAGE_MAIN = "/WEB-INF/jsp/admin/main.jsp";
   public static final String PAGE_PROFILE = "/WEB-INF/jsp/admin/profile.jsp";
-  public static final String PAGE_ACCOUNT = "/WEB-INF/jsp/client/personal_account.jsp";
+  public static final String PAGE_ACCOUNT = "/WEB-INF/jsp/client/account.jsp";
   public static final String PAGE_USER_PROFILE = "/WEB-INF/jsp/client/personaldata.jsp";
   public static final String PAGE_USER_LIST = "/WEB-INF/jsp/admin/users.jsp";
   public static final String PAGE_SERVICES = "/WEB-INF/jsp/client/services.jsp";

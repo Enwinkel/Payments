@@ -65,10 +65,10 @@ public class RegistrationCommand implements ICommand {
         newUser.setDetails(details);
         userService.save(newUser);
 
-        long id = userService.findByLogin(login).getId();
+        newUser = userService.findByLogin(login);
 
-        createAccount(accountService, id);
-        createAccount(accountService, id);
+        createAccount(accountService, newUser.getId());
+        createAccount(accountService, newUser.getId());
 
 
         HttpSession session = request.getSession();
