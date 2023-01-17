@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 
-public class PersonalAccountCommand implements ICommand {
+public class AccountCommand implements ICommand {
   private final IUserService userService =  AppContext.getInstance().getUserService();
 
   @Override

@@ -3,6 +3,7 @@ package com.stupak.payments.controller;
 public final class Path {
   // pages
   public static final String PAGE_LOGIN = "/login.jsp";
+  public static final String PAGE_REGISTRATION = "/WEB-INF/jsp/client/registration.jsp";
   public static final String PAGE_ERROR_PAGE = "/WEB-INF/jsp/error_page.jsp";
   public static final String PAGE_MAIN = "/WEB-INF/jsp/admin/main.jsp";
   public static final String PAGE_PROFILE = "/WEB-INF/jsp/admin/profile.jsp";

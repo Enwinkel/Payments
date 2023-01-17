@@ -20,7 +20,7 @@ public class UserRepoImpl implements IUserRepo {
           + "contact_details_id, blocked FROM users WHERE login = ?";
   private static final String CREATE =
       "INSERT INTO users (id, login, password, first_name, last_name, surname, blocked, "
-          + "roles_id, contact_details_id, accounts_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+          + "roles_id, contact_details_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
   private static final String UPDATE =
       "UPDATE users SET login = ?, password = ?, first_name = ?, last_name = ?, surname = ?, "
           + "blocked = ?, roles_id = ? WHERE id = ?";

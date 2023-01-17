@@ -18,6 +18,7 @@
     <input type="text" id="login" name="login" class="form-control" placeholder=<fmt:message key="login.placeholder.login"/> required autofocus>
     <label for="password" class="sr-only"><fmt:message key="login.label.password"/></label>
     <input type="password" id="password" name="password" class="form-control" placeholder="<fmt:message key="login.placeholder.password"/>" required>
+    <a href="controller?action=registration">Registration</a>
     <div class="checkbox mb-3">
         <label>
             <input type="checkbox" value="remember-me"> <fmt:message key="login.checkbox.remember"/>

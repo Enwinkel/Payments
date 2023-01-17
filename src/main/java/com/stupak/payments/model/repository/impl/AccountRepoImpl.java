@@ -9,8 +9,8 @@ import com.stupak.payments.model.repository.IAccountRepo;
 import java.util.List;
 
 public class AccountRepoImpl implements IAccountRepo {
-  private static final String CREATE = "INSERT INTO accounts (id, number, balance) "
-      + "VALUES (?, ?, ?)";
+  private static final String CREATE = "INSERT INTO accounts (id, number, balance, user_id, blocked, unblock_req) "
+      + "VALUES (?, ?, ?, ?, ?, ?)";
   private static final String GET_ALL = "SELECT * FROM accounts";
   private static final String GET_BY_ID = "SELECT * FROM accounts WHERE id = ?";
   private static final String UPDATE = "UPDATE accounts SET balance = ?, user_id = ?, " +
@@ -40,7 +40,8 @@ public class AccountRepoImpl implements IAccountRepo {
   @Override
   public void create(Account account) {
     long id = queryBuilder.getNextAutoIncrement(instance, GET_NEXT_AUTO_INCREMENT);
-    this.queryBuilder.execute(instance, CREATE, id, account.getNumber(), account.getBalance());
+    this.queryBuilder.execute(instance, CREATE, id, account.getNumber(), account.getBalance(), account.getUserId(),
+            account.getBlocked(), account.isUnblockReq());
   }
 
   @Override

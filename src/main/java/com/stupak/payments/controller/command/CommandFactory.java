@@ -37,7 +37,7 @@ public class CommandFactory {
         commands.put("profile", new ProfileCommand());
 
         // client commands
-        commands.put("account", new PersonalAccountCommand());
+        commands.put("account", new AccountCommand());
         commands.put("transactions", new TransactionCommand());
         commands.put("services", new ServicesCommand());
         commands.put("payment", new PaymentCommand());
@@ -45,6 +45,7 @@ public class CommandFactory {
         commands.put("block_account", new BlockAccountCommand());
         commands.put("block_user", new BlockUserCommand());
         commands.put("requests", new RequestCommand());
+        commands.put("registration", new RegistrationCommand());
     }
 
     public ICommand getCommand(HttpServletRequest request) {
