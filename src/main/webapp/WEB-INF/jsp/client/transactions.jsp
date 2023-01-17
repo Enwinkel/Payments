@@ -29,6 +29,97 @@
                     <input type="text" readonly class="form-control-plaintext" id="balance"
                            value="${account.balance} <fmt:message key="account.menu.private_office.hrn"/>">
                 </div>
+                <div class="col">
+                    <div class="d-flex justify-content-end">
+
+                        <button type="button" class="btn btn-outline-secondary btn-sm mr-2"
+                                data-toggle="modal"
+                                data-target="#accountBalanceModal">
+                            <i class="material-icons">account_balance_wallet</i>
+                            <fmt:message key="account.menu.private_office.modal.top_up"/>
+                        </button>
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="accountBalanceModal" tabindex="-1" role="dialog"
+                         aria-labelledby="accountBalanceModal" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <form action="controller?action=top_up" method="post">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel1">
+                                            <fmt:message
+                                                    key="account.menu.private_office.modal.top_up"/>
+                                        </h5>
+                                        <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-sm-10">
+                                                <label for="recipient-name" class="col-form-label">
+                                                    <fmt:message
+                                                            key="account.menu.private_office.modal.amount"/>
+                                                </label>
+                                                <input type="number" min="0" minlength="1"
+                                                       class="form-control"
+                                                       name="amount"
+                                                       id="recipient-name" required>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="cc-number">
+                                                    <fmt:message
+                                                            key="account.menu.private_office.modal.number"/>
+                                                </label>
+                                                <input type="text" class="form-control" id="cc-number" placeholder=""
+                                                       required>
+                                                <div class="invalid-feedback">
+                                                    Credit card number is required
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="cc-name">
+                                                    <fmt:message
+                                                            key="account.menu.private_office.modal.name_on_the_card"/>
+                                                </label>
+                                                <input type="text" class="form-control" id="cc-name" placeholder=""
+                                                       required>
+                                                <div class="invalid-feedback">
+                                                    Name on card is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3 mb-3">
+                                                <label for="cc-expiration">
+                                                    <fmt:message
+                                                            key="account.menu.private_office.modal.expiration"/>
+                                                </label>
+                                                <input type="text" class="form-control" id="cc-expiration"
+                                                       placeholder="" required>
+                                                <div class="invalid-feedback">
+                                                    Expiration date required
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 mb-3">
+                                                <label for="cc-cvv">CVV</label>
+                                                <input type="text" class="form-control" id="cc-cvv" placeholder=""
+                                                       required>
+                                                <div class="invalid-feedback">
+                                                    Security code required
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr class="mb-4">
+                                        <input type="hidden" name="account_id" value="${account.id}">
+                                        <button class="btn btn-dark btn-lg btn-block" type="submit">Top up</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="row">
                 <label for="blocked" class="col-3 col-form-label">

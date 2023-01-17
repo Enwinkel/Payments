@@ -10,6 +10,9 @@
             <li class="nav-item active">
                 <a class="nav-link" href="controller?action=users"><fmt:message key="main.menu.button.subscribers"/> <span class="sr-only">(current)</span></a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="controller?action=users"><fmt:message key="main.menu.button.subscribers"/> <span class="sr-only">(current)</span></a>
+            </li>
         </ul>
         <div class="dropdown">
             <button class="btn btn-outline-secondary btn-sm" type="button" id="dropdownMenuButton"

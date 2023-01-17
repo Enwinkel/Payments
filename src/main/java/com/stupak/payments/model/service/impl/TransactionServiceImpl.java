@@ -39,22 +39,17 @@ public class TransactionServiceImpl implements ITransactionService {
   }
 
   @Override
-  public void topUp(User user, BigDecimal amount) {
+  public void topUp(Account account, BigDecimal amount) {
     Transaction transaction = new Transaction();
     transaction.setTimestamp(LocalDateTime.now());
-    transaction.setAccount(new Account().getId());
-    transaction.setCredit(true);
+    transaction.setAccount(account.getId());
+    transaction.setCredit(false);
     transaction.setAmount(amount);
-    transaction.setDescription("Top up account");
+    transaction.setDescription("top up");
     save(transaction);
 
-    Account account = new Account();
+    account.setBalance(account.getBalance().add(amount));
     accountService.update(account);
-
-    if (user.isBlocked() && new Account().getBalance().compareTo(BigDecimal.ZERO) > 0) {
-      user.setBlocked(false);
-      userService.update(user);
-    }
   }
 
   @Override

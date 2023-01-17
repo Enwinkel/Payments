@@ -40,6 +40,7 @@ public class CommandFactory {
         commands.put("transactions", new TransactionCommand());
         commands.put("services", new ServicesCommand());
         commands.put("payment", new PaymentCommand());
+        commands.put("top_up", new TopUpCommand());
         commands.put("block_account", new BlockAccountCommand());
         commands.put("block_user", new BlockUserCommand());
     }
