@@ -2,6 +2,7 @@ package com.stupak.payments.controller.command;
 
 import com.stupak.payments.controller.command.admin.BlockUserCommand;
 import com.stupak.payments.controller.command.admin.ProfileCommand;
+import com.stupak.payments.controller.command.admin.RequestCommand;
 import com.stupak.payments.controller.command.admin.ShowUserListCommand;
 import com.stupak.payments.controller.command.client.*;
 import com.stupak.payments.controller.command.common.LogoutCommand;
@@ -43,6 +44,7 @@ public class CommandFactory {
         commands.put("top_up", new TopUpCommand());
         commands.put("block_account", new BlockAccountCommand());
         commands.put("block_user", new BlockUserCommand());
+        commands.put("requests", new RequestCommand());
     }
 
     public ICommand getCommand(HttpServletRequest request) {

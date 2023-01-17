@@ -13,14 +13,14 @@ public class AccountRepoImpl implements IAccountRepo {
       + "VALUES (?, ?, ?)";
   private static final String GET_ALL = "SELECT * FROM accounts";
   private static final String GET_BY_ID = "SELECT * FROM accounts WHERE id = ?";
-  private static final String UPDATE = "UPDATE accounts SET balance = ?, blocked = ? WHERE id = ?";
+  private static final String UPDATE = "UPDATE accounts SET balance = ?, user_id = ?, " +
+          "blocked = ?, unblock_req = ? WHERE id = ?";
   private static final String DELETE = "DELETE FROM accounts WHERE id = ?";
   private static final String GET_NEXT_AUTO_INCREMENT = "SELECT MAX(id)+1 FROM accounts";
-  private static final String GET_BY_USER_ID =
-          "SELECT * FROM accounts "
+  private static final String GET_BY_USER_ID = "SELECT * FROM accounts "
           + "WHERE user_id= ?";
-  private static final String GET_BY_NUMBER =
-          "SELECT * FROM accounts "
+  private static final String GET_REQUESTED = "SELECT * FROM accounts WHERE unblock_req = true";
+  private static final String GET_BY_NUMBER = "SELECT * FROM accounts "
                   + "WHERE number= ?";
   private static final String GET_MAX_ID = "SELECT MAX(id) FROM accounts";
 
@@ -45,7 +45,8 @@ public class AccountRepoImpl implements IAccountRepo {
 
   @Override
   public void update(Account account) {
-    this.queryBuilder.execute(instance, UPDATE, account.getBalance(), account.getBlocked(), account.getId());
+    this.queryBuilder.execute(instance, UPDATE, account.getBalance(), account.getUserId(),
+            account.getBlocked(), account.isUnblockReq(), account.getId());
   }
 
   @Override
@@ -79,6 +80,11 @@ public class AccountRepoImpl implements IAccountRepo {
   @Override
   public Account getAccountByNumber(long number) {
     return (Account)queryBuilder.executeAndReturn(instance, GET_BY_NUMBER, number);
+  }
+
+  @Override
+  public List<Account> getAllRequested() {
+    return queryBuilder.executeAndReturnList(instance, GET_REQUESTED);
   }
 
 }

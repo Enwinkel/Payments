@@ -4,12 +4,8 @@ import com.stupak.payments.appcontext.AppContext;
 import com.stupak.payments.controller.Path;
 import com.stupak.payments.controller.command.ICommand;
 import com.stupak.payments.model.entity.Account;
-import com.stupak.payments.model.entity.User;
 import com.stupak.payments.model.service.IAccountService;
-import com.stupak.payments.model.service.IContactDetailsService;
-import com.stupak.payments.model.service.IUserService;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -43,26 +39,32 @@ public class BlockAccountCommand implements ICommand {
             account = (Account) session.getAttribute("account");
         }
 
-        forward = blockUser(req, resp, accountService, account);
+        forward = blockAccount(req, resp, accountService, account);
 
         return forward;
     }
 
-    private String blockUser(HttpServletRequest req, HttpServletResponse resp, IAccountService accountService, Account account) {
+    private String blockAccount(HttpServletRequest req, HttpServletResponse resp, IAccountService accountService, Account account) {
         String admin = req.getParameter("admin");
         String forward = Path.COMMAND_TRANSACTIONS;
 
-        if("admin".equals(admin)){
+        if("profile".equals(admin)){
             forward = Path.COMMAND_PROFILE;
+        } else if("requests".equals(admin)){
+            forward = Path.COMMAND_REQUESTS;
         }
 
-        if (account.getBlocked()) {
+        if (account.getBlocked() && !(admin == null)){
             account.setBlocked(false);
-            accountService.update(account);
+            account.setUnblockReq(false);
+        } else if(account.getBlocked()){
+            account.setUnblockReq(true);
         } else {
             account.setBlocked(true);
-            accountService.update(account);
         }
+
+        accountService.update(account);
+
         try {
             resp.sendRedirect(forward);
             forward = Path.COMMAND_REDIRECT;

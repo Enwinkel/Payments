@@ -22,6 +22,8 @@ public interface IAccountService {
 
   Account getAccountById(long id);
 
+  public List<Account> getAllRequested();
+
   long getNumberContract();
 
   long getNextIdValue();

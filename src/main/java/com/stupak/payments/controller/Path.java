@@ -12,6 +12,7 @@ public final class Path {
   public static final String PAGE_SERVICES = "/WEB-INF/jsp/client/services.jsp";
   public static final String PAGE_TRANSACTIONS = "/WEB-INF/jsp/client/transactions.jsp";
   public static final String PAGE_PAYMENT = "/WEB-INF/jsp/client/payment.jsp";
+  public static final String PAGE_REQUESTS = "/WEB-INF/jsp/admin/requests.jsp";
 
   // common commands
   public static final String COMMAND_LOGIN = "controller?action=login";
@@ -24,6 +25,8 @@ public final class Path {
   // admin commands
   public static final String COMMAND_MAIN = "controller?action=main";
   public static final String COMMAND_SHOW_USERS = "controller?action=users";
+  public static final String COMMAND_REQUESTS = "controller?action=requests";
+
   public static final String COMMAND_REGISTRATION = "controller?action=registration";
   public static final String COMMAND_EDIT_CLIENT = "controller?action=edit_client";
   public static final String COMMAND_PROFILE = "controller?action=profile";
