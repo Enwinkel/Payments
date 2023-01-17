@@ -18,6 +18,8 @@ public class AccountQueryBuilder extends QueryBuilder<Account> {
       account.setNumber(rs.getLong("number"));
       account.setBalance(rs.getBigDecimal("balance"));
       account.setBlocked(rs.getBoolean("blocked"));
+      account.setUserId(rs.getLong("user_id"));
+      account.setUnblockReq(rs.getBoolean("unblock_req"));
       accounts.add(account);
     }
     return accounts;
@@ -31,6 +33,8 @@ public class AccountQueryBuilder extends QueryBuilder<Account> {
       account.setNumber(rs.getLong("number"));
       account.setBalance(rs.getBigDecimal("balance"));
       account.setBlocked(rs.getBoolean("blocked"));
+      account.setUserId(rs.getLong("user_id"));
+      account.setUnblockReq(rs.getBoolean("unblock_req"));
     }
     return account;
   }

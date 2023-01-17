@@ -26,4 +26,5 @@ public interface IAccountService {
 
   long getNextIdValue();
 
+  List<Account> getAllRequested();
 }
