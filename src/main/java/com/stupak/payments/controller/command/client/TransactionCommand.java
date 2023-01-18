@@ -44,8 +44,11 @@ public class TransactionCommand implements ICommand {
 
     String sorting = req.getParameter("account_sorting");
 
-    if(sorting == null){
-      sorting = "new_to_old";
+    if (sorting == null) {
+      sorting = (String) session.getAttribute("account_sorting");
+      if (sorting == null) {
+        sorting = "new_to_old";
+      }
     }
 
     List<Transaction> transactions = ts.getByPage(recordsPerPage,
@@ -61,6 +64,7 @@ public class TransactionCommand implements ICommand {
 
     session.setAttribute("account_id", id);
     session.setAttribute("current_page", currentPage);
+    session.setAttribute("account_sorting", sorting);
     req.setAttribute("transactions", transactions);
     req.setAttribute("account", account);
     req.setAttribute("no_of_pages", nOfPages);

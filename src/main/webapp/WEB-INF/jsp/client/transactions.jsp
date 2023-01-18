@@ -177,13 +177,13 @@
                     <form action="controller?action=transactions" method="post">
                         <select class="form-select m-4" aria-label="Default select" name="account_sorting"
                                 onchange="this.form.submit()">
-                            <option value="new_to_old"><fmt:message
+                            <option value="new_to_old" ${sessionScope.account_sorting == 'new_to_old' ? 'selected' : ''}><fmt:message
                                     key="account.menu.private_office.select.new_to_old"/></option>
-                            <option value="old_to_new"><fmt:message
+                            <option value="old_to_new" ${sessionScope.account_sorting == 'old_to_new' ? 'selected' : ''}><fmt:message
                                     key="account.menu.private_office.select.old_to_new"/></option>
-                            <option value="amount_increasing"><fmt:message
+                            <option value="amount_increasing" ${sessionScope.account_sorting == 'amount_increasing' ? 'selected' : ''}><fmt:message
                                     key="account.menu.private_office.select.amount_increasing"/></option>
-                            <option value="amount_decreasing"><fmt:message
+                            <option value="amount_decreasing" ${sessionScope.account_sorting == 'amount_decreasing' ? 'selected' : ''}><fmt:message
                                     key="account.menu.private_office.select.amount_decreasing"/></option>
                         </select>
                     </form>
