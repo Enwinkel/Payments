@@ -50,7 +50,7 @@
                         <td>
                             <form class="form-inline my-2 my-lg-0" method="post" action="controller?action=transactions">
                                 <input type="hidden" name="account_id" value="${account.id}">
-                                <input type="hidden" name="currentPage" value="1">
+                                <input type="hidden" name="current_page" value="1">
                                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><fmt:message key="account.menu.private_office.button.account"/></button>
                             </form>
                         </td>

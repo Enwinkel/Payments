@@ -19,43 +19,47 @@ public class TransactionCommand implements ICommand {
   public String execute(HttpServletRequest req, HttpServletResponse resp) {
     HttpSession session = req.getSession();
     String forward = Path.PAGE_TRANSACTIONS;
-    long id;
-    String account_id = req.getParameter("account_id");
 
+    IAccountService as = AppContext.getInstance().getAccountService();
+    ITransactionService ts = AppContext.getInstance().getTransactionService();
+    ITransactionRowsService trs = AppContext.getInstance().getTransactionRowService();
+
+    long id;
+    int currentPage;
+    int recordsPerPage = 7;
+
+    String account_id = req.getParameter("account_id");
     if(account_id != null) {
       id = Long.parseLong(account_id);
     } else{
       id = (Long)session.getAttribute("account_id");
     }
 
-    int currentPage = Integer.parseInt(req.getParameter("currentPage"));
-    int recordsPerPage = 7;
+    String currentPageStr = req.getParameter("current_page");
+    if(currentPageStr != null) {
+      currentPage = Integer.parseInt(currentPageStr);
+    } else{
+      currentPage = (Integer)session.getAttribute("current_page");
+    }
 
-    ITransactionService ts = AppContext.getInstance().getTransactionService();
     List<Transaction> transactions = ts.getByPage(recordsPerPage,
             (currentPage - 1) * recordsPerPage, id);
 
-    IAccountService as = AppContext.getInstance().getAccountService();
     Account account = as.getAccountById(id);
-
-    session.setAttribute("account_id", id);
-    req.setAttribute("transactions", transactions);
-    req.setAttribute("account", account);
-
-    ITransactionRowsService trs = AppContext.getInstance().getTransactionRowService();
-
     int rows = trs.getNumberOfRows(id);
-
     int nOfPages = rows / recordsPerPage;
-
     if ((rows % recordsPerPage) != 0 && nOfPages % recordsPerPage > 0) {
 
       nOfPages++;
     }
 
-    req.setAttribute("noOfPages", nOfPages);
-    req.setAttribute("currentPage", currentPage);
-    req.setAttribute("recordsPerPage", recordsPerPage);
+    session.setAttribute("account_id", id);
+    session.setAttribute("current_page", currentPage);
+    req.setAttribute("transactions", transactions);
+    req.setAttribute("account", account);
+    req.setAttribute("no_of_pages", nOfPages);
+    req.setAttribute("current_page", currentPage);
+    req.setAttribute("records_per_page", recordsPerPage);
 
 
     return forward;

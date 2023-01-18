@@ -156,8 +156,8 @@
                                         </c:if>
                                     </h5>
                                     <hr class="mb-4">
-                                    <input type="hidden" name="account_id"
-                                           value="${account.id}">
+                                    <input type="hidden" name="account_id" value="${account.id}">
+                                    <input type="hidden" name="current_page" value="1">
                                     <button class="btn btn-dark btn-lg btn-block" type="submit">
                                         <c:if test="${account.blocked}">
                                             <fmt:message key="account.menu.private_office.modal.send"/>
@@ -200,39 +200,39 @@
                 </c:forEach>
                 </tbody>
             </table>
-        <nav aria-label="Navigation for countries">
-            <ul class="pagination">
-                <c:if test="${currentPage != 1}">
-                    <li class="page-item"><a class="page-link"
-                                             href="controller?action=transactions&currentPage=${currentPage-1}">Previous</a>
-                    </li>
-                </c:if>
+            <nav aria-label="Navigation for countries">
+                <ul class="pagination">
+                    <c:if test="${current_page != 1}">
+                        <li class="page-item"><a class="page-link"
+                                                 href="controller?action=transactions&current_page=${current_page-1}">Previous</a>
+                        </li>
+                    </c:if>
 
-                <c:forEach begin="1" end="${noOfPages}" var="i">
-                    <c:choose>
-                        <c:when test="${currentPage eq i}">
-                            <li class="page-item active"><a class="page-link">
-                                    ${i} <span class="sr-only">(current)</span></a>
-                            </li>
-                        </c:when>
-                        <c:otherwise>
-                            <li class="page-item"><a class="page-link"
-                                                     href="controller?action=transactions&currentPage=${i}">${i}</a>
-                                                            </li>
-                        </c:otherwise>
-                    </c:choose>
-                    <input type="hidden" name="tPerPage" value="${recordsPerPage}">
-                    <input type="hidden" name="tPage" value="${i}">
-                    <input type="hidden" name="currentPage" value="${i}">
-                </c:forEach>
+                    <c:forEach begin="1" end="${no_of_pages}" var="i">
+                        <c:choose>
+                            <c:when test="${current_page eq i}">
+                                <li class="page-item active"><a class="page-link">
+                                        ${i} <span class="sr-only">(current)</span></a>
+                                </li>
+                            </c:when>
+                            <c:otherwise>
+                                <li class="page-item"><a class="page-link"
+                                                         href="controller?action=transactions&current_page=${i}">${i}</a>
+                                </li>
+                            </c:otherwise>
+                        </c:choose>
+                        <input type="hidden" name="tPerPage" value="${records_per_page}">
+                        <input type="hidden" name="tPage" value="${i}">
+                        <input type="hidden" name="current_page" value="${i}">
+                    </c:forEach>
 
-                <c:if test="${currentPage lt noOfPages}">
-                    <li class="page-item"><a class="page-link"
-                                             href="controller?action=transactions&currentPage=${currentPage+1}">Next</a>
-                    </li>
-                </c:if>
-            </ul>
-        </nav>
+                    <c:if test="${current_page lt no_of_pages}">
+                        <li class="page-item"><a class="page-link"
+                                                 href="controller?action=transactions&current_page=${current_page+1}">Next</a>
+                        </li>
+                    </c:if>
+                </ul>
+            </nav>
         </div>
         <jsp:include page="/WEB-INF/templates/_scripts.jsp"></jsp:include>
 </body>
