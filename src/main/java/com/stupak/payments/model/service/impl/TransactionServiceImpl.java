@@ -2,7 +2,6 @@ package com.stupak.payments.model.service.impl;
 
 import com.stupak.payments.model.entity.Account;
 import com.stupak.payments.model.entity.Transaction;
-import com.stupak.payments.model.entity.User;
 import com.stupak.payments.model.repository.ITransactionRepo;
 import com.stupak.payments.model.service.IAccountService;
 import com.stupak.payments.model.service.ITransactionService;
@@ -67,7 +66,7 @@ public class TransactionServiceImpl implements ITransactionService {
   }
 
   @Override
-  public List<Transaction> getByPage(int recordsPerPage, int currentPage, long id){
-    return repo.getByPage(recordsPerPage, currentPage, id);
+  public List<Transaction> getByPage(int recordsPerPage, int currentPage, long id, String sorting){
+    return repo.getByPage(recordsPerPage, currentPage, id, sorting);
   }
 }

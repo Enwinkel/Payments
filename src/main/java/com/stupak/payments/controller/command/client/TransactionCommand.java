@@ -26,7 +26,7 @@ public class TransactionCommand implements ICommand {
 
     long id;
     int currentPage;
-    int recordsPerPage = 7;
+    int recordsPerPage = 6;
 
     String account_id = req.getParameter("account_id");
     if(account_id != null) {
@@ -42,8 +42,14 @@ public class TransactionCommand implements ICommand {
       currentPage = (Integer)session.getAttribute("current_page");
     }
 
+    String sorting = req.getParameter("account_sorting");
+
+    if(sorting == null){
+      sorting = "new_to_old";
+    }
+
     List<Transaction> transactions = ts.getByPage(recordsPerPage,
-            (currentPage - 1) * recordsPerPage, id);
+            (currentPage - 1) * recordsPerPage, id, sorting);
 
     Account account = as.getAccountById(id);
     int rows = trs.getNumberOfRows(id);

@@ -17,7 +17,8 @@ public class TransactionRepoImpl implements ITransactionRepo {
   private static final String GET_BY_ACCOUNT_ID =
       "SELECT id, timestamp, account_id, amount, is_credit, description FROM transactions "
           + "WHERE account_id= ?";
-  private static final String GET_BY_PAGE = "SELECT * FROM transactions WHERE account_id=? LIMIT ? OFFSET ?";
+  private static final String GET_BY_PAGE_PART1 = "SELECT * FROM transactions WHERE account_id=?";
+  private static final String GET_BY_PAGE_PART2 = " LIMIT ? OFFSET ?";
   private static final String CREATE =
       "INSERT INTO transactions (timestamp, account_id, amount, is_credit, description) "
           + "VALUES(?, ?, ?, ?, ?)";
@@ -25,6 +26,11 @@ public class TransactionRepoImpl implements ITransactionRepo {
       "UPDATE transactions SET timestamp = ?, account_id = ?, amount = ?, is_credit = ?, "
           + "description = ? WHERE id = ?";
   private static final String DELETE = "DELETE FROM transactions WHERE id = ?";
+
+  private static final String ORDER_BY_DATE = " ORDER BY timestamp";
+  private static final String ORDER_BY_DATE_DESC = " ORDER BY timestamp DESC";
+  private static final String ORDER_BY_AMOUNT = " ORDER BY amount";
+  private static final String ORDER_BY_AMOUNT_DESC = " ORDER BY amount DESC";
 
   private DBManager instance = DBManager.getInstance();
   private QueryBuilder queryBuilder = new TransactionQueryBuilder();
@@ -45,8 +51,27 @@ public class TransactionRepoImpl implements ITransactionRepo {
     return (Transaction) queryBuilder.executeAndReturn(instance, GET_BY_ID, id);
   }
   @Override
-  public List<Transaction> getByPage(int recordsPerPage, int currentPage, long id){
-    return queryBuilder.executeAndReturnList(instance, GET_BY_PAGE, id, recordsPerPage, currentPage);
+  public List<Transaction> getByPage(int recordsPerPage, int currentPage, long id, String sorting){
+    String query = GET_BY_PAGE_PART1;
+
+    switch(sorting){
+      case "new_to_old":
+        query += ORDER_BY_DATE_DESC;
+        break;
+      case "old_to_new":
+        query += ORDER_BY_DATE;
+        break;
+      case "amount_increasing":
+        query += ORDER_BY_AMOUNT;
+        break;
+      case "amount_decreasing":
+        query += ORDER_BY_AMOUNT_DESC;
+        break;
+    }
+
+    query += GET_BY_PAGE_PART2;
+
+    return queryBuilder.executeAndReturnList(instance, query, id, recordsPerPage, currentPage);
   }
 
   @Override

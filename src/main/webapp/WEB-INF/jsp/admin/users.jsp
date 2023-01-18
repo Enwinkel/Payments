@@ -25,7 +25,7 @@
                         <fmt:message key="table.th.name"/>
                     </th>
                     <th scope="col">
-                        <fmt:message key="table.th.last_name"/>
+                        <fmt:message key="table.th.middle_name"/>
                     </th>
                     <th scope="col">
                         <fmt:message key="table.th.status"/>

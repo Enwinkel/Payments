@@ -12,7 +12,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <div class="row">
+            <div class="row mb-2">
                 <label for="number" class="col-3 col-form-label">
                     <fmt:message key="table.th.account"/>
                 </label>
@@ -21,7 +21,7 @@
                            value="${account.number}">
                 </div>
             </div>
-            <div class="row">
+            <div class="row mb-2">
                 <label for="balance" class="col-3 col-form-label">
                     <fmt:message key="table.th.balance"/>
                 </label>
@@ -173,6 +173,22 @@
                 </div>
             </div>
             <table class="table table-striped">
+                <div class="d-grid d-md-flex justify-content-md-end">
+                    <form action="controller?action=transactions" method="post">
+                        <select class="form-select m-4" aria-label="Default select" name="account_sorting"
+                                onchange="this.form.submit()">
+                            <option value="new_to_old"><fmt:message
+                                    key="account.menu.private_office.select.new_to_old"/></option>
+                            <option value="old_to_new"><fmt:message
+                                    key="account.menu.private_office.select.old_to_new"/></option>
+                            <option value="amount_increasing"><fmt:message
+                                    key="account.menu.private_office.select.amount_increasing"/></option>
+                            <option value="amount_decreasing"><fmt:message
+                                    key="account.menu.private_office.select.amount_decreasing"/></option>
+                        </select>
+                    </form>
+                </div>
+
                 <thead>
                 <tr>
                     <th scope="col">
