@@ -27,17 +27,6 @@ public class TransactionServiceImpl implements ITransactionService {
     this.userService = userService;
   }
 
-
-
-  @Override
-  public void recalcBalanceAndBlockByAllUsers() {
-    List<User> users = userService.findAllFullInfo();
-    for (User user : users) {
-      Account account = new Account();
-      accountService.update(account);
-    }
-  }
-
   @Override
   public void topUp(Account account, BigDecimal amount) {
     Transaction transaction = new Transaction();
@@ -75,5 +64,10 @@ public class TransactionServiceImpl implements ITransactionService {
   @Override
   public List<Transaction> getAllByAccount(long id) {
     return repo.getAllByAccount(id);
+  }
+
+  @Override
+  public List<Transaction> getByPage(int recordsPerPage, int currentPage, long id){
+    return repo.getByPage(recordsPerPage, currentPage, id);
   }
 }

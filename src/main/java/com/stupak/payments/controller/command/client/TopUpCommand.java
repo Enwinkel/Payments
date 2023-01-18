@@ -44,6 +44,7 @@ public class TopUpCommand implements ICommand {
 
     private String topUp(HttpServletRequest req, HttpServletResponse resp) {
         String forward = Path.COMMAND_TRANSACTIONS;
+        forward = forward + "&currentPage=1";
         long id = Long.parseLong(req.getParameter("account_id"));
 
         Account account = accountService.getAccountById(id);

@@ -24,7 +24,7 @@
                 </i>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <form class="form-inline" method="post" action="controller?action=i18n">
+                <form class="form-inline" method="post" action="controller?action=localization">
                     <button type="submit" name="ru" class="dropdown-item">Russian</button>
                     <button type="submit" name="en" class="dropdown-item">English</button>
                 </form>

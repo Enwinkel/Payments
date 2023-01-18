@@ -19,6 +19,7 @@ public interface ITransactionService {
   void save(Transaction transaction);
 
   List<Transaction> getAllByAccount(long id);
+  List<Transaction> getByPage(int currentPage, int recordsPerPage, long id);
 
   /**
    * Create top-up transaction.
@@ -26,9 +27,4 @@ public interface ITransactionService {
   void topUp(Account account, BigDecimal amount);
 
   void doPayment(Account account, BigDecimal amount);
-
-  /**
-   * Checks if user has negative account amount and blocks it.
-   */
-  void recalcBalanceAndBlockByAllUsers();
 }

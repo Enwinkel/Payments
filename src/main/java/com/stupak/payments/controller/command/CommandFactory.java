@@ -5,9 +5,9 @@ import com.stupak.payments.controller.command.admin.ProfileCommand;
 import com.stupak.payments.controller.command.admin.RequestCommand;
 import com.stupak.payments.controller.command.admin.ShowUserListCommand;
 import com.stupak.payments.controller.command.client.*;
-import com.stupak.payments.controller.command.common.I18NCommand;
+import com.stupak.payments.controller.command.common.LocalizationCommand;
 import com.stupak.payments.controller.command.common.LogoutCommand;
-import com.stupak.payments.controller.command.main.LoginCommand;
+import com.stupak.payments.controller.command.common.LoginCommand;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -32,7 +32,7 @@ public class CommandFactory {
         //common
         commands.put("login", new LoginCommand());
         commands.put("logout", new LogoutCommand());
-        commands.put("i18n", new I18NCommand());
+        commands.put("localization", new LocalizationCommand());
 
         //admin
         commands.put("users", new ShowUserListCommand());

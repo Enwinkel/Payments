@@ -40,7 +40,8 @@
                         </button>
                     </div>
                     <!-- Modal -->
-                    <div class="modal fade" id="accountBalanceModal" tabindex="-1" role="dialog" aria-labelledby="accountBalanceModal" style="display: none;" aria-hidden="true">
+                    <div class="modal fade" id="accountBalanceModal" tabindex="-1" role="dialog"
+                         aria-labelledby="accountBalanceModal" style="display: none;" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <form action="controller?action=top_up" method="post">
@@ -58,22 +59,26 @@
                                                 <label for="recipient-name" class="col-form-label">
                                                     <fmt:message key="account.menu.private_office.modal.amount"/>
                                                 </label>
-                                                <input type="number" min="0" minlength="1" class="form-control" name="amount" id="recipient-name" required="">
+                                                <input type="number" min="0" minlength="1" class="form-control"
+                                                       name="amount" id="recipient-name" required="">
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="cc-number">
                                                     <fmt:message key="account.menu.private_office.modal.number"/>
                                                 </label>
-                                                <input type="text" class="form-control" id="cc-number" placeholder="" required="">
+                                                <input type="text" class="form-control" id="cc-number" placeholder=""
+                                                       required="">
                                                 <div class="invalid-feedback">
                                                     Credit card number is required
                                                 </div>
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="cc-name">
-                                                    <fmt:message key="account.menu.private_office.modal.name_on_the_card"/>
+                                                    <fmt:message
+                                                            key="account.menu.private_office.modal.name_on_the_card"/>
                                                 </label>
-                                                <input type="text" class="form-control" id="cc-name" placeholder="" required="">
+                                                <input type="text" class="form-control" id="cc-name" placeholder=""
+                                                       required="">
                                                 <div class="invalid-feedback">
                                                     Name on card is required
                                                 </div>
@@ -84,14 +89,16 @@
                                                 <label for="cc-expiration">
                                                     <fmt:message key="account.menu.private_office.modal.expiration"/>
                                                 </label>
-                                                <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
+                                                <input type="text" class="form-control" id="cc-expiration"
+                                                       placeholder="" required="">
                                                 <div class="invalid-feedback">
                                                     Expiration date required
                                                 </div>
                                             </div>
                                             <div class="col-md-3 mb-3">
                                                 <label for="cc-cvv">CVV</label>
-                                                <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
+                                                <input type="text" class="form-control" id="cc-cvv" placeholder=""
+                                                       required="">
                                                 <div class="invalid-feedback">
                                                     Security code required
                                                 </div>
@@ -99,7 +106,8 @@
                                         </div>
                                         <hr class="mb-4">
                                         <input type="hidden" name="account_id" value="${account.id}">
-                                        <button class="btn btn-dark btn-lg btn-block" type="submit"><fmt:message key="account.menu.private_office.modal.top_up"/></button>
+                                        <button class="btn btn-dark btn-lg btn-block" type="submit"><fmt:message
+                                                key="account.menu.private_office.modal.top_up"/></button>
                                     </div>
                                 </form>
                             </div>
@@ -192,6 +200,39 @@
                 </c:forEach>
                 </tbody>
             </table>
+        <nav aria-label="Navigation for countries">
+            <ul class="pagination">
+                <c:if test="${currentPage != 1}">
+                    <li class="page-item"><a class="page-link"
+                                             href="controller?action=transactions&currentPage=${currentPage-1}">Previous</a>
+                    </li>
+                </c:if>
+
+                <c:forEach begin="1" end="${noOfPages}" var="i">
+                    <c:choose>
+                        <c:when test="${currentPage eq i}">
+                            <li class="page-item active"><a class="page-link">
+                                    ${i} <span class="sr-only">(current)</span></a>
+                            </li>
+                        </c:when>
+                        <c:otherwise>
+                            <li class="page-item"><a class="page-link"
+                                                     href="controller?action=transactions&currentPage=${i}">${i}</a>
+                                                            </li>
+                        </c:otherwise>
+                    </c:choose>
+                    <input type="hidden" name="tPerPage" value="${recordsPerPage}">
+                    <input type="hidden" name="tPage" value="${i}">
+                    <input type="hidden" name="currentPage" value="${i}">
+                </c:forEach>
+
+                <c:if test="${currentPage lt noOfPages}">
+                    <li class="page-item"><a class="page-link"
+                                             href="controller?action=transactions&currentPage=${currentPage+1}">Next</a>
+                    </li>
+                </c:if>
+            </ul>
+        </nav>
         </div>
         <jsp:include page="/WEB-INF/templates/_scripts.jsp"></jsp:include>
 </body>

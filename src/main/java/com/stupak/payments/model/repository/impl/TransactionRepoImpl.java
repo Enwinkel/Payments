@@ -17,6 +17,7 @@ public class TransactionRepoImpl implements ITransactionRepo {
   private static final String GET_BY_ACCOUNT_ID =
       "SELECT id, timestamp, account_id, amount, is_credit, description FROM transactions "
           + "WHERE account_id= ?";
+  private static final String GET_BY_PAGE = "SELECT * FROM transactions WHERE account_id=? LIMIT ? OFFSET ?";
   private static final String CREATE =
       "INSERT INTO transactions (timestamp, account_id, amount, is_credit, description) "
           + "VALUES(?, ?, ?, ?, ?)";
@@ -42,6 +43,10 @@ public class TransactionRepoImpl implements ITransactionRepo {
   public Transaction getById(long id) {
 
     return (Transaction) queryBuilder.executeAndReturn(instance, GET_BY_ID, id);
+  }
+  @Override
+  public List<Transaction> getByPage(int recordsPerPage, int currentPage, long id){
+    return queryBuilder.executeAndReturnList(instance, GET_BY_PAGE, id, recordsPerPage, currentPage);
   }
 
   @Override

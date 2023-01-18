@@ -27,8 +27,10 @@ public class AppContext {
   private final ITariffService tariffService = new TariffServiceImpl(tariffRepo);
   private final IServicesService servicesService = new ServicesServiceImpl(servicesRepo);
   private final ITransactionRepo transactionRepo = new TransactionRepoImpl();
+  private final ITransactionRowsRepo transactionRowsRepo = new TransactionRowsRepoImpl();
   private final ITransactionService transactionService = new TransactionServiceImpl(transactionRepo,
           accountService, userService);
+  private final ITransactionRowsService transactionRowService = new TransactionRowsServiceImpl(transactionRowsRepo);
   public IServicesService getServicesService() {
     return servicesService;
   }
@@ -49,5 +51,9 @@ public class AppContext {
   }
   public ITransactionService getTransactionService() {
     return transactionService;
+  }
+
+  public ITransactionRowsService getTransactionRowService() {
+    return transactionRowService;
   }
 }

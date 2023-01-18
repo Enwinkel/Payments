@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.jstl.core.Config;
 
-public class I18NCommand implements ICommand {
+public class LocalizationCommand implements ICommand {
   @Override
   public String execute(HttpServletRequest request, HttpServletResponse response) {
     HttpSession session = request.getSession();
