@@ -5,6 +5,7 @@ import com.stupak.payments.controller.command.admin.ProfileCommand;
 import com.stupak.payments.controller.command.admin.RequestCommand;
 import com.stupak.payments.controller.command.admin.ShowUserListCommand;
 import com.stupak.payments.controller.command.client.*;
+import com.stupak.payments.controller.command.common.I18NCommand;
 import com.stupak.payments.controller.command.common.LogoutCommand;
 import com.stupak.payments.controller.command.main.LoginCommand;
 
@@ -31,6 +32,7 @@ public class CommandFactory {
         //common
         commands.put("login", new LoginCommand());
         commands.put("logout", new LogoutCommand());
+        commands.put("i18n", new I18NCommand());
 
         //admin
         commands.put("users", new ShowUserListCommand());
