@@ -65,6 +65,9 @@ public class AccountServiceImpl implements IAccountService {
   }
 
   @Override
+  public List<Account> getAllByUserSorted(long id, String sorting) {return repo.getAllByUserSorted(id, sorting);}
+
+  @Override
   public Account getAccountByNumber(long number) {
     return repo.getAccountByNumber(number);
   }

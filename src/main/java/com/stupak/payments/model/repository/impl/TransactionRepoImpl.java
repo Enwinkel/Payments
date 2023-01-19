@@ -61,10 +61,10 @@ public class TransactionRepoImpl implements ITransactionRepo {
       case "old_to_new":
         query += ORDER_BY_DATE;
         break;
-      case "amount_increasing":
+      case "amount_ascending":
         query += ORDER_BY_AMOUNT;
         break;
-      case "amount_decreasing":
+      case "amount_descending":
         query += ORDER_BY_AMOUNT_DESC;
         break;
     }

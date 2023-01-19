@@ -13,4 +13,6 @@ public interface IAccountRepo extends IEntityRepo<Account> {
 
   Account getAccountByNumber(long number);
   public List<Account> getAllRequested();
+
+  List<Account> getAllByUserSorted(long id, String sorting);
 }

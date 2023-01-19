@@ -16,7 +16,10 @@ public interface IAccountService {
   void update(Account account);
 
   void remove(long id);
+
   List<Account> getAllByUser(long id);
+
+  List<Account> getAllByUserSorted(long id, String sorting);
 
   Account getAccountByNumber(long number);
 
@@ -27,5 +30,4 @@ public interface IAccountService {
   long getNumberContract();
 
   long getNextIdValue();
-
 }

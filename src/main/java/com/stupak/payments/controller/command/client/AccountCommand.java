@@ -18,16 +18,26 @@ public class AccountCommand implements ICommand {
   private final IUserService userService =  AppContext.getInstance().getUserService();
 
   @Override
-  public String execute(HttpServletRequest request, HttpServletResponse response){
-    HttpSession session = request.getSession();
+  public String execute(HttpServletRequest req, HttpServletResponse resp){
+    HttpSession session = req.getSession();
     String forward = Path.PAGE_ACCOUNT;
 
     User fullUser = (User) session.getAttribute("user");
-    userService.updateFullUserToSession(request, session, fullUser);
+    userService.updateFullUserToSession(req, session, fullUser);
+
+    String sorting = req.getParameter("account_sorting");
+
+    if (sorting == null) {
+      sorting = (String) session.getAttribute("account_sorting");
+      if (sorting == null) {
+        sorting = "number_ascending";
+      }
+    }
 
     IAccountService as = AppContext.getInstance().getAccountService();
-    List<Account> accounts = as.getAllByUser(fullUser.getId());
+    List<Account> accounts = as.getAllByUserSorted(fullUser.getId(), sorting);
     session.setAttribute("accounts", accounts);
+    session.setAttribute("account_sorting", sorting);
 
     return forward;
   }

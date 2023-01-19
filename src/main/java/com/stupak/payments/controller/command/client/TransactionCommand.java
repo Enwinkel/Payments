@@ -42,10 +42,10 @@ public class TransactionCommand implements ICommand {
       currentPage = (Integer)session.getAttribute("current_page");
     }
 
-    String sorting = req.getParameter("account_sorting");
+    String sorting = req.getParameter("transactions_sorting");
 
     if (sorting == null) {
-      sorting = (String) session.getAttribute("account_sorting");
+      sorting = (String) session.getAttribute("transactions_sorting");
       if (sorting == null) {
         sorting = "new_to_old";
       }
@@ -64,7 +64,7 @@ public class TransactionCommand implements ICommand {
 
     session.setAttribute("account_id", id);
     session.setAttribute("current_page", currentPage);
-    session.setAttribute("account_sorting", sorting);
+    session.setAttribute("transactions_sorting", sorting);
     req.setAttribute("transactions", transactions);
     req.setAttribute("account", account);
     req.setAttribute("no_of_pages", nOfPages);

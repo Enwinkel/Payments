@@ -30,6 +30,27 @@
             </div>
         </div>
     </div>
+    <div class="row d-md-flex justify-content-md-end">
+        <div class="d-grid">
+            <form action="controller?action=account" method="post">
+                <select class="form-select m-4" aria-label="Default select" name="account_sorting"
+                        onchange="this.form.submit()">
+                    <option value="number_ascending" ${sessionScope.account_sorting == 'number_ascending' ? 'selected' : ''}><fmt:message
+                            key="account.menu.private_office.select.number_ascending"/></option>
+                    <option value="number_descending" ${sessionScope.account_sorting == 'number_descending' ? 'selected' : ''}><fmt:message
+                            key="account.menu.private_office.select.number_descending"/></option>
+                    <option value="name_ascending" ${sessionScope.account_sorting == 'name_ascending' ? 'selected' : ''}><fmt:message
+                            key="account.menu.private_office.select.name_ascending"/></option>
+                    <option value="name_descending" ${sessionScope.account_sorting == 'name_descending' ? 'selected' : ''}><fmt:message
+                            key="account.menu.private_office.select.name_descending"/></option>
+                    <option value="amount_ascending" ${sessionScope.account_sorting == 'amount_ascending' ? 'selected' : ''}><fmt:message
+                            key="account.menu.private_office.select.amount_ascending"/></option>
+                    <option value="amount_descending" ${sessionScope.account_sorting == 'amount_descending' ? 'selected' : ''}><fmt:message
+                            key="account.menu.private_office.select.amount_descending"/></option>
+                </select>
+            </form>
+        </div>
+    </div>
     <div class="row">
         <div class="col">
             <table class="table table-hover mt-2">
