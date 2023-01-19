@@ -9,11 +9,11 @@ import com.stupak.payments.model.repository.IAccountRepo;
 import java.util.List;
 
 public class AccountRepoImpl implements IAccountRepo {
-    private static final String CREATE = "INSERT INTO accounts (id, number, balance, user_id, blocked, unblock_req) "
+    private static final String CREATE = "INSERT INTO accounts (id, number, account_name, balance, user_id, blocked, unblock_req) "
             + "VALUES (?, ?, ?, ?, ?, ?)";
     private static final String GET_ALL = "SELECT * FROM accounts";
     private static final String GET_BY_ID = "SELECT * FROM accounts WHERE id = ?";
-    private static final String UPDATE = "UPDATE accounts SET balance = ?, user_id = ?, " +
+    private static final String UPDATE = "UPDATE accounts SET balance = ?, account_name = ?, user_id = ?, " +
             "blocked = ?, unblock_req = ? WHERE id = ?";
     private static final String DELETE = "DELETE FROM accounts WHERE id = ?";
     private static final String GET_NEXT_AUTO_INCREMENT = "SELECT MAX(id)+1 FROM accounts";
@@ -53,7 +53,7 @@ public class AccountRepoImpl implements IAccountRepo {
 
     @Override
     public void update(Account account) {
-        this.queryBuilder.execute(instance, UPDATE, account.getBalance(), account.getUserId(),
+        this.queryBuilder.execute(instance, UPDATE, account.getBalance(), account.getAccountName(), account.getUserId(),
                 account.getBlocked(), account.isUnblockReq(), account.getId());
     }
 

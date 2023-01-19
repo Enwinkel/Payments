@@ -67,8 +67,10 @@ public class RegistrationCommand implements ICommand {
 
         newUser = userService.findByLogin(login);
 
-        createAccount(accountService, newUser.getId());
-        createAccount(accountService, newUser.getId());
+        int name_number = 1;
+        createAccount(accountService, newUser.getId(), name_number);
+        name_number++;
+        createAccount(accountService, newUser.getId(), name_number);
 
 
         HttpSession session = request.getSession();
@@ -85,10 +87,11 @@ public class RegistrationCommand implements ICommand {
         return forward;
     }
 
-    private void createAccount(IAccountService accountService, long id) {
+    private void createAccount(IAccountService accountService, long id, Integer name_number) {
         Account account = new Account();
         account.setId(accountService.getNextIdValue());
         account.setNumber(accountService.getNumberContract());
+        account.setAccountName("Account " + name_number);
         account.setBalance(BigDecimal.ZERO);
         account.setUserId(id);
         account.setBlocked(false);

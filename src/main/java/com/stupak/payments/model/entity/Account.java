@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 public class Account extends Entity {
   private static final long serialVersionUID = 1L;
   private long number;
+  private String accountName;
   private BigDecimal balance;
   private boolean blocked;
   private long userId;
@@ -23,6 +24,14 @@ public class Account extends Entity {
 
   public void setNumber(long number) {
     this.number = number;
+  }
+
+  public String getAccountName() {
+    return accountName;
+  }
+
+  public void setAccountName(String accountName) {
+    this.accountName = accountName;
   }
 
   public BigDecimal getBalance() {

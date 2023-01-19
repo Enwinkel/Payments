@@ -17,6 +17,7 @@ DROP TABLE IF EXISTS "accounts";
 CREATE TABLE "accounts" (
   "id" int4 NOT NULL,
   "number" int8 NOT NULL,
+  "account_name" varchar(45) COLLATE "pg_catalog"."default" NOT NULL,
   "balance" float8 NOT NULL,
   "blocked" bool,
   "user_id" int4 NOT NULL
@@ -27,11 +28,11 @@ CREATE TABLE "accounts" (
 -- Records of accounts
 -- ----------------------------
 BEGIN;
-INSERT INTO "accounts" VALUES (1, 1, 0, 'f', 1);
-INSERT INTO "accounts" VALUES (2, 15, -150, 'f', 2);
-INSERT INTO "accounts" VALUES (3, 2, 317.3, 'f', 2);
-INSERT INTO "accounts" VALUES (4, 4411113325465784, 1230, 'f', 3);
-INSERT INTO "accounts" VALUES (5, 4411113234568493, 7580, 'f', 3);
+INSERT INTO "accounts" VALUES (1, 4411113325465781, 'Account 1', 0, 'f', 1);
+INSERT INTO "accounts" VALUES (2, 4411113325465782, 'Account 1', 150, 'f', 2);
+INSERT INTO "accounts" VALUES (3, 4411113325465783, 'Account 2', 317.3, 'f', 2);
+INSERT INTO "accounts" VALUES (4, 4411113325465784, 'Account 1', 1230, 'f', 3);
+INSERT INTO "accounts" VALUES (5, 4411113234568493, 'Account 2', 7580, 'f', 3);
 COMMIT;
 
 -- ----------------------------
