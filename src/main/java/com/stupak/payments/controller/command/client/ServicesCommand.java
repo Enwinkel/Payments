@@ -31,8 +31,9 @@ public class ServicesCommand implements ICommand {
 
         List<Service> services = servicesService.findAll();
 
+        String sorting = "name_ascending";
         IAccountService as = AppContext.getInstance().getAccountService();
-        List<Account> accounts = as.getAllByUser(fullUser.getId());
+        List<Account> accounts = as.getAllByUserSorted(fullUser.getId(), sorting);
 
         session.setAttribute("accounts", accounts);
         req.setAttribute("services", services);

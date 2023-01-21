@@ -10,7 +10,7 @@ import java.util.List;
 
 public class AccountRepoImpl implements IAccountRepo {
     private static final String CREATE = "INSERT INTO accounts (id, number, account_name, balance, user_id, blocked, unblock_req) "
-            + "VALUES (?, ?, ?, ?, ?, ?)";
+            + "VALUES (?, ?, ?, ?, ?, ?, ?)";
     private static final String GET_ALL = "SELECT * FROM accounts";
     private static final String GET_BY_ID = "SELECT * FROM accounts WHERE id = ?";
     private static final String UPDATE = "UPDATE accounts SET balance = ?, account_name = ?, user_id = ?, " +
@@ -47,7 +47,7 @@ public class AccountRepoImpl implements IAccountRepo {
     @Override
     public void create(Account account) {
         long id = queryBuilder.getNextAutoIncrement(instance, GET_NEXT_AUTO_INCREMENT);
-        this.queryBuilder.execute(instance, CREATE, id, account.getNumber(), account.getBalance(), account.getUserId(),
+        this.queryBuilder.execute(instance, CREATE, id, account.getNumber(), account.getAccountName(), account.getBalance(), account.getUserId(),
                 account.getBlocked(), account.isUnblockReq());
     }
 

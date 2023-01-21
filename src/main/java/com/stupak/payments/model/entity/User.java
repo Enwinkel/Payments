@@ -61,6 +61,8 @@ public class User extends Entity {
         return blocked;
     }
 
+    public boolean getBlocked() { return blocked; }
+
     public void setBlocked(boolean blocked) {
         this.blocked = blocked;
     }

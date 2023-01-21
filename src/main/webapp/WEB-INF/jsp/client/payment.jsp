@@ -7,7 +7,7 @@
 <c:set var="title" value="Платіж готоввий" scope="page"/>
 <jsp:include page="/WEB-INF/templates/_head.jsp"></jsp:include>
 <body>
-<div class="px-4 py-5 my-5 text-center border-bottom">
+<div class="px-4 py-5 my-5 text-center">
     <h1 class="display-5 fw-bold"><fmt:message
             key="account.menu.private_office.modal.prepared"/></h1>
     <div class="col-lg-6 mx-auto">
@@ -25,10 +25,6 @@
             </form>
         </div>
     </div>
-</div>
-<div class="px-4 pt-5 my-5 text-center">
-    <h1 class="display-6 fw-bold text-success"><fmt:message
-            key="account.menu.private_office.modal.success"/></h1>
 </div>
 </body>
 </html>

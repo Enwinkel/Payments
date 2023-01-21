@@ -49,51 +49,62 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <div class="col-sm-10">
-                                    <label for="recipient-name" class="col-form-label">
-                                        <fmt:message
-                                                key="account.menu.private_office.modal.my_card"/>
-                                    </label>
-                                </div>
-                                <div class="col-sm-10">
-                                    <select class="form-select" aria-label="Default select example" name="account_number">
-                                        <c:forEach var="account" items="${accounts}">
-                                            <option value="${account.number}">${account.number} ${account.balance} <fmt:message
-                                                    key="account.menu.private_office.hrn"/></option>
-                                        </c:forEach>
-                                    </select>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="row">
-                                        <div class="col-sm-10">
-                                            <label for="cc-number">
-                                                <fmt:message
-                                                    key="account.menu.private_office.modal.recipients_card"/>
-                                            </label>
-                                            <input type="text" class="form-control" id="cc-number" placeholder=""
-                                                   required>
-                                            <div class="invalid-feedback">
-                                                Credit card number is required
+                                <c:if test="${!user.blocked}">
+                                    <div class="col-sm-10">
+                                        <label for="recipient-name" class="col-form-label">
+                                            <fmt:message
+                                                    key="account.menu.private_office.modal.my_card"/>
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <select class="form-select" aria-label="Default select example"
+                                                name="account_number">
+                                            <c:forEach var="account" items="${accounts}">
+                                                <c:if test="${!account.blocked}">
+                                                    <option value="${account.number}">${account.accountName}, ${account.balance}
+                                                        <fmt:message
+                                                                key="account.menu.private_office.hrn"/>
+                                                    </option>
+                                                </c:if>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-sm-10">
+                                                <label for="cc-number">
+                                                    <fmt:message
+                                                            key="account.menu.private_office.modal.recipients_card"/>
+                                                </label>
+                                                <input type="text" class="form-control" id="cc-number" placeholder=""
+                                                       required>
+                                                <div class="invalid-feedback">
+                                                    Credit card number is required
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-10">
-                                            <label for="recipient-name" class="col-form-label">
-                                                <fmt:message
-                                                        key="account.menu.private_office.modal.amount"/>
-                                            </label>
-                                            <input type="number" min="0" minlength="1"
-                                                   class="form-control"
-                                                   name="amount"
-                                                   id="recipient-name" required>
-                                            <input type="hidden" name="index" value="0">
+                                        <div class="row">
+                                            <div class="col-sm-10">
+                                                <label for="recipient-name" class="col-form-label">
+                                                    <fmt:message
+                                                            key="account.menu.private_office.modal.amount"/>
+                                                </label>
+                                                <input type="number" min="0" minlength="1"
+                                                       class="form-control"
+                                                       name="amount"
+                                                       id="recipient-name" required>
+                                                <input type="hidden" name="index" value="0">
+                                            </div>
                                         </div>
+                                        <hr class="mb-4">
+                                        <button class="btn btn-dark btn-lg btn-block" type="submit"><fmt:message
+                                                key="account.menu.private_office.modal.send"/></button>
                                     </div>
-                                    <hr class="mb-4">
-                                    <button class="btn btn-dark btn-lg btn-block" type="submit"><fmt:message
-                                            key="account.menu.private_office.modal.send"/></button>
-                                </div>
+                                </c:if>
+                                <c:if test="${user.blocked}">
+                                    <h2 style="color:red; text-align:center; margin:20px"><fmt:message
+                                            key="account.menu.private_office.modal.blocked"/></h2>
+                                </c:if>
                             </form>
                         </div>
                     </div>
@@ -112,51 +123,62 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <div class="col-sm-10">
-                                    <label for="recipient-name" class="col-form-label">
-                                        <fmt:message
-                                                key="account.menu.private_office.modal.my_card"/>
-                                    </label>
-                                </div>
-                                <div class="col-sm-10">
-                                    <select class="form-select" aria-label="Default select example" name="account_number">
-                                        <c:forEach var="account" items="${accounts}">
-                                            <option value="${account.number}">${account.number} ${account.balance} <fmt:message
-                                                    key="account.menu.private_office.hrn"/></option>
-                                        </c:forEach>
-                                    </select>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="row">
-                                        <div class="col-sm-10">
-                                            <label for="cc-number">
-                                                <fmt:message
-                                                        key="account.menu.private_office.modal.number"/>
-                                            </label>
-                                            <input type="text" class="form-control" id="phone-number" placeholder=""
-                                                   required>
-                                            <div class="invalid-feedback">
-                                                Phone number is required
+                                <c:if test="${!user.blocked}">
+                                    <div class="col-sm-10">
+                                        <label for="recipient-name" class="col-form-label">
+                                            <fmt:message
+                                                    key="account.menu.private_office.modal.my_card"/>
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <select class="form-select" aria-label="Default select example"
+                                                name="account_number">
+                                            <c:forEach var="account" items="${accounts}">
+                                                <c:if test="${!account.blocked}">
+                                                    <option value="${account.number}">${account.accountName}, ${account.balance}
+                                                        <fmt:message
+                                                                key="account.menu.private_office.hrn"/>
+                                                    </option>
+                                                </c:if>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-sm-10">
+                                                <label for="cc-number">
+                                                    <fmt:message
+                                                            key="account.menu.private_office.modal.number"/>
+                                                </label>
+                                                <input type="text" class="form-control" id="phone-number" placeholder=""
+                                                       required>
+                                                <div class="invalid-feedback">
+                                                    Phone number is required
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-10">
-                                            <label for="recipient-name" class="col-form-label">
-                                                <fmt:message
-                                                        key="account.menu.private_office.modal.amount"/>
-                                            </label>
-                                            <input type="number" min="0" minlength="1"
-                                                   class="form-control"
-                                                   name="amount"
-                                                   id="recipient-name2" required>
-                                            <input type="hidden" name="index" value="1">
+                                        <div class="row">
+                                            <div class="col-sm-10">
+                                                <label for="recipient-name" class="col-form-label">
+                                                    <fmt:message
+                                                            key="account.menu.private_office.modal.amount"/>
+                                                </label>
+                                                <input type="number" min="0" minlength="1"
+                                                       class="form-control"
+                                                       name="amount"
+                                                       id="recipient-name2" required>
+                                                <input type="hidden" name="index" value="1">
+                                            </div>
                                         </div>
+                                        <hr class="mb-4">
+                                        <button class="btn btn-dark btn-lg btn-block" type="submit"><fmt:message
+                                                key="account.menu.private_office.modal.top_up"/></button>
                                     </div>
-                                    <hr class="mb-4">
-                                    <button class="btn btn-dark btn-lg btn-block" type="submit"><fmt:message
-                                            key="account.menu.private_office.modal.top_up"/></button>
-                                </div>
+                                </c:if>
+                                <c:if test="${user.blocked}">
+                                    <h2 style="color:red; text-align:center; margin:20px"><fmt:message
+                                            key="account.menu.private_office.modal.blocked"/></h2>
+                                </c:if>
                             </form>
                         </div>
                     </div>
@@ -175,51 +197,63 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <div class="col-sm-10">
-                                    <label for="recipient-name" class="col-form-label">
-                                        <fmt:message
-                                                key="account.menu.private_office.modal.my_card"/>
-                                    </label>
-                                </div>
-                                <div class="col-sm-10">
-                                    <select class="form-select" aria-label="Default select example" name="account_number">
-                                        <c:forEach var="account" items="${accounts}">
-                                            <option value="${account.number}">${account.number} ${account.balance} <fmt:message
-                                                    key="account.menu.private_office.hrn"/></option>
-                                        </c:forEach>
-                                    </select>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="row">
-                                        <div class="col-sm-10">
-                                            <label for="cc-number">
-                                                <fmt:message
-                                                        key="account.menu.private_office.modal.internet_number"/>
-                                            </label>
-                                            <input type="text" class="form-control" id="internet-number" placeholder=""
-                                                   required>
-                                            <div class="invalid-feedback">
-                                                Account number is required
+                                <c:if test="${!user.blocked}">
+                                    <div class="col-sm-10">
+                                        <label for="recipient-name" class="col-form-label">
+                                            <fmt:message
+                                                    key="account.menu.private_office.modal.my_card"/>
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <select class="form-select" aria-label="Default select example"
+                                                name="account_number">
+                                            <c:forEach var="account" items="${accounts}">
+                                                <c:if test="${!account.blocked}">
+                                                    <option value="${account.number}">${account.accountName}, ${account.balance}
+                                                        <fmt:message
+                                                                key="account.menu.private_office.hrn"/>
+                                                    </option>
+                                                </c:if>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-sm-10">
+                                                <label for="cc-number">
+                                                    <fmt:message
+                                                            key="account.menu.private_office.modal.internet_number"/>
+                                                </label>
+                                                <input type="text" class="form-control" id="internet-number"
+                                                       placeholder=""
+                                                       required>
+                                                <div class="invalid-feedback">
+                                                    Account number is required
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-10">
-                                            <label for="recipient-name" class="col-form-label">
-                                                <fmt:message
-                                                        key="account.menu.private_office.modal.amount"/>
-                                            </label>
-                                            <input type="number" min="0" minlength="1"
-                                                   class="form-control"
-                                                   name="amount"
-                                                   id="recipient-name3" required>
-                                            <input type="hidden" name="index" value="2">
+                                        <div class="row">
+                                            <div class="col-sm-10">
+                                                <label for="recipient-name" class="col-form-label">
+                                                    <fmt:message
+                                                            key="account.menu.private_office.modal.amount"/>
+                                                </label>
+                                                <input type="number" min="0" minlength="1"
+                                                       class="form-control"
+                                                       name="amount"
+                                                       id="recipient-name3" required>
+                                                <input type="hidden" name="index" value="2">
+                                            </div>
                                         </div>
+                                        <hr class="mb-4">
+                                        <button class="btn btn-dark btn-lg btn-block" type="submit"><fmt:message
+                                                key="account.menu.private_office.modal.pay"/></button>
                                     </div>
-                                    <hr class="mb-4">
-                                    <button class="btn btn-dark btn-lg btn-block" type="submit"><fmt:message
-                                            key="account.menu.private_office.modal.pay"/></button>
-                                </div>
+                                </c:if>
+                                <c:if test="${user.blocked}">
+                                    <h2 style="color:red; text-align:center; margin:20px"><fmt:message
+                                            key="account.menu.private_office.modal.blocked"/></h2>
+                                </c:if>
                             </form>
                         </div>
                     </div>

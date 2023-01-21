@@ -17,9 +17,9 @@ public class LocalizationCommand implements ICommand {
     String fmtLocale = "javax.servlet.jsp.jstl.fmt.locale";
     String defaultLocale = "defaultLocale";
 
-    if (request.getParameter("ru") != null) {
-      Config.set(session, fmtLocale, Path.LOCALE_NAME_RU);
-      session.setAttribute(defaultLocale, "ru");
+    if (request.getParameter("ua") != null) {
+      Config.set(session, fmtLocale, Path.LOCALE_NAME_UA);
+      session.setAttribute(defaultLocale, "ua");
 
     } else {
       Config.set(session, fmtLocale, "en");

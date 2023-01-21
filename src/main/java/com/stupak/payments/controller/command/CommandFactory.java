@@ -33,10 +33,13 @@ public class CommandFactory {
         commands.put("login", new LoginCommand());
         commands.put("logout", new LogoutCommand());
         commands.put("localization", new LocalizationCommand());
+        commands.put("registration", new RegistrationCommand());
 
         //admin
         commands.put("users", new ShowUserListCommand());
         commands.put("profile", new ProfileCommand());
+        commands.put("requests", new RequestCommand());
+        commands.put("block_user", new BlockUserCommand());
 
         // client commands
         commands.put("account", new AccountCommand());
@@ -45,9 +48,6 @@ public class CommandFactory {
         commands.put("payment", new PaymentCommand());
         commands.put("top_up", new TopUpCommand());
         commands.put("block_account", new BlockAccountCommand());
-        commands.put("block_user", new BlockUserCommand());
-        commands.put("requests", new RequestCommand());
-        commands.put("registration", new RegistrationCommand());
     }
 
     public ICommand getCommand(HttpServletRequest request) {

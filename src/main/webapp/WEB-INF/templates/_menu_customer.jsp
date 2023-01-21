@@ -12,9 +12,6 @@
             <li class="nav-item">
                 <a class="nav-link" href="controller?action=services"><fmt:message key="mainmenu.button.services"/></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="controller?action=about_us"><fmt:message key="mainmenu.button.profile"/></a>
-            </li>
         </ul>
         <div class="dropdown">
             <button class="btn btn-outline-secondary btn-sm" type="button" id="dropdownMenuButton"
@@ -25,7 +22,7 @@
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <form class="form-inline" method="post" action="controller?action=localization">
-                    <button type="submit" name="ru" class="dropdown-item">Russian</button>
+                    <button type="submit" name="ua" class="dropdown-item">Ukrainian</button>
                     <button type="submit" name="en" class="dropdown-item">English</button>
                 </form>
             </div>

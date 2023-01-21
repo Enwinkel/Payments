@@ -56,8 +56,8 @@
             <table class="table table-hover mt-2">
                 <thead>
                 <tr>
-                    <th scope="col"><fmt:message key="table.th.account"/></th>
                     <th scope="col"><fmt:message key="table.th.account_name"/></th>
+                    <th scope="col"><fmt:message key="table.th.account"/></th>
                     <th scope="col"><fmt:message key="table.th.balance"/></th>
                     <th scope="col"><fmt:message key="table.th.status"/></th>
                     <th scope="col"></th>
@@ -66,8 +66,8 @@
                 <tbody>
                 <c:forEach var="account" items="${accounts}">
                     <tr>
-                        <td>${account.number}</td>
                         <td>${account.accountName}</td>
+                        <td>${account.number}</td>
                         <td>${account.balance} <fmt:message key="account.menu.private_office.hrn"/></td>
                         <td><tags:isblocked value="${account.blocked}"/></td>
                         <td>
