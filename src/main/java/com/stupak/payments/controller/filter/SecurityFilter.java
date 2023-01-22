@@ -40,26 +40,26 @@ public class SecurityFilter implements Filter {
   }
 
   @Override
-  public void doFilter(ServletRequest request, ServletResponse response,
+  public void doFilter(ServletRequest req, ServletResponse resp,
                        FilterChain chain) throws IOException, ServletException {
     log.debug("Filter starts");
-    if (accessAllowed(request)) {
+    if (accessAllowed(req)) {
       log.debug("Filter finished");
-      chain.doFilter(request, response);
+      chain.doFilter(req, resp);
     } else {
       String errorMessages = "You do not have permission to access the requested resource";
-      request.setAttribute("errorMessage", errorMessages);
+      req.setAttribute("errorMessage", errorMessages);
 
       log.trace("Set the request attribute: errorMessage --> " + errorMessages);
 
-      request.getRequestDispatcher(Path.PAGE_ERROR_PAGE).forward(request, response);
+      req.getRequestDispatcher(Path.PAGE_ERROR_PAGE).forward(req, resp);
     }
   }
 
-  private boolean accessAllowed(ServletRequest request) {
-    HttpServletRequest httpRequest = (HttpServletRequest) request;
+  private boolean accessAllowed(ServletRequest req) {
+    HttpServletRequest httpRequest = (HttpServletRequest) req;
 
-    String commandName = request.getParameter("action");
+    String commandName = req.getParameter("action");
     if (commandName == null || commandName.isEmpty()) {
       return false;
     }

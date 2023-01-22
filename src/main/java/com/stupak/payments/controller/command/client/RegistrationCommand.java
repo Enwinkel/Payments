@@ -5,6 +5,7 @@ import com.stupak.payments.controller.Path;
 import com.stupak.payments.controller.command.ICommand;
 import com.stupak.payments.model.entity.Account;
 import com.stupak.payments.model.entity.ContactDetails;
+import com.stupak.payments.model.entity.Role;
 import com.stupak.payments.model.entity.User;
 import com.stupak.payments.model.service.IAccountService;
 import com.stupak.payments.model.service.IContactDetailsService;
@@ -20,25 +21,38 @@ import java.math.BigDecimal;
 public class RegistrationCommand implements ICommand {
 
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) {
+    public String execute(HttpServletRequest req, HttpServletResponse resp) {
+        HttpSession session = req.getSession();
 
-        if(request.getParameter("firstName") == null){
+        if(session.getAttribute("firstName") == null){
             String forward = Path.PAGE_REGISTRATION;
             return forward;
         }
 
-        String firstName = request.getParameter("firstName").trim();
-        String lastName = request.getParameter("lastName").trim();
-        String surname = request.getParameter("surname").trim();
-        String login = request.getParameter("login").trim();
-        String password = request.getParameter("password").trim();
+        String firstName = session.getAttribute("firstName").toString().trim();
+        String lastName = session.getAttribute("lastName").toString().trim();
+        String surname = session.getAttribute("surname").toString().trim();
+        String login = session.getAttribute("login").toString().trim();
+        String password = session.getAttribute("password").toString().trim();
 
-        String city = request.getParameter("city").trim();
-        String street = request.getParameter("street").trim();
-        String home = request.getParameter("home").trim();
-        String apartment = request.getParameter("apartment").trim();
-        String email = request.getParameter("email").trim();
-        String phone = request.getParameter("phone").trim();
+        String city = session.getAttribute("city").toString().trim();
+        String street = session.getAttribute("street").toString().trim();
+        String home = session.getAttribute("home").toString().trim();
+        String apartment = session.getAttribute("apartment").toString().trim();
+        String email = session.getAttribute("email").toString().trim();
+        String phone = session.getAttribute("phone").toString().trim();
+
+        session.removeAttribute("firstName");
+        session.removeAttribute("lastName");
+        session.removeAttribute("surname");
+        session.removeAttribute("login");
+        session.removeAttribute("password");
+        session.removeAttribute("city");
+        session.removeAttribute("street");
+        session.removeAttribute("home");
+        session.removeAttribute("apartment");
+        session.removeAttribute("email");
+        session.removeAttribute("phone");
 
         IUserService userService = AppContext.getInstance().getUserService();
         IContactDetailsService detailsService = AppContext.getInstance().getDetailsService();
@@ -72,13 +86,12 @@ public class RegistrationCommand implements ICommand {
         name_number++;
         createAccount(accountService, newUser.getId(), name_number);
 
-
-        HttpSession session = request.getSession();
         session.setAttribute("user", newUser);
+        session.setAttribute("userRole", Role.getRole(newUser));
 
         String forward = Path.COMMAND_ACCOUNT;
         try {
-            response.sendRedirect(forward);
+            resp.sendRedirect(forward);
             forward = Path.COMMAND_REDIRECT;
         } catch (
                 IOException e) {
