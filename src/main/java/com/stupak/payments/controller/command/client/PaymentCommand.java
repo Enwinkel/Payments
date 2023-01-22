@@ -37,16 +37,15 @@ public class PaymentCommand implements ICommand {
         userService.updateFullUserToSession(req, session, fullUser);
         List<Service> services = servicesService.findAll();
 
-        if("done".equals(req.getParameter("done"))) {
+        Object done = session.getAttribute("done");
+        session.removeAttribute("done");
+        if(done != null) {
             forward = doPayment(req, resp);
             return forward;
         }
 
-        Service service = services.get(Integer.parseInt(req.getParameter("index")));
+        Service service = services.get(Integer.parseInt(session.getAttribute("index").toString()));
         req.setAttribute("service_name", service.getName());
-
-        session.setAttribute("account_number", req.getParameter("account_number"));
-        session.setAttribute("amount", req.getParameter("amount"));
 
         return forward;
     }
@@ -54,11 +53,11 @@ public class PaymentCommand implements ICommand {
     private String doPayment(HttpServletRequest req, HttpServletResponse resp) {
         String forward = Path.COMMAND_SERVICES;
         HttpSession session = req.getSession();
-        long account_number = Long.parseLong((String)session.getAttribute("account_number"));
+        long account_number = Long.parseLong(session.getAttribute("account_number").toString());
 
         Account account = accountService.getAccountByNumber(account_number);
 
-        BigDecimal amount = BigDecimal.valueOf(Long.parseLong((String)session.getAttribute("amount")));
+        BigDecimal amount = BigDecimal.valueOf(Long.parseLong(session.getAttribute("amount").toString()));
         transactionService.doPayment(account, amount);
 
         try {

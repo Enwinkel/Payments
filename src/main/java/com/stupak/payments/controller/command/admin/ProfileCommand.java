@@ -19,24 +19,17 @@ import java.util.List;
 
 public class ProfileCommand implements ICommand {
   @Override
-  public String execute(HttpServletRequest request, HttpServletResponse response) {
-    HttpSession session = request.getSession();
-    ServletContext servletContext = request.getServletContext();
+  public String execute(HttpServletRequest req, HttpServletResponse resp) {
+    HttpSession session = req.getSession();
 
     if (session.getAttribute("newUser") != null) {
       User newUser = (User) session.getAttribute("newUser");
-      request.setAttribute("fullUser", newUser);
-    }
-
-    if (request.getParameter("user_id") != null) {
-      long id = Long.parseLong(request.getParameter("user_id"));
-      session.setAttribute("user_id", id);
-      show(request, id);
+      req.setAttribute("fullUser", newUser);
     }
 
     if (session.getAttribute("user_id") != null) {
-      Long id = (Long) session.getAttribute("user_id");
-      show(request, id);
+      long id = Long.parseLong(session.getAttribute("user_id").toString());
+      show(req, id);
     }
 
     return Path.PAGE_PROFILE;

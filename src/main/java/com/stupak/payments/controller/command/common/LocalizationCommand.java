@@ -11,20 +11,20 @@ import javax.servlet.jsp.jstl.core.Config;
 
 public class LocalizationCommand implements ICommand {
   @Override
-  public String execute(HttpServletRequest request, HttpServletResponse response) {
-    HttpSession session = request.getSession();
+  public String execute(HttpServletRequest req, HttpServletResponse resp) {
+    HttpSession session = req.getSession();
 
     String fmtLocale = "javax.servlet.jsp.jstl.fmt.locale";
     String defaultLocale = "defaultLocale";
 
-    if (request.getParameter("ua") != null) {
+    if (session.getAttribute("ua") != null) {
       Config.set(session, fmtLocale, Path.LOCALE_NAME_UA);
       session.setAttribute(defaultLocale, "ua");
-
     } else {
       Config.set(session, fmtLocale, "en");
       session.setAttribute(defaultLocale, Path.LOCALE_NAME_EN);
     }
+    session.removeAttribute("ua");
 
     User user = (User) session.getAttribute("user");
     return (user.getRoleId() == 1) ? "controller?action=users" : "controller?action=account";

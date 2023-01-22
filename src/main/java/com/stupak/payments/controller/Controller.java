@@ -51,7 +51,6 @@ public class Controller extends HttpServlet {
             throws ServletException, IOException {
         CommandFactory commandFactory = CommandFactory.commandFactory();
         ICommand ic = commandFactory.getCommand(req);
-        String page = ic.execute(req, resp);
-        return page;
+        return ic.execute(req, resp);
     }
 }

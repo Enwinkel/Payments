@@ -21,13 +21,9 @@ public class BlockAccountCommand implements ICommand {
         long id;
         String account_id;
 
-        account_id = req.getParameter("account_id");
+        account_id = session.getAttribute("account_id").toString();
+        id = Long.parseLong(account_id);
 
-        if(account_id != null && !"".equals(account_id)) {
-            id = Long.parseLong(account_id);
-        } else{
-            id = (Long)session.getAttribute("account_id");
-        }
 
         String forward;
 
@@ -45,7 +41,8 @@ public class BlockAccountCommand implements ICommand {
     }
 
     private String blockAccount(HttpServletRequest req, HttpServletResponse resp, IAccountService accountService, Account account) {
-        String admin = req.getParameter("admin");
+        HttpSession session = req.getSession();
+        Object admin = session.getAttribute("admin");
         String forward = Path.COMMAND_TRANSACTIONS;
 
         if("profile".equals(admin)){

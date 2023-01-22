@@ -34,7 +34,7 @@ public class TopUpCommand implements ICommand {
         User fullUser = (User) session.getAttribute("user");
         userService.updateFullUserToSession(req, session, fullUser);
 
-        if (req.getParameter("amount") != null) {
+        if (session.getAttribute("amount") != null) {
             forward = topUp(req, resp);
             return forward;
         }
@@ -43,13 +43,14 @@ public class TopUpCommand implements ICommand {
     }
 
     private String topUp(HttpServletRequest req, HttpServletResponse resp) {
+        HttpSession session = req.getSession();
         String forward = Path.COMMAND_TRANSACTIONS;
         forward = forward + "&currentPage=1";
-        long id = Long.parseLong(req.getParameter("account_id"));
+        long id = Long.parseLong(session.getAttribute("account_id").toString());
 
         Account account = accountService.getAccountById(id);
 
-        BigDecimal amount = BigDecimal.valueOf(Long.parseLong(req.getParameter("amount")));
+        BigDecimal amount = BigDecimal.valueOf(Long.parseLong(session.getAttribute("amount").toString()));
         transactionService.topUp(account, amount);
 
         try {
