@@ -1,3 +1,4 @@
+<%@ taglib prefix="ctg" uri="http://tomcat.apache.org/example-taglib" %>
 <%@ include file="/WEB-INF/jspf/directive/taglib.jspf" %>
 <%@ include file="/WEB-INF/jspf/directive/page.jspf" %>
 
@@ -12,6 +13,9 @@
 <div class="tab-pane fade show active" id="v-pills-users" role="tabpanel"
      aria-labelledby="v-pills-users-tab">
     <div class="tab-content" id="usersTabContent">
+        <div class="row">
+            <a><ctg:hello role="${(user.roleId == 1) ? 'admin' : 'user'}"/></a>
+        </div>
         <%-- Список абонентів --%>
         <div class="tab-pane fade show active" id="users" role="tabpanel"
              aria-labelledby="internet-tab">

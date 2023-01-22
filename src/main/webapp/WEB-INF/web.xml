@@ -80,11 +80,11 @@
     </init-param>
     <init-param>
       <param-name>common</param-name>
-      <param-value>block_account logout</param-value>
+      <param-value>block_account</param-value>
     </init-param>
     <init-param>
       <param-name>out-of-control</param-name>
-      <param-value>login localization registration</param-value>
+      <param-value>login logout localization registration</param-value>
     </init-param>
   </filter>
 

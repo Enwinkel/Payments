@@ -2,6 +2,7 @@
 <%@ include file="/WEB-INF/jspf/directive/taglib.jspf" %>
 
 <%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="ctg" uri="http://tomcat.apache.org/example-taglib" %>
 <!doctype html>
 <html>
 <c:set var="title" value="Гаманець" scope="page"/>
@@ -12,6 +13,9 @@
 <div class="container">
     <div class="row">
         <div class="col">
+            <div class="row">
+                <a><ctg:hello role="${(user.roleId == 1) ? 'admin' : 'user'}"/></a>
+            </div>
             <div class="row">
                 <label for="fullName" class="col-3 col-form-label"><fmt:message
                         key="account.menu.private_office.label.full_name"/></label>
