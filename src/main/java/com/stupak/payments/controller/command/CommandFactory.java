@@ -50,8 +50,8 @@ public class CommandFactory {
         commands.put("block_account", new BlockAccountCommand());
     }
 
-    public ICommand getCommand(HttpServletRequest request) {
-        String action = request.getParameter("action");
+    public ICommand getCommand(HttpServletRequest req) {
+        String action = req.getParameter("action");
         return commands.get(action);
     }
 }

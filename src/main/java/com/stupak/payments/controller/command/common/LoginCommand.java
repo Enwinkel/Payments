@@ -11,6 +11,7 @@ import org.mindrot.jbcrypt.BCrypt;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 
 public class LoginCommand implements ICommand {
 
@@ -18,11 +19,14 @@ public class LoginCommand implements ICommand {
 
 
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) {
-        HttpSession session = request.getSession();
+    public String execute(HttpServletRequest req, HttpServletResponse resp) {
+        HttpSession session = req.getSession();
 
-        String login = request.getParameter("login");
-        String password = request.getParameter("password");
+        String login = (String)session.getAttribute("login");
+        session.removeAttribute("login");
+
+        String password = (String)session.getAttribute("password");
+        session.removeAttribute("password");
 
         // error handler
         String errorMessage;
@@ -30,14 +34,14 @@ public class LoginCommand implements ICommand {
 
         if (login == null || password == null || login.isEmpty() || password.isEmpty()) {
             errorMessage = "Login or password can't be empty";
-            request.setAttribute("errorMessage", errorMessage);
+            req.setAttribute("errorMessage", errorMessage);
             return forward;
         }
 
         User user = service.findByLogin(login);
         if (user.getLogin() == null || !BCrypt.checkpw(password, user.getPassword())) {
             errorMessage = "Cannot find user with such login or password";
-            request.setAttribute("errorMessage", errorMessage);
+            req.setAttribute("errorMessage", errorMessage);
             return forward;
         } else {
             Role userRole = Role.getRole(user);

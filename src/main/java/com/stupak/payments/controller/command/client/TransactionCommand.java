@@ -65,11 +65,11 @@ public class TransactionCommand implements ICommand {
     session.setAttribute("account_id", id);
     session.setAttribute("current_page", currentPage);
     session.setAttribute("transactions_sorting", sorting);
-    req.setAttribute("transactions", transactions);
-    req.setAttribute("account", account);
-    req.setAttribute("no_of_pages", nOfPages);
-    req.setAttribute("current_page", currentPage);
-    req.setAttribute("records_per_page", recordsPerPage);
+    session.setAttribute("transactions", transactions);
+    session.setAttribute("account", account);
+    session.setAttribute("no_of_pages", nOfPages);
+    session.setAttribute("current_page", currentPage);
+    session.setAttribute("records_per_page", recordsPerPage);
 
 
     return forward;
