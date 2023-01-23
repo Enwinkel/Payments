@@ -30,26 +30,26 @@ public class RegistrationCommand implements ICommand {
         }
 
         String firstName = session.getAttribute("firstName").toString().trim();
-        String lastName = session.getAttribute("lastName").toString().trim();
-        String surname = session.getAttribute("surname").toString().trim();
+        String lastName = session.getAttribute("middleName").toString().trim();
+        String surname = session.getAttribute("lastName").toString().trim();
         String login = session.getAttribute("login").toString().trim();
         String password = session.getAttribute("password").toString().trim();
 
         String city = session.getAttribute("city").toString().trim();
         String street = session.getAttribute("street").toString().trim();
-        String home = session.getAttribute("home").toString().trim();
+        String home = session.getAttribute("house").toString().trim();
         String apartment = session.getAttribute("apartment").toString().trim();
         String email = session.getAttribute("email").toString().trim();
         String phone = session.getAttribute("phone").toString().trim();
 
         session.removeAttribute("firstName");
-        session.removeAttribute("lastName");
+        session.removeAttribute("middleName");
         session.removeAttribute("surname");
         session.removeAttribute("login");
         session.removeAttribute("password");
         session.removeAttribute("city");
         session.removeAttribute("street");
-        session.removeAttribute("home");
+        session.removeAttribute("house");
         session.removeAttribute("apartment");
         session.removeAttribute("email");
         session.removeAttribute("phone");

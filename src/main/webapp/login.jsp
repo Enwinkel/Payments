@@ -20,7 +20,7 @@
 <form class="form-signin" method="post" action="controller?action=login">
     <h1 class="h3 mb-3 font-weight-normal">Payments</h1>
     <label for="login" class="sr-only"><fmt:message key="login.label.login"/> </label>
-    <input type="text" id="login" name="login" class="form-control" placeholder=<fmt:message key="login.placeholder.login"/> required autofocus>
+    <input type="text" id="login" name="login" class="form-control mb-2" placeholder=<fmt:message key="login.placeholder.login"/> required autofocus>
     <label for="password" class="sr-only"><fmt:message key="login.label.password"/></label>
     <input type="password" id="password" name="password" class="form-control" placeholder="<fmt:message key="login.placeholder.password"/>" required>
     <div class="checkbox mb-3">

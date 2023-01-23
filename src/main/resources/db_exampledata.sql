@@ -211,9 +211,9 @@ ALTER TABLE "users" ADD CONSTRAINT "users_pkey" PRIMARY KEY ("id");
 -- ----------------------------
 -- Foreign Keys structure for table accounts
 -- ----------------------------
-ALTER TABLE "accounts" ADD CONSTRAINT "user_id_fk" FOREIGN KEY ("user_id") REFERENCES "users" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE "accounts" ADD CONSTRAINT "user_id_fk" FOREIGN KEY ("user_id") REFERENCES "users" ("id") ON DELETE CASCADE ON UPDATE NO ACTION;
 
 -- ----------------------------
 -- Foreign Keys structure for table transactions
 -- ----------------------------
-ALTER TABLE "transactions" ADD CONSTRAINT "account_id_fk" FOREIGN KEY ("account_id") REFERENCES "accounts" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE "transactions" ADD CONSTRAINT "account_id_fk" FOREIGN KEY ("account_id") REFERENCES "accounts" ("id") ON DELETE CASCADE ON UPDATE NO ACTION;
