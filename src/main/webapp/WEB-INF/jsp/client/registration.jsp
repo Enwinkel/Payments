@@ -20,6 +20,20 @@
             crossorigin="anonymous"></script>
     <script script type="text/javascript"
             src="${pageContext.request.contextPath}/resources/js/registrationValidation.js"></script>
+    <script>
+        var lastNameErrorMessage = '<fmt:message key="registration.validation.last_name"/>';
+        var firstNameErrorMessage = '<fmt:message key="registration.validation.first_name"/>';
+        var middleNameErrorMessage = '<fmt:message key="registration.validation.middle_name"/>';
+        var cityErrorMessage = '<fmt:message key="registration.validation.city"/>';
+        var streetErrorMessage = '<fmt:message key="registration.validation.street"/>';
+        var houseErrorMessage = '<fmt:message key="registration.validation.house"/>';
+        var apartmentErrorMessage = '<fmt:message key="registration.validation.apartment"/>';
+        var loginErrorMessage = '<fmt:message key="registration.validation.login"/>';
+        var emailErrorMessage = '<fmt:message key="registration.validation.email"/>';
+        var phoneErrorMessage = '<fmt:message key="registration.validation.phone"/>';
+        var passwordErrorMessage = '<fmt:message key="registration.validation.password"/>';
+    </script>
+
 </head>
 <body>
 <div class="fixed-top gap-2 m-4 d-md-flex justify-content-md-end">

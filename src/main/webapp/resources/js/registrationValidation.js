@@ -4,54 +4,54 @@ function validateForm() {
         {
             name: "lastName",
             regex: /^([A-Za-z][A-Za-z\-\']{1,50})|([А-ЯЁIЇҐЄа-яёіїґє][А-ЯЁIЇҐЄа-яёіїґє\-\']{2,30})$/,
-            errorMessage: "Last name must be between 2 and 30 characters and can only contain letters and spaces"
+            errorMessage: lastNameErrorMessage
         },
         {
             name: "firstName",
             regex: /^([A-Za-z][A-Za-z\-\']{1,50})|([А-ЯЁIЇҐЄа-яёіїґє][А-ЯЁIЇҐЄа-яёіїґє\-\']{2,30})$/,
-            errorMessage: "Name must be between 2 and 30 characters and can only contain letters and spaces"
+            errorMessage: firstNameErrorMessage
         },
         {
             name: "middleName",
             regex: /^([A-Za-z][A-Za-z\-\']{1,50})|([А-ЯЁIЇҐЄа-яёіїґє][А-ЯЁIЇҐЄа-яёіїґє\-\']{2,30})$/,
-            errorMessage: "Middle name must be between 2 and 30 characters and can only contain letters and spaces"
+            errorMessage: middleNameErrorMessage
         },
         {
             name: "city",
             regex: /^([A-Za-z][A-Za-z\-\']{1,50})|([А-ЯЁIЇҐЄа-яёіїґє][А-ЯЁIЇҐЄа-яёіїґє\-\']{2,30})$/,
-            errorMessage: "Middle name must be between 2 and 30 characters and can only contain letters and spaces"
+            errorMessage: cityErrorMessage
         },{
             name: "street",
             regex: /^([A-Za-z][A-Za-z\-\']{1,50})|([А-ЯЁIЇҐЄа-яёіїґє][А-ЯЁIЇҐЄа-яёіїґє\-\']{2,30})$/,
-            errorMessage: "Street name must be between 2 and 30 characters and can only contain letters and spaces"
+            errorMessage: streetErrorMessage
         },{
             name: "house",
             regex: /^[1-9]\d*(?:[ -]?(?:[a-zA-Z]+|[1-9]\d*|[а-яА-Я]+))?$/,
-            errorMessage: "Invalid house number"
+            errorMessage: houseErrorMessage
         },{
             name: "apartment",
             regex: /^([a-zA-Z]|[а-яА-Я])?\d+([a-zA-Z]|[а-яА-Я])?$/,
-            errorMessage: "Invalid apartment number"
+            errorMessage: apartmentErrorMessage
         },
         {
             name: "login",
             regex: /^[a-zA-Z0-9]{5,15}$/,
-            errorMessage: "Login must be between 5 and 15 characters and can only contain letters and numbers"
+            errorMessage: loginErrorMessage
         },
         {
             name: "email",
             regex: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$/,
-            errorMessage: "Invalid email address"
+            errorMessage: emailErrorMessage
         },
         {
             name: "phone",
             regex: /^\+38\d{10}$/,
-            errorMessage: "Invalid phone number. Phone must contain only 10 digits"
+            errorMessage: phoneErrorMessage
         },
         {
             name: "password",
             regex: /.{6,30}$/,
-            errorMessage: "Password must be between 6 and 30 characters"
+            errorMessage: passwordErrorMessage
         }
     ];
 
