@@ -6,6 +6,23 @@
 <html>
 <c:set var="title" value="Транзакции" scope="page"/>
 <jsp:include page="/WEB-INF/templates/_head.jsp"></jsp:include>
+<head>
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
+    <script script type="text/javascript"
+            src="${pageContext.request.contextPath}/resources/js/topUpValidation.js"></script>
+    <script>
+        var amountErrorMessage = '<fmt:message key="account.menu.private_office.modal.validation.amount"/>';
+    </script>
+</head>
 <body>
 <%--<jsp:include page="/WEB-INF/templates/_menu.jsp"></jsp:include>--%>
 <jsp:include page="/WEB-INF/templates/_menu_customer.jsp"></jsp:include>
@@ -44,7 +61,8 @@
                          aria-labelledby="accountBalanceModal" style="display: none;" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
-                                <form action="controller?action=top_up" method="post">
+                                <form name="topUpForm" action="controller?action=top_up" method="post"
+                                      onsubmit="return validateForm()" novalidate>
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">
                                             <fmt:message key="account.menu.private_office.modal.top_up"/>
@@ -57,54 +75,12 @@
                                         <div class="modal-body">
                                             <div class="row">
                                                 <div class="col-sm-10">
-                                                    <label for="recipient-name" class="col-form-label">
+                                                    <label for="amount" class="col-form-label">
                                                         <fmt:message key="account.menu.private_office.modal.amount"/>
                                                     </label>
-                                                    <input type="number" min="0" minlength="1" class="form-control"
-                                                           name="amount" id="recipient-name" required="">
-                                                </div>
-                                                <div class="col-md-6 mb-3">
-                                                    <label for="cc-number">
-                                                        <fmt:message key="account.menu.private_office.modal.number"/>
-                                                    </label>
-                                                    <input type="text" class="form-control" id="cc-number"
-                                                           placeholder=""
-                                                           required="">
-                                                    <div class="invalid-feedback">
-                                                        Credit card number is required
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 mb-3">
-                                                    <label for="cc-name">
-                                                        <fmt:message
-                                                                key="account.menu.private_office.modal.name_on_the_card"/>
-                                                    </label>
-                                                    <input type="text" class="form-control" id="cc-name" placeholder=""
-                                                           required="">
-                                                    <div class="invalid-feedback">
-                                                        Name on card is required
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-3 mb-3">
-                                                    <label for="cc-expiration">
-                                                        <fmt:message
-                                                                key="account.menu.private_office.modal.expiration"/>
-                                                    </label>
-                                                    <input type="text" class="form-control" id="cc-expiration"
-                                                           placeholder="" required="">
-                                                    <div class="invalid-feedback">
-                                                        Expiration date required
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3 mb-3">
-                                                    <label for="cc-cvv">CVV</label>
-                                                    <input type="text" class="form-control" id="cc-cvv" placeholder=""
-                                                           required="">
-                                                    <div class="invalid-feedback">
-                                                        Security code required
-                                                    </div>
+                                                    <input type="number" class="form-control"
+                                                           id="amount" name="amount" required>
+                                                    <div id="amountError" class="invalid-feedback"></div>
                                                 </div>
                                             </div>
                                             <hr class="mb-4">
