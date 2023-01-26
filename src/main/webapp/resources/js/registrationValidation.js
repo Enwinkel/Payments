@@ -35,12 +35,12 @@ function validateForm() {
         },
         {
             name: "login",
-            regex: /^[a-zA-Z0-9]{5,15}$/,
+            regex: /^[a-zA-Z\d]{5,15}$/,
             errorMessage: loginErrorMessage
         },
         {
             name: "email",
-            regex: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$/,
+            regex: /^[a-zA-Z\d._-]+@[a-zA-Z\d.-]+.[a-zA-Z]{2,4}$/,
             errorMessage: emailErrorMessage
         },
         {

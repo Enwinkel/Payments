@@ -19,7 +19,7 @@ function validateForm() {
     }
 
     if (isValid) {
-        document.getElementById("myForm").classList.add("was-validated");
+        document.getElementById("topUpForm").classList.add("was-validated");
     }
     return isValid;
 }

@@ -37,6 +37,9 @@ public class Account extends Entity {
   public BigDecimal getBalance() {
     return balance;
   }
+  public Long getBalanceLong(){
+    return balance.longValue();
+  }
 
   public void setBalance(BigDecimal balance) {
     this.balance = balance;

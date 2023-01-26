@@ -20,7 +20,6 @@ public class ShowUserListCommand implements ICommand {
   public String execute(HttpServletRequest request, HttpServletResponse response) {
     IUserService userService = AppContext.getInstance().getUserService();
     IContactDetailsService detailsService = AppContext.getInstance().getDetailsService();
-    IAccountService accountService = AppContext.getInstance().getAccountService();
 
     List<User> users = userService.findAll();
     List<User> fullUser = new ArrayList<>();

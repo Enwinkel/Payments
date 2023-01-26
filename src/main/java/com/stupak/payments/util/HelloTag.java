@@ -19,7 +19,7 @@ public class HelloTag extends TagSupport {
             } else {
                 to = "Welcome, " + role;
             }
-            pageContext.getOut().write("<hr/>" + to + "<hr/>");
+            pageContext.getOut().write(to);
         } catch (IOException e) {
             throw new JspException(e.getMessage());
         }

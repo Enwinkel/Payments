@@ -5,15 +5,15 @@
 <!doctype html>
 <html>
 <c:set var="title" value="Панель администратора" scope="page"/>
-<jsp:include page="/WEB-INF/templates/_head.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/templates/_head.jsp"/>
 <body>
-<jsp:include page="/WEB-INF/templates/_menu_admin.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/templates/_menu_admin.jsp"/>
 <div class="container">
 <%-- Абоненти--%>
 <div class="tab-pane fade show active" id="v-pills-users" role="tabpanel"
      aria-labelledby="v-pills-users-tab">
     <div class="tab-content" id="usersTabContent">
-        <div class="row">
+        <div class="row mt-4 mb-2 d-md-flex justify-content-md-end">
             <a><ctg:hello role="${(user.roleId == 1) ? 'admin' : 'user'}"/></a>
         </div>
         <%-- Список абонентів --%>
@@ -78,6 +78,6 @@
     </div>
 </div>
 </div>
-<jsp:include page="/WEB-INF/templates/_scripts.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/templates/_scripts.jsp"/>
 </body>
 </html>

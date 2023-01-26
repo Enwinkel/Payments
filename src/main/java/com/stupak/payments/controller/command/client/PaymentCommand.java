@@ -30,8 +30,20 @@ public class PaymentCommand implements ICommand {
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse resp) {
+        String forward;
+
         HttpSession session = req.getSession();
-        String forward = Path.PAGE_PAYMENT;
+        long account_number = Long.parseLong(session.getAttribute("account_number").toString());
+        Account account = accountService.getAccountByNumber(account_number);
+
+        BigDecimal balance = account.getBalance();
+        BigDecimal amount = BigDecimal.valueOf(Long.parseLong(session.getAttribute("amount").toString()));
+
+        if(balance.subtract(amount).compareTo(BigDecimal.ZERO) >= 0) {
+             forward= Path.PAGE_PAYMENT;
+        } else{
+            forward= Path.PAGE_INSUFFICIENT;
+        }
 
         User fullUser = (User) session.getAttribute("user");
         userService.updateFullUserToSession(req, session, fullUser);

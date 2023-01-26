@@ -4,7 +4,7 @@
 <!doctype html>
 <html>
 <c:set var="title" value="Страница входа" scope="page"/>
-<jsp:include page="/WEB-INF/templates/_head.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/templates/_head.jsp"/>
 <head>
     <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -22,15 +22,10 @@
     <label for="login" class="sr-only"><fmt:message key="login.label.login"/> </label>
     <input type="text" id="login" name="login" class="form-control mb-2" placeholder=<fmt:message key="login.placeholder.login"/> required autofocus>
     <label for="password" class="sr-only"><fmt:message key="login.label.password"/></label>
-    <input type="password" id="password" name="password" class="form-control" placeholder="<fmt:message key="login.placeholder.password"/>" required>
-    <div class="checkbox mb-3">
-        <label>
-            <input type="checkbox" value="remember-me"> <fmt:message key="login.checkbox.remember"/>
-        </label>
-    </div>
+    <input type="password" id="password" name="password" class="form-control mb-3" placeholder="<fmt:message key="login.placeholder.password"/>" required>
     <button class="btn btn-lg btn-primary btn-block" type="submit"><fmt:message key="login.button.login"/></button>
-    <p class="mt-5 mb-3 text-muted">&copy; 2023</p>
+    <p class="mt-5 text-muted">&copy; 2023</p>
 </form>
-<jsp:include page="/WEB-INF/templates/_scripts.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/templates/_scripts.jsp"/>
 </body>
 </html>

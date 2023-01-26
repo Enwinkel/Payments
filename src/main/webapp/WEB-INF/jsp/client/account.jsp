@@ -6,17 +6,17 @@
 <!doctype html>
 <html>
 <c:set var="title" value="Гаманець" scope="page"/>
-<jsp:include page="/WEB-INF/templates/_head.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/templates/_head.jsp"/>
 <body>
 <%--<jsp:include page="/WEB-INF/templates/_menu.jsp"></jsp:include>--%>
-<jsp:include page="/WEB-INF/templates/_menu_customer.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/templates/_menu_customer.jsp"/>
 <div class="container">
     <div class="row">
         <div class="col">
-            <div class="row">
+            <div class="row mt-4 d-md-flex justify-content-md-end">
                 <a><ctg:hello role="${(user.roleId == 1) ? 'admin' : 'user'}"/></a>
             </div>
-            <div class="row">
+            <div class="row mb-2">
                 <label for="fullName" class="col-3 col-form-label"><fmt:message
                         key="account.menu.private_office.label.full_name"/></label>
                 <div class="col">
@@ -28,7 +28,7 @@
                 <label class="col-3 col-form-label">
                     <fmt:message key="account.menu.private_office.label.status_of_account"/>
                 </label>
-                <div class="col">
+                <div class="col=">
                     <tags:isblocked value="${fullUser.blocked}"/>
                 </div>
             </div>
@@ -78,7 +78,7 @@
                             <form class="form-inline my-2 my-lg-0" method="post" action="controller?action=transactions">
                                 <input type="hidden" name="account_id" value="${account.id}">
                                 <input type="hidden" name="current_page" value="1">
-                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><fmt:message key="account.menu.private_office.button.account"/></button>
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><fmt:message key="account.menu.private_office.button.open"/></button>
                             </form>
                         </td>
                     </tr>
@@ -90,6 +90,6 @@
 
 </div>
 </div>
-<jsp:include page="/WEB-INF/templates/_scripts.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/templates/_scripts.jsp"/>
 </body>
 </html>

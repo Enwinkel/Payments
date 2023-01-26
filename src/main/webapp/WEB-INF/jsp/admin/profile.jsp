@@ -3,9 +3,9 @@
 <!doctype html>
 <html>
 <%--<c:set var="title" value="Аккаунт" scope="page"/>--%>
-<jsp:include page="/WEB-INF/templates/_head.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/templates/_head.jsp"/>
 <body>
-<jsp:include page="/WEB-INF/templates/_menu_admin.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/templates/_menu_admin.jsp"/>
 <div class="container">
     <div class="card border-dark p-2 mt-3 mb-3">
         <div class="d-flex justify-content-start">
@@ -45,10 +45,10 @@
                                             <div class="d-flex justify-content-between">
                                                 <div class="flex-fill">
                                                     <label for="surname">
-                                                        <fmt:message key="profile.modal.label.surname"/>
+                                                        <fmt:message key="profile.modal.label.last_name"/>
                                                     </label>
                                                     <input type="text" class="form-control" id="surname" name="surname"
-                                                           placeholder="<fmt:message key="profile.modal.placeholder.surname"/>"
+                                                           placeholder="<fmt:message key="profile.modal.placeholder.last_name"/>"
                                                            minlength="2" maxlength="40"
                                                            value="${fullUser.surname}" required>
                                                 </div>
@@ -176,6 +176,6 @@
         </div>
     </div>
 </div>
-<jsp:include page="/WEB-INF/templates/_scripts.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/templates/_scripts.jsp"/>
 </body>
 </html>
