@@ -52,7 +52,6 @@ public class TransactionCommand implements ICommand {
         int rows = trs.getNumberOfRows(id);
         int nOfPages = rows / recordsPerPage;
         if ((rows % recordsPerPage) != 0 && nOfPages % recordsPerPage > 0) {
-
             nOfPages++;
         }
 

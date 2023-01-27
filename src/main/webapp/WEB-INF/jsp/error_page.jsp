@@ -10,8 +10,8 @@
     <div class="row space-top-8 space-8">
         <div class="col-md-5 col-middle">
             <h1 class="text-jumbo text-ginormous hide-sm">Ой!</h1>
-            <h2>Здається, сталася помилка.</h2>
-            <h6>Повернутись на <a href="controller?action=login">головну</a></h6>
+            <h2 class="text-center">Сталася помилка.</h2>
+            <h6 class="text-center">Повернутись на <a href="controller?action=login">головну</a></h6>
         </div>
     </div>
 </div>
