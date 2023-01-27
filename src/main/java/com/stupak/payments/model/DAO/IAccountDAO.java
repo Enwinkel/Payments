@@ -1,10 +1,10 @@
-package com.stupak.payments.model.repository;
+package com.stupak.payments.model.DAO;
 
 import com.stupak.payments.model.entity.Account;
 
 import java.util.List;
 
-public interface IAccountRepo extends IEntityRepo<Account> {
+public interface IAccountDAO extends IEntityDAO<Account> {
   long newNumberContract();
 
   long getNextIdValue();

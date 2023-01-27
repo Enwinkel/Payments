@@ -1,15 +1,15 @@
-package com.stupak.payments.model.repository.impl;
+package com.stupak.payments.model.DAO.impl;
 
 
 import com.stupak.payments.model.builder.QueryBuilder;
 import com.stupak.payments.model.builder.ServiceQueryBuilder;
 import com.stupak.payments.model.connectionpool.ConnectionPool;
 import com.stupak.payments.model.entity.Service;
-import com.stupak.payments.model.repository.IServicesRepo;
+import com.stupak.payments.model.DAO.IServicesDAO;
 
 import java.util.List;
 
-public class ServicesRepoImpl implements IServicesRepo {
+public class ServicesDAOImpl implements IServicesDAO {
   private static final String GET_ALL = "SELECT * FROM services";
   private static final String GET_ALL_BY_SERVICES_ID =
       "SELECT * FROM tariffs WHERE services_id = ?";

@@ -32,7 +32,7 @@ public class Controller extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
+            throws IOException {
         HttpSession session = req.getSession();
 
         String action = req.getParameter("action");
@@ -46,8 +46,7 @@ public class Controller extends HttpServlet {
         resp.sendRedirect(redirect);
     }
 
-    private String processRequest(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
+    private String processRequest(HttpServletRequest req, HttpServletResponse resp) {
         CommandFactory commandFactory = CommandFactory.commandFactory();
         ICommand ic = commandFactory.getCommand(req);
         return ic.execute(req, resp);

@@ -33,17 +33,8 @@ public class PaymentCommand implements ICommand {
         String forward;
 
         HttpSession session = req.getSession();
-        long account_number = Long.parseLong(session.getAttribute("account_number").toString());
-        Account account = accountService.getAccountByNumber(account_number);
 
-        BigDecimal balance = account.getBalance();
-        BigDecimal amount = BigDecimal.valueOf(Long.parseLong(session.getAttribute("amount").toString()));
-
-        if(balance.subtract(amount).compareTo(BigDecimal.ZERO) >= 0) {
-             forward= Path.PAGE_PAYMENT;
-        } else{
-            forward= Path.PAGE_INSUFFICIENT;
-        }
+        forward = getNextPage(session);
 
         User fullUser = (User) session.getAttribute("user");
         userService.updateFullUserToSession(req, session, fullUser);
@@ -59,6 +50,22 @@ public class PaymentCommand implements ICommand {
         Service service = services.get(Integer.parseInt(session.getAttribute("index").toString()));
         req.setAttribute("service_name", service.getName());
 
+        return forward;
+    }
+
+    private String getNextPage(HttpSession session) {
+        String forward;
+        long account_number = Long.parseLong(session.getAttribute("account_number").toString());
+        Account account = accountService.getAccountByNumber(account_number);
+
+        BigDecimal balance = account.getBalance();
+        BigDecimal amount = BigDecimal.valueOf(Long.parseLong(session.getAttribute("amount").toString()));
+
+        if(balance.subtract(amount).compareTo(BigDecimal.ZERO) >= 0) {
+             forward= Path.PAGE_PAYMENT;
+        } else{
+            forward= Path.PAGE_INSUFFICIENT;
+        }
         return forward;
     }
 

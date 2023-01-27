@@ -1,10 +1,10 @@
-package com.stupak.payments.model.repository;
+package com.stupak.payments.model.DAO;
 
 import com.stupak.payments.model.entity.User;
 
 import java.util.List;
 
-public interface IUserRepo extends IEntityRepo<User> {
+public interface IUserDAO extends IEntityDAO<User> {
 
   User getByLogin(String login);
 

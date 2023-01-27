@@ -1,14 +1,14 @@
-package com.stupak.payments.model.repository.impl;
+package com.stupak.payments.model.DAO.impl;
 
 import com.stupak.payments.model.builder.QueryBuilder;
 import com.stupak.payments.model.builder.TransactionQueryBuilder;
 import com.stupak.payments.model.connectionpool.ConnectionPool;
 import com.stupak.payments.model.entity.Transaction;
-import com.stupak.payments.model.repository.ITransactionRepo;
+import com.stupak.payments.model.DAO.ITransactionDAO;
 
 import java.util.List;
 
-public class TransactionRepoImpl implements ITransactionRepo {
+public class TransactionDAOImpl implements ITransactionDAO {
 
   private static final String GET_ALL = "SELECT * FROM transactions";
   private static final String GET_BY_ID =

@@ -2,15 +2,15 @@ package com.stupak.payments.model.service.impl;
 
 
 import com.stupak.payments.model.entity.Account;
-import com.stupak.payments.model.repository.IAccountRepo;
+import com.stupak.payments.model.DAO.IAccountDAO;
 import com.stupak.payments.model.service.IAccountService;
 
 import java.util.List;
 
 public class AccountServiceImpl implements IAccountService {
-  private final IAccountRepo repo;
+  private final IAccountDAO repo;
 
-  public AccountServiceImpl(IAccountRepo repo) {
+  public AccountServiceImpl(IAccountDAO repo) {
     this.repo = repo;
   }
 

@@ -1,7 +1,7 @@
 package com.stupak.payments.model.service.impl;
 
 import com.stupak.payments.model.entity.User;
-import com.stupak.payments.model.repository.IUserRepo;
+import com.stupak.payments.model.DAO.IUserDAO;
 import com.stupak.payments.model.service.IContactDetailsService;
 import com.stupak.payments.model.service.IUserService;
 
@@ -12,13 +12,13 @@ import java.util.List;
 
 public class UserServiceImpl implements IUserService {
 
-  private final IUserRepo repo;
+  private final IUserDAO repo;
   private final IContactDetailsService detailsService;
 
   /**
    * All args constructor.
    */
-  public UserServiceImpl(IUserRepo repo, IContactDetailsService detailsService) {
+  public UserServiceImpl(IUserDAO repo, IContactDetailsService detailsService) {
     this.repo = repo;
     this.detailsService = detailsService;
   }

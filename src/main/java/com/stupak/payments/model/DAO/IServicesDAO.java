@@ -1,11 +1,11 @@
-package com.stupak.payments.model.repository;
+package com.stupak.payments.model.DAO;
 
 
 import com.stupak.payments.model.entity.Service;
 
 import java.util.List;
 
-public interface IServicesRepo extends IEntityRepo<Service> {
+public interface IServicesDAO extends IEntityDAO<Service> {
 
   List<Service> getAllByServiceId(long id);
 

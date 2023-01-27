@@ -1,15 +1,15 @@
-package com.stupak.payments.model.repository.impl;
+package com.stupak.payments.model.DAO.impl;
 
 import com.stupak.payments.model.builder.ContactDetailsQueryBuilder;
 import com.stupak.payments.model.builder.QueryBuilder;
 import com.stupak.payments.model.connectionpool.ConnectionPool;
 import com.stupak.payments.model.entity.ContactDetails;
-import com.stupak.payments.model.repository.IContactDetailsRepo;
+import com.stupak.payments.model.DAO.IContactDetailsDAO;
 
 import java.util.List;
 
 
-public class ContactDetailsRepoImpl implements IContactDetailsRepo {
+public class ContactDetailsDAOImpl implements IContactDetailsDAO {
   private static final String CREATE =
       "INSERT INTO contact_details (id, city, street, home, apartment, email, phone) "
           + "VALUES (?, ?, ?, ?, ?, ?, ?)";

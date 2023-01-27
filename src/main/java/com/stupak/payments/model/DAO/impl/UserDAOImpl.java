@@ -1,14 +1,14 @@
-package com.stupak.payments.model.repository.impl;
+package com.stupak.payments.model.DAO.impl;
 
 import com.stupak.payments.model.builder.QueryBuilder;
 import com.stupak.payments.model.builder.UserQueryBuilder;
 import com.stupak.payments.model.connectionpool.ConnectionPool;
 import com.stupak.payments.model.entity.User;
-import com.stupak.payments.model.repository.IUserRepo;
+import com.stupak.payments.model.DAO.IUserDAO;
 
 import java.util.List;
 
-public class UserRepoImpl implements IUserRepo {
+public class UserDAOImpl implements IUserDAO {
   private static final String GET_ALL = "SELECT * FROM users";
   private static final String GET_ALL_SORTED_BY_ID = "SELECT * FROM users ORDER BY id";
   private static final String GET_BY_ID =

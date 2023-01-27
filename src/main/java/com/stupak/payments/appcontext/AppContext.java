@@ -1,7 +1,7 @@
 package com.stupak.payments.appcontext;
 
-import com.stupak.payments.model.repository.*;
-import com.stupak.payments.model.repository.impl.*;
+import com.stupak.payments.model.DAO.*;
+import com.stupak.payments.model.DAO.impl.*;
 import com.stupak.payments.model.service.*;
 import com.stupak.payments.model.service.impl.*;
 
@@ -12,11 +12,11 @@ public class AppContext {
     return appContext;
   }
 
-  private final IUserRepo userRepo = new UserRepoImpl();
-  private final IAccountRepo accountRepo = new AccountRepoImpl();
-  private final IContactDetailsRepo contactDetailsRepo = new ContactDetailsRepoImpl();
+  private final IUserDAO userRepo = new UserDAOImpl();
+  private final IAccountDAO accountRepo = new AccountDAOImpl();
+  private final IContactDetailsDAO contactDetailsRepo = new ContactDetailsDAOImpl();
 
-  private final IServicesRepo servicesRepo = new ServicesRepoImpl();
+  private final IServicesDAO servicesRepo = new ServicesDAOImpl();
 
   private final IContactDetailsService detailsService =
           new ContactDetailsServiceImpl(contactDetailsRepo);
@@ -24,8 +24,8 @@ public class AppContext {
   private final IAccountService accountService = new AccountServiceImpl(accountRepo);
   private final IUserService userService = new UserServiceImpl(userRepo, detailsService);
   private final IServicesService servicesService = new ServicesServiceImpl(servicesRepo);
-  private final ITransactionRepo transactionRepo = new TransactionRepoImpl();
-  private final ITransactionRowsRepo transactionRowsRepo = new TransactionRowsRepoImpl();
+  private final ITransactionDAO transactionRepo = new TransactionDAOImpl();
+  private final ITransactionRowsDAO transactionRowsRepo = new TransactionRowsDAOImpl();
   private final ITransactionService transactionService = new TransactionServiceImpl(transactionRepo,
           accountService, userService);
   private final ITransactionRowsService transactionRowService = new TransactionRowsServiceImpl(transactionRowsRepo);

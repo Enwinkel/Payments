@@ -1,14 +1,14 @@
-package com.stupak.payments.model.repository.impl;
+package com.stupak.payments.model.DAO.impl;
 
 import com.stupak.payments.model.builder.AccountQueryBuilder;
 import com.stupak.payments.model.builder.QueryBuilder;
 import com.stupak.payments.model.connectionpool.ConnectionPool;
 import com.stupak.payments.model.entity.Account;
-import com.stupak.payments.model.repository.IAccountRepo;
+import com.stupak.payments.model.DAO.IAccountDAO;
 
 import java.util.List;
 
-public class AccountRepoImpl implements IAccountRepo {
+public class AccountDAOImpl implements IAccountDAO {
     private static final String CREATE = "INSERT INTO accounts (id, number, account_name, balance, user_id, blocked, unblock_req) "
             + "VALUES (?, ?, ?, ?, ?, ?, ?)";
     private static final String GET_ALL = "SELECT * FROM accounts";

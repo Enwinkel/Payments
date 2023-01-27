@@ -1,15 +1,15 @@
 package com.stupak.payments.model.service.impl;
 
 import com.stupak.payments.model.entity.ContactDetails;
-import com.stupak.payments.model.repository.IContactDetailsRepo;
+import com.stupak.payments.model.DAO.IContactDetailsDAO;
 import com.stupak.payments.model.service.IContactDetailsService;
 
 import java.util.List;
 
 public class ContactDetailsServiceImpl implements IContactDetailsService {
-  private final IContactDetailsRepo repo;
+  private final IContactDetailsDAO repo;
 
-  public ContactDetailsServiceImpl(IContactDetailsRepo repo) {
+  public ContactDetailsServiceImpl(IContactDetailsDAO repo) {
     this.repo = repo;
   }
 

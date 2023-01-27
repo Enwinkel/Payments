@@ -1,11 +1,11 @@
-package com.stupak.payments.model.repository;
+package com.stupak.payments.model.DAO;
 
 
 import com.stupak.payments.model.entity.Transaction;
 
 import java.util.List;
 
-public interface ITransactionRepo extends IEntityRepo<Transaction> {
+public interface ITransactionDAO extends IEntityDAO<Transaction> {
 
   List<Transaction> getAllByAccount(long id);
   List<Transaction> getByPage(int currentPage, int recordsPerPage, long id, String sorting);

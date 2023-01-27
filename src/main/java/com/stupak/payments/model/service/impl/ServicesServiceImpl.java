@@ -1,15 +1,15 @@
 package com.stupak.payments.model.service.impl;
 
 import com.stupak.payments.model.entity.Service;
-import com.stupak.payments.model.repository.IServicesRepo;
+import com.stupak.payments.model.DAO.IServicesDAO;
 import com.stupak.payments.model.service.IServicesService;
 
 import java.util.List;
 
 public class ServicesServiceImpl implements IServicesService {
-  private final IServicesRepo repo;
+  private final IServicesDAO repo;
 
-  public ServicesServiceImpl(IServicesRepo repo) {
+  public ServicesServiceImpl(IServicesDAO repo) {
     this.repo = repo;
   }
 

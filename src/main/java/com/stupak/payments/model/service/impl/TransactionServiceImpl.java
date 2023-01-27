@@ -2,7 +2,7 @@ package com.stupak.payments.model.service.impl;
 
 import com.stupak.payments.model.entity.Account;
 import com.stupak.payments.model.entity.Transaction;
-import com.stupak.payments.model.repository.ITransactionRepo;
+import com.stupak.payments.model.DAO.ITransactionDAO;
 import com.stupak.payments.model.service.IAccountService;
 import com.stupak.payments.model.service.ITransactionService;
 import com.stupak.payments.model.service.IUserService;
@@ -12,14 +12,14 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class TransactionServiceImpl implements ITransactionService {
-  private final ITransactionRepo repo;
+  private final ITransactionDAO repo;
   private final IAccountService accountService;
   private final IUserService userService;
 
   /**
    * All args constructor.
    */
-  public TransactionServiceImpl(ITransactionRepo repo, IAccountService accountService,
+  public TransactionServiceImpl(ITransactionDAO repo, IAccountService accountService,
                                 IUserService userService) {
     this.repo = repo;
     this.accountService = accountService;
