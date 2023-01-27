@@ -13,7 +13,6 @@ import java.io.IOException;
 
 public class BlockAccountCommand implements ICommand {
     IAccountService accountService = AppContext.getInstance().getAccountService();
-
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse resp) {
 
@@ -23,7 +22,6 @@ public class BlockAccountCommand implements ICommand {
 
         account_id = session.getAttribute("account_id").toString();
         id = Long.parseLong(account_id);
-
 
         String forward;
 

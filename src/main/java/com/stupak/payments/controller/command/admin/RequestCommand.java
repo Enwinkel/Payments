@@ -6,7 +6,6 @@ import com.stupak.payments.controller.command.ICommand;
 import com.stupak.payments.model.entity.Account;
 import com.stupak.payments.model.entity.User;
 import com.stupak.payments.model.service.IAccountService;
-import com.stupak.payments.model.service.IContactDetailsService;
 import com.stupak.payments.model.service.IUserService;
 
 import javax.servlet.http.HttpServletRequest;

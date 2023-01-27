@@ -7,11 +7,6 @@ import com.stupak.payments.model.service.IAccountService;
 
 import java.util.List;
 
-/**
- * Account service interface implementation.
- *
- * @author Aleksey Serdyukov.
- */
 public class AccountServiceImpl implements IAccountService {
   private final IAccountRepo repo;
 

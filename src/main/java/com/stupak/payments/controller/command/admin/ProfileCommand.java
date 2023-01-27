@@ -9,11 +9,9 @@ import com.stupak.payments.model.service.IAccountService;
 import com.stupak.payments.model.service.IContactDetailsService;
 import com.stupak.payments.model.service.IUserService;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.HashSet;
 import java.util.List;
 
 

@@ -1,7 +1,5 @@
 package com.stupak.payments.model.entity;
 
-import java.util.Set;
-
 public class User extends Entity {
 
     private static final long serialVersionUID = 1L;
@@ -15,7 +13,6 @@ public class User extends Entity {
 
     private ContactDetails details;
 
-    private Set<Tariff> tariffs;
 
     public String getLogin() {
         return login;
@@ -83,12 +80,5 @@ public class User extends Entity {
         this.details = details;
     }
 
-    public Set<Tariff> getTariffs() {
-        return tariffs;
-    }
-
-    public void setTariffs(Set<Tariff> tariffs) {
-        this.tariffs = tariffs;
-    }
 
 }

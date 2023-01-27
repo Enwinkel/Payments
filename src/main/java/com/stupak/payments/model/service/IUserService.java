@@ -1,6 +1,5 @@
 package com.stupak.payments.model.service;
 
-import com.stupak.payments.model.entity.Tariff;
 import com.stupak.payments.model.entity.User;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,11 +7,6 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 
-/**
- * User service interface .
- *
- * @author Aleksey Serdyukov.
- */
 public interface IUserService {
 
   List<User> findAll();
@@ -31,8 +25,6 @@ public interface IUserService {
   void remove(int id);
 
   User findByLogin(String login);
-
-  List<Tariff> findUserTariffs(User user);
 
 
   void updateFullUserToSession(HttpServletRequest request, HttpSession session, User fullUser);

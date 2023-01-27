@@ -1,10 +1,5 @@
 package com.stupak.payments.model.entity;
 
-/**
- * Role entity class.
- *
- * @author Aleksey Serdyukov.
- */
 public enum Role {
   ADMIN, CLIENT;
 

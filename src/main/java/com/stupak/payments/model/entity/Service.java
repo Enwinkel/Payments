@@ -2,7 +2,6 @@ package com.stupak.payments.model.entity;
 
 import java.util.Objects;
 
-
 public class Service extends Entity {
   private static final long serialVersionUID = 1L;
   private String name;

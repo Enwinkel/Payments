@@ -1,7 +1,7 @@
 package com.stupak.payments.controller.command.common;
 
-import com.stupak.payments.controller.Path;
 import com.stupak.payments.appcontext.AppContext;
+import com.stupak.payments.controller.Path;
 import com.stupak.payments.controller.command.ICommand;
 import com.stupak.payments.model.entity.Role;
 import com.stupak.payments.model.entity.User;
@@ -11,12 +11,10 @@ import org.mindrot.jbcrypt.BCrypt;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
 
 public class LoginCommand implements ICommand {
 
     IUserService service = AppContext.getInstance().getUserService();
-
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse resp) {

@@ -1,10 +1,5 @@
 package com.stupak.payments.model.entity;
 
-/**
- * Contact details entity class.
- *
- * @author Aleksey Serdyukov.
- */
 public class ContactDetails extends Entity {
   private static final long serialVersionUID = 1L;
   private String city;

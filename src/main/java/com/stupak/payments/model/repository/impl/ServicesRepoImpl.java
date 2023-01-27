@@ -3,7 +3,7 @@ package com.stupak.payments.model.repository.impl;
 
 import com.stupak.payments.model.builder.QueryBuilder;
 import com.stupak.payments.model.builder.ServiceQueryBuilder;
-import com.stupak.payments.model.connectionpool.DBManager;
+import com.stupak.payments.model.connectionpool.ConnectionPool;
 import com.stupak.payments.model.entity.Service;
 import com.stupak.payments.model.repository.IServicesRepo;
 
@@ -23,7 +23,7 @@ public class ServicesRepoImpl implements IServicesRepo {
       "UPDATE tariffs SET name = ?, description = ?, price = ? WHERE id = ?";
   private static final String DELETE = "DELETE FROM tariffs WHERE id = ?";
 
-  private DBManager instance = DBManager.getInstance();
+  private ConnectionPool instance = ConnectionPool.getInstance();
   private QueryBuilder queryBuilder = new ServiceQueryBuilder();
 
   @Override

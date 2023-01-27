@@ -1,6 +1,5 @@
 package com.stupak.payments.model.service.impl;
 
-import com.stupak.payments.model.entity.Tariff;
 import com.stupak.payments.model.entity.User;
 import com.stupak.payments.model.repository.IUserRepo;
 import com.stupak.payments.model.service.IContactDetailsService;
@@ -74,11 +73,6 @@ public class UserServiceImpl implements IUserService {
   @Override
   public User findByLogin(String login) {
     return this.repo.getByLogin(login);
-  }
-
-  @Override
-  public List<Tariff> findUserTariffs(User user) {
-    return this.repo.getTariffs(user);
   }
 
 

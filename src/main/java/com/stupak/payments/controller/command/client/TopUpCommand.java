@@ -4,10 +4,8 @@ import com.stupak.payments.appcontext.AppContext;
 import com.stupak.payments.controller.Path;
 import com.stupak.payments.controller.command.ICommand;
 import com.stupak.payments.model.entity.Account;
-import com.stupak.payments.model.entity.Service;
 import com.stupak.payments.model.entity.User;
 import com.stupak.payments.model.service.IAccountService;
-import com.stupak.payments.model.service.IServicesService;
 import com.stupak.payments.model.service.ITransactionService;
 import com.stupak.payments.model.service.IUserService;
 
@@ -16,15 +14,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.List;
 
 public class TopUpCommand implements ICommand {
-
     private final ITransactionService transactionService =
             AppContext.getInstance().getTransactionService();
     private final IUserService userService = AppContext.getInstance().getUserService();
     private final IAccountService accountService = AppContext.getInstance().getAccountService();
-
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse resp) {

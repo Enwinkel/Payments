@@ -15,7 +15,6 @@ public class AppContext {
   private final IUserRepo userRepo = new UserRepoImpl();
   private final IAccountRepo accountRepo = new AccountRepoImpl();
   private final IContactDetailsRepo contactDetailsRepo = new ContactDetailsRepoImpl();
-  private final ITariffRepo tariffRepo = new TariffRepoImpl();
 
   private final IServicesRepo servicesRepo = new ServicesRepoImpl();
 
@@ -24,7 +23,6 @@ public class AppContext {
 
   private final IAccountService accountService = new AccountServiceImpl(accountRepo);
   private final IUserService userService = new UserServiceImpl(userRepo, detailsService);
-  private final ITariffService tariffService = new TariffServiceImpl(tariffRepo);
   private final IServicesService servicesService = new ServicesServiceImpl(servicesRepo);
   private final ITransactionRepo transactionRepo = new TransactionRepoImpl();
   private final ITransactionRowsRepo transactionRowsRepo = new TransactionRowsRepoImpl();
@@ -46,9 +44,6 @@ public class AppContext {
     return accountService;
   }
 
-  public ITariffService getTariffService() {
-    return tariffService;
-  }
   public ITransactionService getTransactionService() {
     return transactionService;
   }

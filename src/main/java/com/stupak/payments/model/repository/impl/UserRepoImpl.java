@@ -1,10 +1,8 @@
 package com.stupak.payments.model.repository.impl;
 
 import com.stupak.payments.model.builder.QueryBuilder;
-import com.stupak.payments.model.builder.TariffQueryBuilder;
 import com.stupak.payments.model.builder.UserQueryBuilder;
-import com.stupak.payments.model.connectionpool.DBManager;
-import com.stupak.payments.model.entity.Tariff;
+import com.stupak.payments.model.connectionpool.ConnectionPool;
 import com.stupak.payments.model.entity.User;
 import com.stupak.payments.model.repository.IUserRepo;
 
@@ -38,7 +36,7 @@ public class UserRepoImpl implements IUserRepo {
 
   private static final String GET_NEXT_AUTO_INCREMENT = "SELECT MAX(id)+1 from users";
 
-  private final DBManager instance = DBManager.getInstance();
+  private final ConnectionPool instance = ConnectionPool.getInstance();
   private final QueryBuilder queryBuilder = new UserQueryBuilder();
 
   @Override
@@ -83,24 +81,5 @@ public class UserRepoImpl implements IUserRepo {
     return (User) queryBuilder.executeAndReturn(instance, GET_BY_LOGIN, login);
   }
 
-  @Override
-  public List<Tariff> getTariffs(User user) {
-    QueryBuilder queryBuilder = new TariffQueryBuilder();
-    return queryBuilder.executeAndReturnList(instance, GET_LINK_USERS_HAS_TRAFFICS, user.getId());
-  }
-
-  @Override
-  public void addLinksUsersHasTariffs(User user, String[] tariffsId) {
-    User tmp = getByLogin(user.getLogin());
-    QueryBuilder queryBuilder = new TariffQueryBuilder();
-    for (String id : tariffsId) {
-      queryBuilder.execute(instance, ADD_LINK_USERS_HAS_TRAFFICS, tmp.getId(), Integer.valueOf(id));
-    }
-  }
-
-  @Override
-  public void deleteLinksUsersHasTariffs(User user) {
-    queryBuilder.execute(instance, DELETE_LINK_USERS_HAS_TRAFFICS, user.getId());
-  }
 
 }

@@ -43,7 +43,6 @@ public class Controller extends HttpServlet {
         for (Map.Entry<String,String[]> parameter : parameters.entrySet()) {
             session.setAttribute(parameter.getKey(), parameter.getValue()[0]);
         }
-
         resp.sendRedirect(redirect);
     }
 

@@ -6,7 +6,6 @@ import com.stupak.payments.model.service.IContactDetailsService;
 
 import java.util.List;
 
-
 public class ContactDetailsServiceImpl implements IContactDetailsService {
   private final IContactDetailsRepo repo;
 

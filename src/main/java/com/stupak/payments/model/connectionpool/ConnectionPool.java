@@ -7,21 +7,21 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Properties;
 
-public class DBManager {
-  private static DBManager instance;
+public class ConnectionPool {
+  private static ConnectionPool instance;
   private ComboPooledDataSource cpds;
 
   /**
    * Singleton.
    */
-  public static synchronized DBManager getInstance() {
+  public static synchronized ConnectionPool getInstance() {
     if (instance == null) {
-      instance = new DBManager();
+      instance = new ConnectionPool();
     }
     return instance;
   }
 
-  private DBManager() {
+  private ConnectionPool() {
     try {
       init();
     } catch (Exception e) {
@@ -74,7 +74,7 @@ public class DBManager {
    */
   private Properties getProperties() throws IOException {
     Properties props = new Properties();
-    props.load(DBManager.class.getResourceAsStream("/db.properties"));
+    props.load(ConnectionPool.class.getResourceAsStream("/db.properties"));
     return props;
   }
 

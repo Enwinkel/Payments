@@ -2,7 +2,7 @@ package com.stupak.payments.model.repository.impl;
 
 import com.stupak.payments.model.builder.QueryBuilder;
 import com.stupak.payments.model.builder.TransactionQueryBuilder;
-import com.stupak.payments.model.connectionpool.DBManager;
+import com.stupak.payments.model.connectionpool.ConnectionPool;
 import com.stupak.payments.model.entity.Transaction;
 import com.stupak.payments.model.repository.ITransactionRepo;
 
@@ -32,7 +32,7 @@ public class TransactionRepoImpl implements ITransactionRepo {
   private static final String ORDER_BY_AMOUNT = " ORDER BY amount";
   private static final String ORDER_BY_AMOUNT_DESC = " ORDER BY amount DESC";
 
-  private DBManager instance = DBManager.getInstance();
+  private ConnectionPool instance = ConnectionPool.getInstance();
   private QueryBuilder queryBuilder = new TransactionQueryBuilder();
 
   @Override

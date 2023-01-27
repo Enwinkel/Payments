@@ -2,7 +2,7 @@ package com.stupak.payments.model.repository.impl;
 
 import com.stupak.payments.model.builder.ContactDetailsQueryBuilder;
 import com.stupak.payments.model.builder.QueryBuilder;
-import com.stupak.payments.model.connectionpool.DBManager;
+import com.stupak.payments.model.connectionpool.ConnectionPool;
 import com.stupak.payments.model.entity.ContactDetails;
 import com.stupak.payments.model.repository.IContactDetailsRepo;
 
@@ -22,7 +22,7 @@ public class ContactDetailsRepoImpl implements IContactDetailsRepo {
   private static final String DELETE = "DELETE FROM contact_details WHERE id = ?";
   private static final String GET_NEXT_AUTO_INCREMENT = "SELECT MAX(id)+1 FROM contact_details";
 
-  private DBManager instance = DBManager.getInstance();
+  private ConnectionPool instance = ConnectionPool.getInstance();
   private QueryBuilder queryBuilder = new ContactDetailsQueryBuilder();
 
   @Override

@@ -13,7 +13,7 @@ public class HelloTag extends TagSupport {
     @Override
     public int doStartTag() throws JspException {
         try {
-            String to = null;
+            String to;
             if ("admin".equalsIgnoreCase(role)) {
                 to = "Hello, " + role;
             } else {

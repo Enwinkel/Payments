@@ -3,15 +3,8 @@ package com.stupak.payments.model.entity;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
-import java.util.Locale;
 import java.util.Objects;
 
-/**
- * Transaction entity class.
- *
- * @author Aleksey Serdyukov.
- */
 public class Transaction extends Entity {
   private static final long serialVersionUID = 1L;
   private LocalDateTime timestamp;

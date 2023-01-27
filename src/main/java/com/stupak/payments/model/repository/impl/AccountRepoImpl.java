@@ -2,7 +2,7 @@ package com.stupak.payments.model.repository.impl;
 
 import com.stupak.payments.model.builder.AccountQueryBuilder;
 import com.stupak.payments.model.builder.QueryBuilder;
-import com.stupak.payments.model.connectionpool.DBManager;
+import com.stupak.payments.model.connectionpool.ConnectionPool;
 import com.stupak.payments.model.entity.Account;
 import com.stupak.payments.model.repository.IAccountRepo;
 
@@ -31,7 +31,7 @@ public class AccountRepoImpl implements IAccountRepo {
     private static final String ORDER_BY_BALANCE = " ORDER BY balance";
     private static final String ORDER_BY_BALANCE_DESC = " ORDER BY balance DESC";
 
-    private DBManager instance = DBManager.getInstance();
+    private ConnectionPool instance = ConnectionPool.getInstance();
     private QueryBuilder queryBuilder = new AccountQueryBuilder();
 
     @Override

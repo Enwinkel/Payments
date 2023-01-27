@@ -1,7 +1,6 @@
 package com.stupak.payments.model.builder;
 
 
-import com.stupak.payments.model.entity.Account;
 import com.stupak.payments.model.entity.ContactDetails;
 import com.stupak.payments.model.entity.User;
 

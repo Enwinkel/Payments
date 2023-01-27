@@ -2,11 +2,9 @@ package com.stupak.payments.model.builder;
 
 
 import com.stupak.payments.model.entity.Rows;
-import com.stupak.payments.model.entity.Transaction;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class TransactionRowsQueryBuilder extends QueryBuilder<Rows> {

@@ -7,11 +7,6 @@ import com.stupak.payments.model.entity.Transaction;
 import java.math.BigDecimal;
 import java.util.List;
 
-/**
- * Transaction service interface .
- *
- * @author Aleksey Serdyukov.
- */
 public interface ITransactionService {
 
 

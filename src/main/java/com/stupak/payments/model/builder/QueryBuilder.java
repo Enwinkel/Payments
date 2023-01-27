@@ -1,16 +1,11 @@
 package com.stupak.payments.model.builder;
 
-import com.stupak.payments.model.connectionpool.DBManager;
+import com.stupak.payments.model.connectionpool.ConnectionPool;
 import com.stupak.payments.model.entity.Entity;
 
 import java.sql.*;
 import java.util.List;
 
-/**
- * Abstract class for builders.
- *
- * @author Aleksey Serdyukov.
- */
 public abstract class QueryBuilder<T extends Entity> {
   /**
    * Lets you know the next automatic id postgres.
@@ -19,7 +14,7 @@ public abstract class QueryBuilder<T extends Entity> {
    * @param query    the database query
    * @return next automatic id postgres
    */
-  public final int getNextAutoIncrement(final DBManager instance, final String query) {
+  public final int getNextAutoIncrement(final ConnectionPool instance, final String query) {
     int nextid = -1;
     Connection conn = instance.getConnection();
     try (PreparedStatement statement = conn.prepareStatement(query)) {
@@ -41,7 +36,7 @@ public abstract class QueryBuilder<T extends Entity> {
    * @param instance the DataSource instance
    * @param query    the database query
    */
-  public final void execute(final DBManager instance, final String query) {
+  public final void execute(final ConnectionPool instance, final String query) {
     executeQuery(instance, query, new Object[0]);
   }
 
@@ -52,7 +47,7 @@ public abstract class QueryBuilder<T extends Entity> {
    * @param query    the database query
    * @param args     the args
    */
-  public final void execute(final DBManager instance, final String query, Object... args) {
+  public final void execute(final ConnectionPool instance, final String query, Object... args) {
     executeQuery(instance, query, args);
   }
 
@@ -63,7 +58,7 @@ public abstract class QueryBuilder<T extends Entity> {
    * @param query    the database query
    * @return the list of {@link com.stupak.payments.model.entity.Entity}
    */
-  public final List<T> executeAndReturnList(final DBManager instance, final String query,
+  public final List<T> executeAndReturnList(final ConnectionPool instance, final String query,
                                             Object... args) {
     return executeAndReturnValues(instance, query, args);
   }
@@ -76,19 +71,19 @@ public abstract class QueryBuilder<T extends Entity> {
    * @param args     the args
    * @return the list of {@link com.stupak.payments.model.entity.Entity}
    */
-  public final T executeAndReturn(final DBManager instance, final String query, Object... args) {
+  public final T executeAndReturn(final ConnectionPool instance, final String query, Object... args) {
     return executeAndReturnValue(instance, query, args);
   }
 
   /**
-   * QueryBuilder for methods {@link #execute(DBManager, String),
-   * {@link #execute(DBManager, String, Object...)}}.
+   * QueryBuilder for methods {@link #execute(ConnectionPool, String),
+   * {@link #execute(ConnectionPool, String, Object...)}}.
    *
    * @param instance the DataSource instance
    * @param query    the database query
    * @param args     the args
    */
-  private void executeQuery(final DBManager instance, String query, Object... args) {
+  private void executeQuery(final ConnectionPool instance, String query, Object... args) {
     Connection conn = instance.getConnection();
     try (PreparedStatement st = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
       setArgsOfPreparedStatement(st, args);
@@ -100,14 +95,14 @@ public abstract class QueryBuilder<T extends Entity> {
   }
 
   /**
-   * QueryBuilder for methods {@link #executeAndReturnList(DBManager, String, Object...)} ,
-   * {@link #executeAndReturn(DBManager, String, Object...)}}.
+   * QueryBuilder for methods {@link #executeAndReturnList(ConnectionPool, String, Object...)} ,
+   * {@link #executeAndReturn(ConnectionPool, String, Object...)}}.
    *
    * @param instance the DataSource instance
    * @param query    the database query
    * @return the list of {@link com.stupak.payments.model.entity.Entity}
    */
-  private List<T> executeAndReturnValues(final DBManager instance, final String query,
+  private List<T> executeAndReturnValues(final ConnectionPool instance, final String query,
                                          Object... args) {
     List<T> models = null;
     Connection conn = instance.getConnection();
@@ -125,15 +120,15 @@ public abstract class QueryBuilder<T extends Entity> {
   }
 
   /**
-   * QueryBuilder for methods {@link #executeAndReturn(DBManager, String, Object...)} ,
-   * {@link #executeAndReturn(DBManager, String, Object...)}}.
+   * QueryBuilder for methods {@link #executeAndReturn(ConnectionPool, String, Object...)} ,
+   * {@link #executeAndReturn(ConnectionPool, String, Object...)}}.
    *
    * @param instance the DataSource instance
    * @param query    the database query
    * @param args     the args
    * @return the list of {@link com.stupak.payments.model.entity.Entity}
    */
-  private T executeAndReturnValue(final DBManager instance, final String query, Object... args) {
+  private T executeAndReturnValue(final ConnectionPool instance, final String query, Object... args) {
     T model = null;
     Connection conn = instance.getConnection();
     try (PreparedStatement statement = conn.prepareStatement(query,

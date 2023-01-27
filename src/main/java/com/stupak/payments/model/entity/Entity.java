@@ -2,11 +2,6 @@ package com.stupak.payments.model.entity;
 
 import java.io.Serializable;
 
-/**
- * Abstract entity class.
- *
- * @author Aleksey Serdyukov.
- */
 public abstract class Entity implements Serializable {
   private static final long serialVersionUID = 1L;
   private long id;

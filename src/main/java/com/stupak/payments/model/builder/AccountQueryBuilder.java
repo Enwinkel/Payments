@@ -14,13 +14,7 @@ public class AccountQueryBuilder extends QueryBuilder<Account> {
     List<Account> accounts = new ArrayList<>();
     while (rs.next()) {
       Account account = new Account();
-      account.setId(rs.getLong("id"));
-      account.setNumber(rs.getLong("number"));
-      account.setAccountName(rs.getString("account_name"));
-      account.setBalance(rs.getBigDecimal("balance"));
-      account.setBlocked(rs.getBoolean("blocked"));
-      account.setUserId(rs.getLong("user_id"));
-      account.setUnblockReq(rs.getBoolean("unblock_req"));
+      fillAccount(rs, account);
       accounts.add(account);
     }
     return accounts;
@@ -30,14 +24,18 @@ public class AccountQueryBuilder extends QueryBuilder<Account> {
   public Account getResult(ResultSet rs) throws SQLException {
     Account account = new Account();
     while (rs.next()) {
-      account.setId(rs.getLong("id"));
-      account.setNumber(rs.getLong("number"));
-      account.setAccountName(rs.getString("account_name"));
-      account.setBalance(rs.getBigDecimal("balance"));
-      account.setBlocked(rs.getBoolean("blocked"));
-      account.setUserId(rs.getLong("user_id"));
-      account.setUnblockReq(rs.getBoolean("unblock_req"));
+      fillAccount(rs, account);
     }
     return account;
+  }
+
+  private void fillAccount(ResultSet rs, Account account) throws SQLException {
+    account.setId(rs.getLong("id"));
+    account.setNumber(rs.getLong("number"));
+    account.setAccountName(rs.getString("account_name"));
+    account.setBalance(rs.getBigDecimal("balance"));
+    account.setBlocked(rs.getBoolean("blocked"));
+    account.setUserId(rs.getLong("user_id"));
+    account.setUnblockReq(rs.getBoolean("unblock_req"));
   }
 }
