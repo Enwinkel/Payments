@@ -2,6 +2,9 @@ package com.stupak.payments.model.entity;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+import java.util.Locale;
 import java.util.Objects;
 
 /**
@@ -39,6 +42,10 @@ public class Transaction extends Entity {
     this.timestamp = timestamp;
   }
 
+  public String getDate(){
+    DateTimeFormatter customFormat = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
+    return timestamp.format(customFormat);
+  }
   public long getAccount() {
     return account;
   }

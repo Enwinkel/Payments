@@ -8,6 +8,7 @@ import com.stupak.payments.controller.command.client.*;
 import com.stupak.payments.controller.command.common.LocalizationCommand;
 import com.stupak.payments.controller.command.common.LogoutCommand;
 import com.stupak.payments.controller.command.common.LoginCommand;
+import com.stupak.payments.controller.command.common.RegistrationCommand;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package com.stupak.payments.controller.command.client;
+package com.stupak.payments.controller.command.common;
 
 import com.stupak.payments.appcontext.AppContext;
 import com.stupak.payments.controller.Path;

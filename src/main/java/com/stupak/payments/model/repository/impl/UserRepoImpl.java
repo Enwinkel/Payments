@@ -12,6 +12,7 @@ import java.util.List;
 
 public class UserRepoImpl implements IUserRepo {
   private static final String GET_ALL = "SELECT * FROM users";
+  private static final String GET_ALL_SORTED_BY_ID = "SELECT * FROM users ORDER BY id";
   private static final String GET_BY_ID =
       "SELECT id, login, password, first_name, last_name, surname, roles_id, "
           + "contact_details_id, blocked FROM users WHERE id = ?";
@@ -37,12 +38,17 @@ public class UserRepoImpl implements IUserRepo {
 
   private static final String GET_NEXT_AUTO_INCREMENT = "SELECT MAX(id)+1 from users";
 
-  private DBManager instance = DBManager.getInstance();
-  private QueryBuilder queryBuilder = new UserQueryBuilder();
+  private final DBManager instance = DBManager.getInstance();
+  private final QueryBuilder queryBuilder = new UserQueryBuilder();
 
   @Override
   public List<User> getAll() {
     return queryBuilder.executeAndReturnList(instance, GET_ALL);
+  }
+
+  @Override
+  public List<User> getAllSortedById() {
+    return queryBuilder.executeAndReturnList(instance, GET_ALL_SORTED_BY_ID);
   }
 
   @Override

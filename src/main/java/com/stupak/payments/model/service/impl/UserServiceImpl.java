@@ -31,6 +31,11 @@ public class UserServiceImpl implements IUserService {
   }
 
   @Override
+  public List<User> findAllSortedById() {
+    return this.repo.getAllSortedById();
+  }
+
+  @Override
   public List<User> findAllFullInfo() {
     List<User> users = findAll();
     List<User> fullUser = new ArrayList<>();

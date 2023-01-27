@@ -7,10 +7,18 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="controller?action=users"><fmt:message key="main.menu.button.subscribers"/> <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="controller?action=users"><fmt:message key="main.menu.button.subscribers"/>
+                    <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="controller?action=requests"><fmt:message key="main.menu.button.requests"/> <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="controller?action=requests"><fmt:message key="main.menu.button.requests"/>
+                    <c:if test="${usersReq.size() > 0}">
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            ${usersReq.size()}
+                        </span>
+                    </c:if>
+                    <span class="sr-only">(current)</span>
+                </a>
             </li>
         </ul>
         <div class="dropdown">
@@ -28,7 +36,8 @@
             </div>
         </div>
         <form class="form-inline my-2 my-lg-0" method="post" action="controller?action=logout">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><fmt:message key="mainmenu.button.logout"/></button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><fmt:message
+                    key="mainmenu.button.logout"/></button>
         </form>
     </div>
 </nav>

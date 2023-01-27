@@ -16,6 +16,7 @@ import java.util.List;
 public interface IUserService {
 
   List<User> findAll();
+  List<User> findAllSortedById();
 
   List<User> findAllFullInfo();
 

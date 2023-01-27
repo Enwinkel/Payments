@@ -45,7 +45,8 @@ public class ProfileCommand implements ICommand {
     user.setRoleId(user.getRoleId());
     user.setDetails(detailsService.find(user.getDetails().getId()));
 
-    List<Account> accounts = as.getAllByUser(user.getId());
+    String sorting = "name_ascending";
+    List<Account> accounts = as.getAllByUserSorted(user.getId(), sorting);
     session.setAttribute("accounts", accounts);
 
     req.setAttribute("fullUser", user);

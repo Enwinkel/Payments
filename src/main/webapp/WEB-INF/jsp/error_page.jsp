@@ -4,7 +4,7 @@
 <!doctype html>
 <html>
 <c:set var="title" value="Страница входа" scope="page"/>
-<jsp:include page="/WEB-INF/templates/_head.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/templates/_head.jsp"/>
 <body>
 <div class="page-container-responsive">
     <div class="row space-top-8 space-8">
@@ -13,11 +13,8 @@
             <h2>Здається, сталася помилка.</h2>
             <h6>Повернутись на <a href="controller?action=login">головну</a></h6>
         </div>
-        <div class="col-md-5 col-middle text-center">
-            <img src="https://a0.muscache.com/airbnb/static/error_pages/404-Airbnb_final-d652ff855b1335dd3eedc3baa8dc8b69.gif" width="313" height="428" class="hide-sm" alt="Девочка уронила свое мороженое.">
-        </div>
     </div>
 </div>
-<jsp:include page="/WEB-INF/templates/_scripts.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/templates/_scripts.jsp"/>
 </body>
 </html>

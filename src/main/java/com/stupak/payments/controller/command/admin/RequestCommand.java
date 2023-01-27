@@ -18,20 +18,18 @@ public class RequestCommand implements ICommand {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         IUserService us = AppContext.getInstance().getUserService();
-        IContactDetailsService detailsService = AppContext.getInstance().getDetailsService();
         IAccountService as = AppContext.getInstance().getAccountService();
         List<Account> accounts;
-        List<User> users;
+        List<User> usersReq = new ArrayList<>();
 
-        users = new ArrayList<>();
         accounts = as.getAllRequested();
 
         for(Account account : accounts){
-            users.add(us.find(account.getUserId()));
+            usersReq.add(us.find(account.getUserId()));
         }
 
         request.setAttribute("accounts", accounts);
-        request.setAttribute("users", users);
+        request.setAttribute("usersReq", usersReq);
 
         return Path.PAGE_REQUESTS;
     }

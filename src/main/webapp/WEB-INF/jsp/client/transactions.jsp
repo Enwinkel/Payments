@@ -5,7 +5,7 @@
 <!doctype html>
 <html>
 <c:set var="title" value="Транзакции" scope="page"/>
-<jsp:include page="/WEB-INF/templates/_head.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/templates/_head.jsp"/>
 <head>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -21,7 +21,7 @@
 </head>
 <body>
 <%--<jsp:include page="/WEB-INF/templates/_menu.jsp"></jsp:include>--%>
-<jsp:include page="/WEB-INF/templates/_menu_customer.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/templates/_menu_customer.jsp"/>
 <div class="container">
     <div class="row">
         <div class="col">
@@ -179,9 +179,6 @@
                         <fmt:message key="table.th.date"/>
                     </th>
                     <th scope="col">
-                        <fmt:message key="table.th.operation.type"/>
-                    </th>
-                    <th scope="col">
                         <fmt:message key="table.th.amount"/>
                     </th>
                     <th scope="col">
@@ -192,9 +189,13 @@
                 <tbody>
                 <c:forEach var="transaction" items="${transactions}">
                     <tr>
-                        <td>${transaction.timestamp}</td>
-                        <td><tags:iscredit value="${transaction.isCredit()}"/></td>
-                        <td>${transaction.amount}</td>
+                        <td>${transaction.date}</td>
+                        <c:if test="${transaction.isCredit()}">
+                            <td style="color:#55a419">${transaction.amount}</td>
+                        </c:if>
+                        <c:if test="${!transaction.isCredit()}">
+                            <td style="color:#cf303e">-${transaction.amount}</td>
+                        </c:if>
                         <td>${transaction.description}</td>
                     </tr>
                 </c:forEach>
@@ -234,6 +235,6 @@
                 </ul>
             </nav>
         </div>
-        <jsp:include page="/WEB-INF/templates/_scripts.jsp"></jsp:include>
+        <jsp:include page="/WEB-INF/templates/_scripts.jsp"/>
 </body>
 </html>
